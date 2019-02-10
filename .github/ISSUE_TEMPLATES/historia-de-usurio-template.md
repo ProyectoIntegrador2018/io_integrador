@@ -8,25 +8,25 @@ assignees: ''
 
 ---
 
-## DESCRIPCION
+### DESCRIPCION
 Descripción de la historia de usuario.
 
--------------------------------------------------------------------------------------------------------
+---
 
-## CRITERIOS DE ACEPTACION
+### CRITERIOS DE ACEPTACION
 Criterios de aceptación en cuanto a la historia de usuario.
 
--------------------------------------------------------------------------------------------------------
+---
 
-## DETALLES IMPORTANTES NO-FUNCIONALES
+### DETALLES IMPORTANTES NO-FUNCIONALES
 Comentarios a considerarse para el desarrollo de la historia de usuario.
 
--------------------------------------------------------------------------------------------------------
+---
 
-## PRIORIDAD
+### PRIORIDAD
 1 (Menor Prioridad) - (Mayor Prioridad)
 
--------------------------------------------------------------------------------------------------------
+---
 
-## ToDo
+### ToDo
 Tareas necesarias para el desarrollo de la historia de usuario.
