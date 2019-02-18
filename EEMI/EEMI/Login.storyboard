@@ -20,6 +20,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="9rb-qj-IsG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_waves" translatesAutoresizingMaskIntoConstraints="NO" id="dvg-o4-BAK">
                                 <rect key="frame" x="0.0" y="759" width="414" height="137"/>
@@ -72,6 +73,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="9rb-qj-IsG" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" id="0vH-VE-jy1"/>
                             <constraint firstAttribute="bottom" secondItem="9rb-qj-IsG" secondAttribute="bottom" id="258-WI-W54"/>
@@ -87,16 +89,40 @@
                             <constraint firstItem="dvg-o4-BAK" firstAttribute="trailing" secondItem="pPT-YC-5JF" secondAttribute="trailing" id="twC-v2-G1f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pPT-YC-5JF"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3qt-VW-6ye" appends="YES" id="5hg-ai-DFv"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Nbw-iX-GLJ" id="nYa-VK-plu"/>
+                        <outlet property="loginCredentialsStackView" destination="uVw-Vw-chf" id="3K7-Ks-2er"/>
                         <outlet property="passwordTextField" destination="NSs-ID-S7m" id="3jM-67-AjZ"/>
                         <outlet property="usernameTextField" destination="0PK-K9-g8v" id="0W6-rh-fdF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DF-m9-LMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3qt-VW-6ye">
+                    <connections>
+                        <action selector="dismisKeyboard:" destination="qFV-kO-FuA" id="hhR-CV-PeH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="165.51724137931035"/>
+        </scene>
+        <!--Biometric Login View Controller-->
+        <scene sceneID="9hU-PT-K9k">
+            <objects>
+                <viewController storyboardIdentifier="BiometricLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hOA-iV-FvR" customClass="BiometricLoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3hd-bq-igZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Td3-ZE-cCf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkn-sA-43b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="165"/>
         </scene>
     </scenes>
     <resources>

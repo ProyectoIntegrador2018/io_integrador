@@ -11,6 +11,7 @@
 
   excluded:
   - Pods
+  - EEMI/KeyboardAvoiding
 
   vertical_whitespace:
   max_empty_lines: 2

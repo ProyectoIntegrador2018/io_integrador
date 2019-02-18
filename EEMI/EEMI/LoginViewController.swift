@@ -13,19 +13,27 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginCredentialsStackView: UIStackView!
     
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
-    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
+        KeyboardAvoiding.avoidingView = loginCredentialsStackView
+        KeyboardAvoiding.paddingForCurrentAvoidingView = 20
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
         let username = usernameTextField.text!
         let password = passwordTextField.text!
         
+        view.endEditing(true)
         activityIndicator.add(view: view)
         login(username: username, password: password)
+    }
+    
+    @IBAction func dismisKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
 }
