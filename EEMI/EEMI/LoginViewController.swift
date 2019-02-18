@@ -19,9 +19,16 @@ class LoginViewController: UIViewController {
       
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewLayout()
+    }
+    
+    func viewLayout() {
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
         KeyboardAvoiding.avoidingView = loginCredentialsStackView
         KeyboardAvoiding.paddingForCurrentAvoidingView = 20
     }
+    
+    // MARK: - Actions
     
     @IBAction func loginButton(_ sender: UIButton) {
         let username = usernameTextField.text!

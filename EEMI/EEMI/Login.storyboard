@@ -36,31 +36,31 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-Vw-chf">
-                                <rect key="frame" x="40" y="375.5" width="334" height="185"/>
+                                <rect key="frame" x="40" y="368" width="334" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0PK-K9-g8v">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="mhc-Vq-242"/>
+                                            <constraint firstAttribute="height" constant="50" id="mhc-Vq-242"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSs-ID-S7m">
-                                        <rect key="frame" x="0.0" y="70" width="334" height="45"/>
+                                        <rect key="frame" x="0.0" y="75" width="334" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="hzJ-fZ-jl3"/>
+                                            <constraint firstAttribute="height" constant="50" id="hzJ-fZ-jl3"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbw-iX-GLJ">
-                                        <rect key="frame" x="0.0" y="140" width="334" height="45"/>
+                                        <rect key="frame" x="0.0" y="150" width="334" height="50"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Coa-VJ-jTh"/>
+                                            <constraint firstAttribute="height" constant="50" id="Coa-VJ-jTh"/>
                                         </constraints>
                                         <state key="normal" title="ENTRAR">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
