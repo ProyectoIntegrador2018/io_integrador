@@ -14,7 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if User.shared.token != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
+            self.window!.rootViewController = viewController
+        }
+        
         return true
     }
 

@@ -33,7 +33,21 @@
                     <view key="view" contentMode="scaleToFill" id="fni-v8-yHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-eZ-cZ0">
+                                <rect key="frame" x="30" y="144" width="315" height="30"/>
+                                <state key="normal" title="Cerrar Sesion"/>
+                                <connections>
+                                    <action selector="logout:" destination="LTs-5O-uyU" eventType="touchUpInside" id="T1j-Vu-2yy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6q5-eZ-cZ0" firstAttribute="leading" secondItem="MP2-0O-7gc" secondAttribute="leading" constant="30" id="1TA-op-dR4"/>
+                            <constraint firstItem="MP2-0O-7gc" firstAttribute="trailing" secondItem="6q5-eZ-cZ0" secondAttribute="trailing" constant="30" id="Bnj-25-bUH"/>
+                            <constraint firstItem="6q5-eZ-cZ0" firstAttribute="top" secondItem="MP2-0O-7gc" secondAttribute="top" constant="100" id="ktc-Pj-Ctl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MP2-0O-7gc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ajustes" id="X9a-hc-vIs"/>
@@ -61,7 +75,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="daa-BG-UiV">
             <objects>
-                <tabBarController id="x5p-0t-Mw8" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x5p-0t-Mw8" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="91V-Db-XxJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

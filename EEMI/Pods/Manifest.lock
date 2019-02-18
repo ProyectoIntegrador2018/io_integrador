@@ -1,16 +1,28 @@
 PODS:
+  - Alamofire (4.7.3)
+  - KeychainAccess (3.1.2)
   - SwiftLint (0.27.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - KeychainAccess
   - SwiftLint
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - KeychainAccess
     - SwiftLint
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: a87d110ce6a17cde8515259cf9d9f983fa39ba5a
+PODFILE CHECKSUM: c461b8016f53a756002f426dab122204e8d1d663
 
 COCOAPODS: 1.5.3

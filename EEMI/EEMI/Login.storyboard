@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="p0F-Yo-rtE">
             <objects>
-                <viewController id="qFV-kO-FuA" customClass="LoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFV-kO-FuA" customClass="LoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwR-jg-kbJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                         <state key="normal" title="ENTRAR">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButton:" destination="qFV-kO-FuA" eventType="touchUpInside" id="yAm-LK-wgv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -85,6 +88,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pPT-YC-5JF"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Nbw-iX-GLJ" id="nYa-VK-plu"/>
+                        <outlet property="passwordTextField" destination="NSs-ID-S7m" id="3jM-67-AjZ"/>
+                        <outlet property="usernameTextField" destination="0PK-K9-g8v" id="0W6-rh-fdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DF-m9-LMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

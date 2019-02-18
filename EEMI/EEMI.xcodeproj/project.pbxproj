@@ -21,6 +21,11 @@
 		CF158E562219E3F6007146F9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E552219E3F6007146F9 /* Login.storyboard */; };
 		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
+		CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */; };
+		CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */; };
+		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
+		CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */; };
+		CFAD06FF221A46BC001B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FE221A46BC001B9061 /* User.swift */; };
 		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,11 @@
 		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
+		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerExtension.swift; sourceTree = "<group>"; };
+		CFAD06FE221A46BC001B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +200,8 @@
 				CF158E282219DB62007146F9 /* LaunchScreen.storyboard */,
 				CF158E232219DB60007146F9 /* Main.storyboard */,
 				CF158E552219E3F6007146F9 /* Login.storyboard */,
+				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
+				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -199,6 +211,8 @@
 			children = (
 				CF158E262219DB62007146F9 /* Assets.xcassets */,
 				CF158E1F2219DB60007146F9 /* AppDelegate.swift */,
+				CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */,
+				CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */,
 				CF158E2B2219DB62007146F9 /* Info.plist */,
 			);
 			name = Other;
@@ -208,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				CF158E5A2219F2BE007146F9 /* ApiClient.swift */,
+				CFAD06FE221A46BC001B9061 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -224,6 +239,7 @@
 				CF158E192219DB60007146F9 /* Frameworks */,
 				CF158E1A2219DB60007146F9 /* Resources */,
 				CF158E592219E726007146F9 /* ShellScript */,
+				67B936B5691986C5EC1E884B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */,
 				CF158E562219E3F6007146F9 /* Login.storyboard in Resources */,
 				CF158E2A2219DB62007146F9 /* LaunchScreen.storyboard in Resources */,
 				CF158E272219DB62007146F9 /* Assets.xcassets in Resources */,
@@ -344,6 +361,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		67B936B5691986C5EC1E884B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,10 +479,14 @@
 			files = (
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
+				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
 				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
 				CF158E542219E329007146F9 /* SettingsViewController.swift in Sources */,
 				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
+				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,
+				CFAD06FF221A46BC001B9061 /* User.swift in Sources */,
+				CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
