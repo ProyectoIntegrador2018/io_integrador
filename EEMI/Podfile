@@ -9,6 +9,7 @@ target 'EEMI' do
   pod 'Alamofire'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'KeychainAccess'
+  pod 'FSCalendar'
 
   target 'EEMITests' do
     inherit! :search_paths
