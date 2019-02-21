@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0MK-ba-2ai">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-eZ-cZ0">
-                                <rect key="frame" x="30" y="144" width="315" height="30"/>
+                                <rect key="frame" x="30" y="188" width="315" height="30"/>
                                 <state key="normal" title="Cerrar Sesion"/>
                                 <connections>
                                     <action selector="logout:" destination="LTs-5O-uyU" eventType="touchUpInside" id="T1j-Vu-2yy"/>
@@ -64,29 +64,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cus-pe-rrt" customClass="FSCalendar">
-                                <rect key="frame" x="67" y="109" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cus-pe-rrt" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="375" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="9v8-by-FZU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="ksk-RZ-C9G" id="XvZ-jI-fEE"/>
                                     <outlet property="delegate" destination="ksk-RZ-C9G" id="wwW-Fk-Yzb"/>
                                 </connections>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bWA-rw-4FX">
+                                <rect key="frame" x="0.0" y="313" width="375" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="appointmentCell" id="2YJ-Ql-KJO">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2YJ-Ql-KJO" id="j8u-mi-vbx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ksk-RZ-C9G" id="Bq0-yo-7Lt"/>
+                                    <outlet property="delegate" destination="ksk-RZ-C9G" id="TfI-G6-rwR"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bWA-rw-4FX" firstAttribute="bottom" secondItem="Iiz-zV-OkB" secondAttribute="bottom" id="CAg-jf-HVh"/>
+                            <constraint firstItem="bWA-rw-4FX" firstAttribute="top" secondItem="Cus-pe-rrt" secondAttribute="bottom" id="HCk-Hl-f2X"/>
+                            <constraint firstItem="Iiz-zV-OkB" firstAttribute="trailing" secondItem="Cus-pe-rrt" secondAttribute="trailing" id="i8m-H0-c0c"/>
+                            <constraint firstItem="Cus-pe-rrt" firstAttribute="leading" secondItem="Iiz-zV-OkB" secondAttribute="leading" id="k2D-ZQ-6DZ"/>
+                            <constraint firstItem="bWA-rw-4FX" firstAttribute="leading" secondItem="Iiz-zV-OkB" secondAttribute="leading" id="k5H-xN-HjC"/>
+                            <constraint firstItem="Cus-pe-rrt" firstAttribute="top" secondItem="Iiz-zV-OkB" secondAttribute="top" id="mpM-aJ-hJb"/>
+                            <constraint firstItem="bWA-rw-4FX" firstAttribute="trailing" secondItem="Iiz-zV-OkB" secondAttribute="trailing" id="wVe-wA-9Zz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Iiz-zV-OkB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Agenda" id="gkZ-LG-whP"/>
+                    <connections>
+                        <outlet property="calendar" destination="Cus-pe-rrt" id="D7S-RR-T1F"/>
+                        <outlet property="calendarHeightConstraint" destination="9v8-by-FZU" id="0IS-nr-5WS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2d-T3-0BA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="-672"/>
+            <point key="canvasLocation" x="292" y="-672.41379310344826"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xb5-Tr-GFu">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationController" id="0MK-ba-2ai" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BHy-cS-bM5">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="x5p-0t-Mw8" kind="relationship" relationship="rootViewController" id="h0F-dy-JbL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd7-yA-OHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1644" y="41"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="daa-BG-UiV">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x5p-0t-Mw8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7vC-eK-vv7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="91V-Db-XxJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

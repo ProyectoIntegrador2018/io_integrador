@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if User.shared.token != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainNavigationController")
             self.window!.rootViewController = viewController
         }
         
