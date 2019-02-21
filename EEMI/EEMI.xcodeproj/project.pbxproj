@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DCBAF07B5E7795F9942045C /* Pods_EEMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80244490E2532F87604BA219 /* Pods_EEMITests.framework */; };
+		65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F7EFB1221E271900B8A97D /* ColorPallet.swift */; };
 		AD331AB6DBE2C86262F3A7D2 /* Pods_EEMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */; };
 		CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E1F2219DB60007146F9 /* AppDelegate.swift */; };
 		CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E212219DB60007146F9 /* AgendaViewController.swift */; };
@@ -51,6 +52,7 @@
 		1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B2E2CCC89782F2E8FB54D20 /* Pods-EEMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.release.xcconfig"; sourceTree = "<group>"; };
 		4AD5114689A6B6B549D0D42D /* Pods-EEMIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65F7EFB1221E271900B8A97D /* ColorPallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallet.swift; sourceTree = "<group>"; };
 		72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80244490E2532F87604BA219 /* Pods_EEMITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D5422FC0F154B6553373C4 /* Pods-EEMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */,
 				CFAD0707221A65A9001B9061 /* KeyboardAvoiding */,
 				CF158E2B2219DB62007146F9 /* Info.plist */,
+				65F7EFB1221E271900B8A97D /* ColorPallet.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -380,9 +383,10 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -391,11 +395,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */ = {
@@ -493,6 +498,7 @@
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
 				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
+				65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */,
 				CF158E542219E329007146F9 /* SettingsViewController.swift in Sources */,
 				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
 				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,

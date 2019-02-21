@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginCredentialsStackView: UIStackView!
     
+    lazy var colorPallet = ColorPallet()
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
       
     override func viewDidLoad() {
@@ -26,6 +28,14 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = loginButton.frame.height/2
         KeyboardAvoiding.avoidingView = loginCredentialsStackView
         KeyboardAvoiding.paddingForCurrentAvoidingView = 20
+        
+        changeTextFieldColor(field: usernameTextField, fieldTitle: "Usuario")
+        changeTextFieldColor(field: passwordTextField, fieldTitle: "Contraseña")
+        
+        sumbitButtonEnabled(status: false)
+        
+        [usernameTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(textViewDidBeginEditing), for: .editingChanged) })
+        
     }
     
     // MARK: - Actions
@@ -43,6 +53,37 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Dynamic UI Changes
+    
+    func changeTextFieldColor(field: SkyFloatingLabelTextField, fieldTitle: String) {
+        field.placeholder = fieldTitle
+        field.title = fieldTitle
+        field.selectedTitleColor = colorPallet.primaryColor
+        field.selectedLineColor = colorPallet.primaryColor
+    }
+    
+    func sumbitButtonEnabled(status: Bool) {
+        loginButton.isEnabled = status
+        if status {
+            loginButton.backgroundColor = colorPallet.sumbitOrange
+        } else {
+            loginButton.backgroundColor = colorPallet.diabledGray
+        }
+    }
+    
+    @objc func textViewDidBeginEditing(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let username = usernameTextField.text, !username.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            sumbitButtonEnabled(status: false)
+            return
+        }
+        sumbitButtonEnabled(status: true)
+    }
 }
 
 // MARK: - API calls
