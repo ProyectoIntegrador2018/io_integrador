@@ -15,24 +15,57 @@ enum Result<T> {
     case error(String)
 }
 
+let URL = "http://emmiapi.azurewebsites.net/api"
+
 class ApiClient {
-    
+
     static let shared = ApiClient()
-    
+
     private init() {}
-    
+
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
-        
-        var url = "http://emmiapi.azurewebsites.net/api/Token?username=\(username)&password=\(password)"
-        url = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
-        Alamofire.request(url).responseJSON { response in
+
+        var loginUrl = "\(URL)/Token?username=\(username)&password=\(password)"
+        loginUrl = loginUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
             case .success:
                 let data = response.data
                 let json = try? JSON(data: data!)
                 let token = json?["access_token"].stringValue
                 completion(.success(token!))
+            case .failure(let error):
+                completion(.error(error.localizedDescription))
+            }
+        }
+    }
+
+    func getAppointments (dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
+        let startDate = dateInterval.start.toString()
+        let endDate = dateInterval.end.toString()
+
+        let appointmentUrl = "\(URL)/Agenda?GetByDate/\(startDate)/\(endDate)"
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+
+        Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                let data = response.data
+                let json = try? JSON(data: data!)
+                let jsonAppointments = json?.array
+                var appointments = [Appointment]()
+
+                for apt in jsonAppointments! {
+                    let dict = apt.dictionary
+                    let appointment = Appointment(json: dict!)
+                    appointments.append(appointment)
+                }
+                completion(.success(appointments))
             case .failure(let error):
                 completion(.error(error.localizedDescription))
             }

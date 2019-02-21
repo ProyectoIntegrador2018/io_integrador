@@ -14,6 +14,20 @@ class AgendaViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        fetchAppointments()
+    }
+    
+    func fetchAppointments() {
+        let interval = DateInterval(start: Date(), end: Date())
+        ApiClient.shared.getAppointments(dateInterval: interval) { (result) in
+            switch result {
+            case let .success(appointments):
+                print(appointments)
+            case let .error(error):
+                print("Error:" + error)
+            }
+        }
     }
 
 }
