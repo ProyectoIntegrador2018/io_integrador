@@ -109,20 +109,35 @@
             </objects>
             <point key="canvasLocation" x="140" y="165.51724137931035"/>
         </scene>
-        <!--Biometric Login View Controller-->
+        <!--Local Authentication View Controller-->
         <scene sceneID="9hU-PT-K9k">
             <objects>
-                <viewController storyboardIdentifier="BiometricLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hOA-iV-FvR" customClass="BiometricLoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BiometricLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hOA-iV-FvR" customClass="LocalAuthenticationViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hd-bq-igZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGp-Ln-VAt" customClass="PinCodeView" customModule="EEMI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MGp-Ln-VAt" firstAttribute="top" secondItem="3hd-bq-igZ" secondAttribute="top" id="6j3-7Y-pFI"/>
+                            <constraint firstItem="MGp-Ln-VAt" firstAttribute="trailing" secondItem="Td3-ZE-cCf" secondAttribute="trailing" id="bPx-kH-4UE"/>
+                            <constraint firstAttribute="bottom" secondItem="MGp-Ln-VAt" secondAttribute="bottom" id="vPC-UL-2ec"/>
+                            <constraint firstItem="MGp-Ln-VAt" firstAttribute="leading" secondItem="Td3-ZE-cCf" secondAttribute="leading" id="xX1-T2-6WO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Td3-ZE-cCf"/>
                     </view>
+                    <connections>
+                        <outlet property="pinCodeView" destination="MGp-Ln-VAt" id="WlR-0c-qXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkn-sA-43b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="165"/>
+            <point key="canvasLocation" x="1292.753623188406" y="164.73214285714286"/>
         </scene>
     </scenes>
     <resources>

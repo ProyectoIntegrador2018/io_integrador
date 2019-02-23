@@ -9,20 +9,25 @@
 import UIKit
 import LocalAuthentication
 
-class BiometricLoginViewController: UIViewController {
+class LocalAuthenticationViewController: UIViewController {
 
+    @IBOutlet weak var pinCodeView: PinCodeView!
+    
     var context = LAContext()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pinCodeView.delegate = self
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
-        biometricAutentication()
+        localAuthentication()
+        
     }
     
-    func biometricAutentication() {
+    func localAuthentication() {
         
         context = LAContext()
-        context.localizedCancelTitle = "Usar clave pin"
+        context.localizedCancelTitle = "Cancel"
+        
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             let reason = "Iniciar sesion a tu cuenta"
@@ -43,6 +48,17 @@ class BiometricLoginViewController: UIViewController {
             // Fall back to a asking for username and password.
         }
         
+    }
+    
+}
+
+extension LocalAuthenticationViewController: PinCodeDelegate {
+    func didSelectButton(number: Int) {
+        //TODO: Manage selected buttons
+    }
+    
+    func didSelectDelete() {
+        //TODO: Manage delete button
     }
     
 }

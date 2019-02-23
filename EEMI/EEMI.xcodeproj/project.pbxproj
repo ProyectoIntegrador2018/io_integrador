@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1DCBAF07B5E7795F9942045C /* Pods_EEMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80244490E2532F87604BA219 /* Pods_EEMITests.framework */; };
 		AD331AB6DBE2C86262F3A7D2 /* Pods_EEMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */; };
+		CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06043B221CEEEF00D10F07 /* PinCodeView.swift */; };
+		CF06043E221CEF1D00D10F07 /* PinCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF06043D221CEF1D00D10F07 /* PinCodeView.xib */; };
+		CF060442221E277800D10F07 /* LocalAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF060441221E277800D10F07 /* LocalAuthenticationViewController.swift */; };
 		CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E1F2219DB60007146F9 /* AppDelegate.swift */; };
 		CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E212219DB60007146F9 /* AgendaViewController.swift */; };
 		CF158E252219DB60007146F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E232219DB60007146F9 /* Main.storyboard */; };
@@ -26,7 +29,6 @@
 		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
 		CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */; };
 		CFAD06FF221A46BC001B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FE221A46BC001B9061 /* User.swift */; };
-		CFAD0701221A5E12001B9061 /* BiometricLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0700221A5E12001B9061 /* BiometricLoginViewController.swift */; };
 		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
 		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,9 @@
 		92D5422FC0F154B6553373C4 /* Pods-EEMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.debug.xcconfig"; sourceTree = "<group>"; };
 		A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C409BD537E43CC6EB420EB8E /* Pods-EEMITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF06043B221CEEEF00D10F07 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
+		CF06043D221CEF1D00D10F07 /* PinCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeView.xib; sourceTree = "<group>"; };
+		CF060441221E277800D10F07 /* LocalAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationViewController.swift; sourceTree = "<group>"; };
 		CF158E1C2219DB60007146F9 /* EEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF158E1F2219DB60007146F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF158E212219DB60007146F9 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +85,6 @@
 		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerExtension.swift; sourceTree = "<group>"; };
 		CFAD06FE221A46BC001B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		CFAD0700221A5E12001B9061 /* BiometricLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLoginViewController.swift; sourceTree = "<group>"; };
 		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,24 @@
 				1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF06043F221CEF2900D10F07 /* PinCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				CF06043B221CEEEF00D10F07 /* PinCodeView.swift */,
+				CF06043D221CEF1D00D10F07 /* PinCodeView.xib */,
+			);
+			name = PinCodeView;
+			sourceTree = "<group>";
+		};
+		CF060440221CEF3500D10F07 /* ActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
+				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
+			);
+			name = ActivityIndicatorView;
 			sourceTree = "<group>";
 		};
 		CF158E132219DB60007146F9 = {
@@ -194,7 +216,7 @@
 				CF158E512219DE32007146F9 /* PacientsViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
 				CF158E572219E429007146F9 /* LoginViewController.swift */,
-				CFAD0700221A5E12001B9061 /* BiometricLoginViewController.swift */,
+				CF060441221E277800D10F07 /* LocalAuthenticationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -205,8 +227,8 @@
 				CF158E282219DB62007146F9 /* LaunchScreen.storyboard */,
 				CF158E232219DB60007146F9 /* Main.storyboard */,
 				CF158E552219E3F6007146F9 /* Login.storyboard */,
-				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
-				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
+				CF060440221CEF3500D10F07 /* ActivityIndicatorView */,
+				CF06043F221CEF2900D10F07 /* PinCodeView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,6 +375,7 @@
 				CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */,
 				CF158E562219E3F6007146F9 /* Login.storyboard in Resources */,
 				CF158E2A2219DB62007146F9 /* LaunchScreen.storyboard in Resources */,
+				CF06043E221CEF1D00D10F07 /* PinCodeView.xib in Resources */,
 				CF158E272219DB62007146F9 /* Assets.xcassets in Resources */,
 				CF158E252219DB60007146F9 /* Main.storyboard in Resources */,
 			);
@@ -492,7 +515,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
+				CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
+				CF060442221E277800D10F07 /* LocalAuthenticationViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
 				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
@@ -502,7 +527,6 @@
 				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,
 				CFAD06FF221A46BC001B9061 /* User.swift in Sources */,
 				CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */,
-				CFAD0701221A5E12001B9061 /* BiometricLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
