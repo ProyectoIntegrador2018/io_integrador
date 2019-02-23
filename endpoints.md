@@ -11,10 +11,13 @@ http://emmiapi.azurewebsites.net/api/
 > **Note:** It's `emmiapi` and not `eemiapi`.
 
 ### Logging In
+
 Method: GET
+
 Type: JSON
 
 URL:
+
 ```
 http://emmiapi.azurewebsites.net/api/Token?username=<username>&password=<password>
 ```
@@ -22,6 +25,7 @@ http://emmiapi.azurewebsites.net/api/Token?username=<username>&password=<passwor
 Response:
 
 An object with an access token and an expiration time.
+
 
 ```
 {
@@ -31,9 +35,13 @@ An object with an access token and an expiration time.
 ```
 
 ### Getting Appointments
+
+Method: GET
+
 Type: JSON
 
 URL:
+
 ```
 http://emmiapi.azurewebsites.net/api/Agenda?GetByDate/<start_date>/<end_date>
 ```

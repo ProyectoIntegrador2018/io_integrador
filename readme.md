@@ -42,7 +42,7 @@ You should ask for access to this tools if you don't have it already:
 
 ### API Documentation
 
-Checkout the checkout the API endpoints [here](endpoints.md)
+Checkout the API endpoints [here](endpoints.md)
 
 ### Setup the project
 
