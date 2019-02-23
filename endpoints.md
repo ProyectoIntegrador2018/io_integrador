@@ -47,17 +47,17 @@ An array of appointment objects.
 ```
 [
     {
-        "patientName": "Carlos César",
-        "patientLastName": "Leal",
-        "patientLastName2": "Alvarez",
+        "patientName": "Jorge",
+        "patientLastName": "Elizondo",
+        "patientLastName2": "Levy",
         "reason": "CONSULTA",
         "status": "Programada",
         "dateAppointment": "2019-02-19T00:00:00",
         "comments": "Cita para vacuna(s): \r\n* MMR 3\r\n",
         "consultation": [],
         "cephalicPerimeter": 0,
-        "idAppointment": 376678,
-        "idPatient": 17911,
+        "idAppointment": 1234,
+        "idPatient": 4321,
         "reqImmunization": true,
         "size": 0,
         "timeAppointment": "08:00:00",
