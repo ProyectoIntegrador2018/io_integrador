@@ -12,22 +12,18 @@ class AgendaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        fetchAppointments()
     }
     
-    func fetchAppointments() {
-        let interval = DateInterval(start: Date(), end: Date())
-        ApiClient.shared.getAppointments(dateInterval: interval) { (result) in
+    func getAppointments() {
+        let dateInterval = DateInterval(start: Date(), end: Date(timeInterval: 86400*5, since: Date()))
+        ApiClient.shared.getAppointments(dateInterval: dateInterval) { (result) in
             switch result {
             case let .success(appointments):
-                print(appointments)
+                print("Appointment count: " + String(appointments.count))
             case let .error(error):
-                print("Error:" + error)
+                print("Error: " + error.debugDescription)
             }
         }
     }
-
+    
 }

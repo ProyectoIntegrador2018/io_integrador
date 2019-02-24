@@ -45,7 +45,7 @@ class ApiClient {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
 
-        let appointmentUrl = "\(URL)/Agenda?GetByDate/\(startDate)/\(endDate)"
+        let appointmentUrl = "\(URL)/Agenda/GetByDate/\(startDate)/\(endDate)"
         let token = User.shared.token!
         let headers: HTTPHeaders = [
             "Authorization": ("Bearer " + token),
@@ -54,18 +54,20 @@ class ApiClient {
 
         Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
             switch response.result {
-            case .success:
-                let data = response.data
-                let json = try? JSON(data: data!)
-                let jsonAppointments = json?.array
+            case .success(let value):
                 var appointments = [Appointment]()
+                let json = JSON(value)
+                
+                guard let jsonAppointments = json.array else {
+                    return completion(.success(appointments))
+                }
 
-                for apt in jsonAppointments! {
-                    let dict = apt.dictionary
-                    let appointment = Appointment(json: dict!)
+                for jsonAppointment in jsonAppointments {
+                    let appointment = Appointment(json: jsonAppointment)
                     appointments.append(appointment)
                 }
                 completion(.success(appointments))
+            
             case .failure(let error):
                 completion(.error(error.localizedDescription))
             }

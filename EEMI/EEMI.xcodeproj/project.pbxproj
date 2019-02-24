@@ -27,6 +27,8 @@
 		CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */; };
 		CFAD06FF221A46BC001B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FE221A46BC001B9061 /* User.swift */; };
 		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
+		CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAF82221E21B00BEC70C /* DateExtension.swift */; };
+		CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
 		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerExtension.swift; sourceTree = "<group>"; };
 		CFAD06FE221A46BC001B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		CFD9DAF82221E21B00BEC70C /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		CFD9DAFA222206E900BEC70C /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +219,7 @@
 				CF158E1F2219DB60007146F9 /* AppDelegate.swift */,
 				CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */,
 				CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */,
+				CFD9DAF82221E21B00BEC70C /* DateExtension.swift */,
 				CFAD0707221A65A9001B9061 /* KeyboardAvoiding */,
 				CF158E2B2219DB62007146F9 /* Info.plist */,
 			);
@@ -225,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				CF158E5A2219F2BE007146F9 /* ApiClient.swift */,
+				CFD9DAFA222206E900BEC70C /* Appointment.swift */,
 				CFAD06FE221A46BC001B9061 /* User.swift */,
 			);
 			name = Models;
@@ -488,7 +494,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
+				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,

@@ -10,13 +10,15 @@ import Foundation
 import SwiftyJSON
 
 class Appointment {
-    var name, lastName, lastName2, reason, comments: String
+    var patientName: String?
+    var patientLastName: String?
+    var reason: String?
+    var comments: String?
     
-    init(json: [String: JSON]) {
-        self.name = (json["patientName"]?.string)!
-        self.lastName = (json["patientLastName"]?.string)!
-        self.lastName2 = (json["patientLastName2"]?.string)!
-        self.comments = (json["comments"]?.string)!
-        self.reason = (json["reason"]?.string)!
+    init(json: JSON) {
+        self.patientName = json["patientName"].string
+        self.patientLastName = json["patientLastName"].string
+        self.comments = json["comments"].string
+        self.reason = json["reason"].string
     }
 }
