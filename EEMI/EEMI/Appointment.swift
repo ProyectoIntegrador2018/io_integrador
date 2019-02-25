@@ -14,11 +14,17 @@ class Appointment {
     var patientLastName: String?
     var reason: String?
     var comments: String?
+    var date: Date?
     
     init(json: JSON) {
-        self.patientName = json["patientName"].string
-        self.patientLastName = json["patientLastName"].string
-        self.comments = json["comments"].string
-        self.reason = json["reason"].string
+        patientName = json["patientName"].string
+        patientLastName = json["patientLastName"].string
+        comments = json["comments"].string
+        reason = json["reason"].string
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        date = dateFormatter.date(from: json["dateAppointment"].string ?? "")
+        
     }
 }

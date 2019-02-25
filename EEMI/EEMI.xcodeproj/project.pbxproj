@@ -389,7 +389,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
@@ -408,7 +408,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */ = {

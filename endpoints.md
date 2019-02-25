@@ -43,7 +43,7 @@ Type: JSON
 URL:
 
 ```
-http://emmiapi.azurewebsites.net/api/Agenda?GetByDate/<start_date>/<end_date>
+http://emmiapi.azurewebsites.net/api/Agenda/GetByDate/<start_date>/<end_date>
 ```
 
 > **Note**: Dates are formatted like so: monthdayyear/monthdayyear. No slashes or dashes.
