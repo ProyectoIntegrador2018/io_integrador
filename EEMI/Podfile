@@ -10,6 +10,7 @@ target 'EEMI' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'KeychainAccess'
   pod 'FSCalendar'
+  pod 'SkyFloatingLabelTextField'
 
   target 'EEMITests' do
     inherit! :search_paths
