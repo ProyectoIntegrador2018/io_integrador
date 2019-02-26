@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import Cache
 
 enum Result<T> {
     case success(T)
