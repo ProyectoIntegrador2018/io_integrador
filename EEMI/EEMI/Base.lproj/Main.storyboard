@@ -96,7 +96,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bWA-rw-4FX">
-                                <rect key="frame" x="0.0" y="313" width="375" height="416"/>
+                                <rect key="frame" x="0.0" y="313" width="375" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="appointmentCell" textLabel="Usd-zk-bur" detailTextLabel="Vx1-qg-MdT" style="IBUITableViewCellStyleSubtitle" id="2YJ-Ql-KJO">
@@ -143,6 +143,8 @@
                         <viewLayoutGuide key="safeArea" id="Iiz-zV-OkB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Agenda" id="gkZ-LG-whP"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendar" destination="Cus-pe-rrt" id="D7S-RR-T1F"/>
                         <outlet property="calendarHeightConstraint" destination="9v8-by-FZU" id="0IS-nr-5WS"/>
@@ -160,6 +162,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BHy-cS-bM5">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.41778540609999998" green="0.83710992340000001" blue="0.89874976870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="x5p-0t-Mw8" kind="relationship" relationship="rootViewController" id="h0F-dy-JbL"/>
