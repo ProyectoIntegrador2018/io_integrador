@@ -15,6 +15,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     
+    let agenda = Calendar.current
     var appointments = [String: [Appointment]]()
     var selectedDay = Date().toString()
     
@@ -23,7 +24,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        getMonthAppointments(date: Date())
+        getAppointments(interval: Date().interval(of: .month))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,28 +57,27 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         if refreshButton.isRotating() {
             refreshButton.stopRotate()
         } else {
-            let date =  calendar.currentPage
-            getMonthAppointments(date: date)
+            let date = calendar.currentPage
+            getAppointments(interval: date.interval(of: .month))
         }
     }
     
     // MARK: - API
     
-    func getMonthAppointments(date: Date) {
-        let calendar = Calendar.current
-        guard let interval = calendar.dateInterval(of: .month, for: date) else { return }
-        
+    func getAppointments(interval: DateInterval) {
         refreshButton.startRotate()
         ApiClient.shared.getAppointments(dateInterval: interval) { (result) in
             switch result {
             case let .success(appointments):
+                var auxDict = [String: [Appointment]]()
                 for appointment in appointments {
                     if let key = appointment.date?.toString() {
-                        if (self.appointments[key]?.append(appointment)) == nil {
-                            self.appointments[key] = [appointment]
+                        if (auxDict[key]?.append(appointment)) == nil {
+                            auxDict[key] = [appointment]
                         }
                     }
                 }
+                self.appointments.merge(auxDict) {$1}
                 self.calendar.reloadData()
                 self.tableView.reloadData()
             case let .error(error):
@@ -117,7 +117,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         selectedDay = date.toString()
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
-            getMonthAppointments(date: date)
+            getAppointments(interval: date.interval(of: .month))
         }
         tableView.reloadData()
     }
@@ -138,7 +138,13 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
          let date = calendar.currentPage
-         getMonthAppointments(date: date)
+        switch self.calendar.scope {
+        case .month:
+            getAppointments(interval: date.interval(of: .month))
+        case .week:
+            getAppointments(interval: date.interval(of: .weekOfMonth))
+        }
+       
     }
 
 }

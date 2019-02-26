@@ -13,4 +13,9 @@ extension Date {
         var date = self.description.split(separator: " ")[0].split(separator: "-")
         return (String(date[1] + date[2] + date[0]))
     }
+    
+    func interval(of component: Calendar.Component) -> DateInterval {
+        let calendar = Calendar.current
+        return calendar.dateInterval(of: component, for: self)!
+    }
 }
