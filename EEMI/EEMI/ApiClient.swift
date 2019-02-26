@@ -9,13 +9,33 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Cache
 
 enum Result<T> {
     case success(T)
     case error(String)
 }
 
-let URL = "http://emmiapi.azurewebsites.net/api"
+enum Endpoints {
+    case getTokens(String, String)
+    case getAppointments(String, String)
+
+    func url() -> URL {
+        var path:String
+        let baseUrl = "http://emmiapi.azurewebsites.net/api"
+
+        switch self {
+        case let .getTokens(username, password):
+            path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        case let .getAppointments(startDate, endDate):
+            path = "/Agenda/GetByDate/\(startDate)/\(endDate)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        }
+
+        return URL(string: baseUrl + path)!
+    }
+}
+
+
 
 class ApiClient {
 
@@ -25,9 +45,7 @@ class ApiClient {
 
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
 
-        var loginUrl = "\(URL)/Token?username=\(username)&password=\(password)"
-        loginUrl = loginUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-
+        let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
             case .success:
@@ -45,7 +63,7 @@ class ApiClient {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
 
-        let appointmentUrl = "\(URL)/Agenda/GetByDate/\(startDate)/\(endDate)"
+        let appointmentUrl = Endpoints.getAppointments(startDate, endDate).url()
         let token = User.shared.token!
         let headers: HTTPHeaders = [
             "Authorization": ("Bearer " + token),
@@ -58,16 +76,19 @@ class ApiClient {
                 var appointments = [Appointment]()
                 let json = JSON(value)
                 
+
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
 
                 for jsonAppointment in jsonAppointments {
                     let appointment = Appointment(json: jsonAppointment)
+
                     appointments.append(appointment)
                 }
+
                 completion(.success(appointments))
-            
+
             case .failure(let error):
                 completion(.error(error.localizedDescription))
             }
