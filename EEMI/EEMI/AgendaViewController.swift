@@ -14,6 +14,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
     
     let agenda = Calendar.current
     var appointments = [String: [Appointment]]()
@@ -24,18 +25,18 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        //getAppointments(interval: Date().interval(of: .month))
+        getAppointments(interval: Date().interval(of: .year))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let barItem: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
-        tabBarController?.navigationItem.leftBarButtonItem = barItem
+        navigationItem.leftBarButtonItem = barItem
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        tabBarController?.navigationItem.leftBarButtonItem = nil
+        navigationItem.leftBarButtonItem = nil
     }
     
     // MARK: - Layout
@@ -155,8 +156,10 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let appointments = appointments[selectedDay] else {
+            stateIndicatorView.show()
             return 0
         }
+        stateIndicatorView.hide()
         
         return appointments.count
     }
