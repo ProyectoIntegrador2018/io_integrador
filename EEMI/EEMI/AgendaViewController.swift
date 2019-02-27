@@ -24,7 +24,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        getAppointments(interval: Date().interval(of: .month))
+        //getAppointments(interval: Date().interval(of: .month))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +49,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func calendarLayout() {
         calendar.scope = .week
+        calendar.locale = Locale(identifier: "ES")
     }
     
     // MARK: - Actions
@@ -161,13 +162,18 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentTableViewCell
         if let appointments = appointments[selectedDay] {
             let appointment = appointments[indexPath.row]
-            cell.textLabel?.text = appointment.patientName
-            cell.detailTextLabel?.text = appointment.comments
+            cell.titleLabel.text = "\(appointment.patientName ?? "") \(appointment.patientLastName ?? "")"
+            cell.subtitleLabel.text = appointment.comments
+            cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(80)
     }
 
 }

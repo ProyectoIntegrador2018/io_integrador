@@ -30,6 +30,7 @@
 		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
 		CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAF82221E21B00BEC70C /* DateExtension.swift */; };
 		CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
+		CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */; };
 		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		CFD9DAF82221E21B00BEC70C /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CFD9DAFA222206E900BEC70C /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +211,7 @@
 				CF158E232219DB60007146F9 /* Main.storyboard */,
 				CF158E552219E3F6007146F9 /* Login.storyboard */,
 				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
+				CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */,
 				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
 			);
 			name = Views;
@@ -503,6 +506,7 @@
 			files = (
 				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
+				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
 				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,

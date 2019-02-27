@@ -18,4 +18,14 @@ extension Date {
         let calendar = Calendar.current
         return calendar.dateInterval(of: component, for: self)!
     }
+    
+    func toString(format: String) -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "EN")
+        let formatedString = dateFormatter.string(from: date)
+        
+        return formatedString
+    }
 }
