@@ -20,11 +20,10 @@ extension Date {
     }
     
     func toString(format: String) -> String {
-        let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.locale = Locale(identifier: "EN")
-        let formatedString = dateFormatter.string(from: date)
+        let formatedString = dateFormatter.string(from: self)
         
         return formatedString
     }
