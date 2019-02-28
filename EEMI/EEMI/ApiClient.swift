@@ -20,21 +20,19 @@ enum Endpoints {
     case getAppointments(String, String)
 
     func url() -> URL {
-        var path:String
+        var path: String
         let baseUrl = "http://emmiapi.azurewebsites.net/api"
 
         switch self {
         case let .getTokens(username, password):
             path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         case let .getAppointments(startDate, endDate):
-            path = "/Agenda/GetByDate/\(startDate)/\(endDate)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            path = "/Agenda/GetByDate/\(startDate)/\(endDate)"
         }
 
         return URL(string: baseUrl + path)!
     }
 }
-
-
 
 class ApiClient {
 
@@ -47,11 +45,10 @@ class ApiClient {
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
-            case .success:
-                let data = response.data
-                let json = try? JSON(data: data!)
-                let token = json?["access_token"].stringValue
-                completion(.success(token!))
+            case .success(let value):
+                let json = JSON(value)
+                let token = json["access_token"].stringValue
+                completion(.success(token))
             case .failure(let error):
                 completion(.error(error.localizedDescription))
             }
@@ -75,7 +72,6 @@ class ApiClient {
                 var appointments = [Appointment]()
                 let json = JSON(value)
                 
-
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
