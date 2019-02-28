@@ -10,6 +10,27 @@ import UIKit
 
 extension UIView {
     
+    func startRotate() {
+        let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.fromValue = 0
+        rotation.toValue = NSNumber(value: Double.pi * 2)
+        rotation.duration = 1
+        rotation.isCumulative = true
+        rotation.repeatCount = .greatestFiniteMagnitude
+        self.layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
+    func stopRotate() {
+        self.layer.removeAnimation(forKey: "rotationAnimation")
+    }
+    
+    func isRotating() -> Bool {
+        if self.layer.animationKeys() != nil {
+            return true
+        }
+        return false
+    }
+    
     func addDropShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.1, height: 0.1)

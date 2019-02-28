@@ -13,4 +13,19 @@ extension Date {
         var date = self.description.split(separator: " ")[0].split(separator: "-")
         return (String(date[1] + date[2] + date[0]))
     }
+    
+    func interval(of component: Calendar.Component) -> DateInterval {
+        let calendar = Calendar.current
+        return calendar.dateInterval(of: component, for: self)!
+    }
+    
+    func toString(format: String) -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "EN")
+        let formatedString = dateFormatter.string(from: date)
+        
+        return formatedString
+    }
 }

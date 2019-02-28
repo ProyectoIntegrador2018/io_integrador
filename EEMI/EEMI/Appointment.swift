@@ -14,14 +14,14 @@ class Appointment {
     var patientLastName: String?
     var reason: String?
     var comments: String?
-    var appointmentTime: Date?
-
+    var date: Date?
+    
     init(json: JSON) {
         self.patientName = json["patientName"].string
         self.patientLastName = json["patientLastName"].string
         self.comments = json["comments"].string
         self.reason = json["reason"].string
-        self.appointmentTime = join(json: json)
+        self.date = join(json: json)
     }
 
     private func join (json: JSON) -> Date? {

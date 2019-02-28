@@ -30,6 +30,9 @@
 		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
 		CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAF82221E21B00BEC70C /* DateExtension.swift */; };
 		CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
+		CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */; };
+		CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */; };
+		CFD9DB0622261C4D00BEC70C /* StateIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */; };
 		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,9 @@
 		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
 		CFD9DAF82221E21B00BEC70C /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CFD9DAFA222206E900BEC70C /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIndicatorView.swift; sourceTree = "<group>"; };
+		CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateIndicatorView.xib; sourceTree = "<group>"; };
 		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +215,8 @@
 				CF158E232219DB60007146F9 /* Main.storyboard */,
 				CF158E552219E3F6007146F9 /* Login.storyboard */,
 				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
+				CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */,
+				CFD9DB0222261B6200BEC70C /* StateIndicatosView */,
 				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
 			);
 			name = Views;
@@ -245,6 +253,15 @@
 				CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */,
 			);
 			path = KeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		CFD9DB0222261B6200BEC70C /* StateIndicatosView */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */,
+				CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */,
+			);
+			name = StateIndicatosView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +375,7 @@
 			files = (
 				CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */,
 				CF158E562219E3F6007146F9 /* Login.storyboard in Resources */,
+				CFD9DB0622261C4D00BEC70C /* StateIndicatorView.xib in Resources */,
 				CF158E2A2219DB62007146F9 /* LaunchScreen.storyboard in Resources */,
 				CF158E272219DB62007146F9 /* Assets.xcassets in Resources */,
 				CF158E252219DB60007146F9 /* Main.storyboard in Resources */,
@@ -389,8 +407,9 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -400,13 +419,14 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */ = {
@@ -501,12 +521,14 @@
 			files = (
 				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
+				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
 				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
 				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
 				65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */,
+				CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */,
 				CF158E542219E329007146F9 /* SettingsViewController.swift in Sources */,
 				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
 				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,
