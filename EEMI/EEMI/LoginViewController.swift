@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
 
@@ -16,9 +17,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginCredentialsStackView: UIStackView!
     
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
+    var pinCodeView: PinCodeView!
       
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        if User.shared.token != nil {
+            pinCodeView = PinCodeView(frame: view.frame)
+            view.addSubview(pinCodeView)
+            pinCodeView.delegate = self
+            localAuthentication(fallbackView: pinCodeView)
+        }
+        
         KeyboardAvoiding.avoidingView = loginCredentialsStackView
         KeyboardAvoiding.paddingForCurrentAvoidingView = 20
     }
@@ -55,5 +65,17 @@ extension LoginViewController {
                 self.alert(message: "Usuario o contraseña invalida", title: "Error")
             }
         }
+    }
+}
+
+// MARK: - Local Authorization
+
+extension LoginViewController: PinCodeDelegate {
+    func didSelectButton(number: Int) {
+        //TODO: Manage selected buttons
+    }
+    
+    func didSelectDelete() {
+        //TODO: Manage delete button
     }
 }

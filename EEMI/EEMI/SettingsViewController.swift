@@ -10,9 +10,18 @@ import UIKit
 import KeychainAccess
 
 class SettingsViewController: UIViewController {
+    
+    var pinCodeView: PinCodeView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification ,
+                                               object: nil)
+        
+    }
+    
+    @objc func appWillEnterForeground() {
 
     }
     
@@ -24,3 +33,16 @@ class SettingsViewController: UIViewController {
         view.window!.rootViewController = viewController
     }
 }
+
+// MARK: - Local Authorization
+
+extension SettingsViewController: PinCodeDelegate {
+    func didSelectButton(number: Int) {
+        
+    }
+    
+    func didSelectDelete() {
+        
+    }
+}
+

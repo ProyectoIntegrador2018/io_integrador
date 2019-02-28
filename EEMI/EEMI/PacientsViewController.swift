@@ -9,11 +9,30 @@
 import UIKit
 
 class PacientsViewController: UIViewController {
-
+    
+    var pinCodeView: PinCodeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification ,
+                                               object: nil)
     }
     
+    @objc func appWillEnterForeground() {
+
+    }
+    
+}
+
+// MARK: - Local Authorization
+
+extension PacientsViewController: PinCodeDelegate {
+    func didSelectButton(number: Int) {
+        
+    }
+    
+    func didSelectDelete() {
+        
+    }
 }
