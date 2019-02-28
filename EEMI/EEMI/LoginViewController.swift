@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginCredentialsStackView: UIStackView!
     
-    lazy var colorPallet = ColorPallet()
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
       
     override func viewDidLoad() {
@@ -58,16 +57,16 @@ class LoginViewController: UIViewController {
     func changeTextFieldColor(field: SkyFloatingLabelTextField, fieldTitle: String) {
         field.placeholder = fieldTitle
         field.title = fieldTitle
-        field.selectedTitleColor = colorPallet.primaryColor
-        field.selectedLineColor = colorPallet.primaryColor
+        field.selectedTitleColor = ColorPallet.primaryColor
+        field.selectedLineColor = ColorPallet.primaryColor
     }
     
     func sumbitButtonEnabled(status: Bool) {
         loginButton.isEnabled = status
         if status {
-            loginButton.backgroundColor = colorPallet.sumbitOrange
+            loginButton.backgroundColor = ColorPallet.sumbitOrange
         } else {
-            loginButton.backgroundColor = colorPallet.diabledGray
+            loginButton.backgroundColor = ColorPallet.diabledGray
         }
     }
     
