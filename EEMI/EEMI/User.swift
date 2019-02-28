@@ -13,6 +13,7 @@ class User {
     
     static var shared = User()
     var token: String?
+    var pin: String = "1234"
     
     private init() {
         
@@ -31,5 +32,17 @@ class User {
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         let token =  keychain["user"]
         return token
+    }
+    
+    func savePin(pin: String) {
+        let keychain = Keychain(service: "emmiapi.azurewebsites.net")
+        keychain["pin"] = pin
+        self.pin = pin
+    }
+    
+    func retrivePin() -> String? {
+        let keychain = Keychain(service: "emmiapi.azurewebsites.net")
+        let pin =  keychain["pin"]
+        return pin
     }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import LocalAuthentication
-
 import SkyFloatingLabelTextField
 
 class LoginViewController: UIViewController {
@@ -20,6 +19,7 @@ class LoginViewController: UIViewController {
 
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
     var pinCodeView: PinCodeView!
+    var pin = [Character]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,10 +120,13 @@ extension LoginViewController {
 
 extension LoginViewController: PinCodeDelegate {
     func didSelectButton(number: Int) {
-        //TODO: Manage selected buttons
+        pin.append(Character(String(number)))
+        if String(pin) == User.shared.pin {
+            pinCodeView.removeFromSuperview()
+        }
     }
-
+    
     func didSelectDelete() {
-        //TODO: Manage delete button
+        _ = pin.popLast()
     }
 }

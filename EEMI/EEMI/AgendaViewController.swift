@@ -7,13 +7,24 @@
 //
 
 import UIKit
-<<<<<<< HEAD
 import LocalAuthentication
+import FSCalendar
 
-class AgendaViewController: UIViewController {
-    
+class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
+
+    @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
+
     var pinCodeView: PinCodeView!
-    
+    let agenda = Calendar.current
+    var appointments = [String: [Appointment]]()
+    var selectedDay = Date().toString()
+    var pin = [Character]()
+
+    let refreshButton: UIButton = UIButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
@@ -26,65 +37,43 @@ class AgendaViewController: UIViewController {
             pinCodeView.delegate = self
             localAuthentication(fallbackView: pinCodeView)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       
-    }
-    
-    @objc func appWillEnterForeground() {
-        tabBarController?.view.addSubview(pinCodeView)
-        localAuthentication(fallbackView: pinCodeView)
-=======
-import FSCalendar
 
-class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
-
-    @IBOutlet weak var calendar: FSCalendar!
-    @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
-    
-    let agenda = Calendar.current
-    var appointments = [String: [Appointment]]()
-    var selectedDay = Date().toString()
-    
-    let refreshButton: UIButton = UIButton()
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
         layout()
         getAppointments(interval: Date().interval(of: .year))
     }
-    
+
+    @objc func appWillEnterForeground() {
+        tabBarController?.view.addSubview(pinCodeView)
+        localAuthentication(fallbackView: pinCodeView)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let barItem: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
         navigationItem.leftBarButtonItem = barItem
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationItem.leftBarButtonItem = nil
     }
-    
+
     // MARK: - Layout
-    
+
     func layout() {
         refreshButton.setImage(UIImage(named: "refresh"), for: .normal)
         refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
         self.view.addGestureRecognizer(self.scopeGesture)
         calendarLayout()
     }
-    
+
     func calendarLayout() {
         calendar.scope = .week
         calendar.locale = Locale(identifier: "ES")
     }
-    
+
     // MARK: - Actions
-    
+
     @objc func refresh() {
         if refreshButton.isRotating() {
             refreshButton.stopRotate()
@@ -93,9 +82,9 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
             getAppointments(interval: date.interval(of: .month))
         }
     }
-    
+
     // MARK: - API
-    
+
     func getAppointments(interval: DateInterval) {
         refreshButton.startRotate()
         ApiClient.shared.getAppointments(dateInterval: interval) { (result) in
@@ -112,16 +101,16 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.appointments.merge(auxDict) {$1}
                 self.calendar.reloadData()
                 self.tableView.reloadData()
-                
-            case .error(_):
+
+            case .error:
                 self.alert(message: "No se pudieron obtener citas", title: "Error")
             }
             self.refreshButton.stopRotate()
         }
     }
-    
+
     // MARK: - UIGestureRecognizerDelegate
-    
+
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
         let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
@@ -154,7 +143,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         }
         tableView.reloadData()
     }
-    
+
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let key = date.toString()
         return appointments[key]?.count ?? 0
@@ -164,11 +153,11 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         calendarHeightConstraint.constant = bounds.height
         self.view.layoutIfNeeded()
     }
-    
+
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         return nil
     }
-    
+
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
          let date = calendar.currentPage
         switch self.calendar.scope {
@@ -177,7 +166,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         case .week:
             getAppointments(interval: date.interval(of: .weekOfMonth))
         }
-       
+
     }
 
 }
@@ -185,13 +174,13 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         guard let appointments = appointments[selectedDay] else {
             stateIndicatorView.show()
             return 0
         }
         stateIndicatorView.hide()
-        
+
         return appointments.count
     }
 
@@ -205,21 +194,25 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
->>>>>>> develop
+
     }
-    
+
 }
 
 // MARK: - Local Authorization
 
 extension AgendaViewController: PinCodeDelegate {
     func didSelectButton(number: Int) {
-        pinCodeView.removeFromSuperview()
+        pin.append(Character(String(number)))
+        if String(pin) == User.shared.pin {
+            pinCodeView.removeFromSuperview()
+        }
     }
-    
+
     func didSelectDelete() {
+        _ = pin.popLast()
     }
 }

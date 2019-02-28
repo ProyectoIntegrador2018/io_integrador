@@ -11,6 +11,7 @@ import UIKit
 class PacientsViewController: UIViewController {
 
     var pinCodeView: PinCodeView!
+    var pin = [Character]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,13 @@ class PacientsViewController: UIViewController {
 
 extension PacientsViewController: PinCodeDelegate {
     func didSelectButton(number: Int) {
-
+        pin.append(Character(String(number)))
+        if String(pin) == User.shared.pin {
+            pinCodeView.removeFromSuperview()
+        }
     }
-
+    
     func didSelectDelete() {
-
+        _ = pin.popLast()
     }
 }

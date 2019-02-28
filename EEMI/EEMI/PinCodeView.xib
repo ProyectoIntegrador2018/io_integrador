@@ -41,12 +41,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresar clave pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-nZ-GYl">
-                                        <rect key="frame" x="120.66666666666669" y="100" width="134" height="20.333333333333329"/>
+                                        <rect key="frame" x="120.66666666666669" y="200" width="134" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4W0-PE-YZy" userLabel="NumberPad">
-                                        <rect key="frame" x="65" y="241" width="245" height="330"/>
+                                        <rect key="frame" x="65" y="341" width="245" height="330"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cqn-Q5-03F">
                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="75"/>
@@ -228,7 +228,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qKd-Jx-aho">
-                                        <rect key="frame" x="146" y="140.33333333333334" width="83" height="20"/>
+                                        <rect key="frame" x="146" y="240.33333333333334" width="83" height="20.000000000000028"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjX-u7-Y71">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -261,7 +261,7 @@
                                     <constraint firstItem="4W0-PE-YZy" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="MPD-ne-ysJ"/>
                                     <constraint firstItem="qKd-Jx-aho" firstAttribute="top" secondItem="YNY-nZ-GYl" secondAttribute="bottom" constant="20" id="Z2U-cv-XBF"/>
                                     <constraint firstItem="YNY-nZ-GYl" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="eTS-5T-9gF"/>
-                                    <constraint firstItem="YNY-nZ-GYl" firstAttribute="top" secondItem="Iqu-eo-oAo" secondAttribute="top" constant="100" id="eez-ge-H50"/>
+                                    <constraint firstItem="YNY-nZ-GYl" firstAttribute="top" secondItem="Iqu-eo-oAo" secondAttribute="top" constant="200" id="eez-ge-H50"/>
                                     <constraint firstItem="4W0-PE-YZy" firstAttribute="top" secondItem="qKd-Jx-aho" secondAttribute="bottom" constant="80.666666666666657" id="uuc-BS-3jC"/>
                                 </constraints>
                             </view>
