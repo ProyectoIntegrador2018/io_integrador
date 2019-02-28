@@ -14,11 +14,27 @@ class Appointment {
     var patientLastName: String?
     var reason: String?
     var comments: String?
-    
+    var appointmentTime: Date?
+
     init(json: JSON) {
         self.patientName = json["patientName"].string
         self.patientLastName = json["patientLastName"].string
         self.comments = json["comments"].string
         self.reason = json["reason"].string
+        self.appointmentTime = join(json: json)
+    }
+
+    private func join (json: JSON) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyyHH:mm:ss"
+        
+        var dateAppointment = json["dateAppointment"].string ?? ""
+        let timeAppointment = json["timeAppointment"].string ?? ""
+        
+        let split = dateAppointment.split(separator: " ")
+        dateAppointment = String(split.first ?? "")
+        let fullDateString = dateAppointment + timeAppointment
+        
+        return dateFormatter.date(from: fullDateString)
     }
 }
