@@ -82,8 +82,9 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.appointments.merge(auxDict) {$1}
                 self.calendar.reloadData()
                 self.tableView.reloadData()
-            case let .error(error):
-                print("Error: " + error.debugDescription)
+                
+            case .error(_):
+                self.alert(message: "No se pudieron obtener citas", title: "Error")
             }
             self.refreshButton.stopRotate()
         }
