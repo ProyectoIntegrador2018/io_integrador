@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFV-kO-FuA">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,17 +13,106 @@
         <!--Login View Controller-->
         <scene sceneID="p0F-Yo-rtE">
             <objects>
-                <viewController id="qFV-kO-FuA" customClass="LoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFV-kO-FuA" customClass="LoginViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwR-jg-kbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="9rb-qj-IsG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_waves" translatesAutoresizingMaskIntoConstraints="NO" id="dvg-o4-BAK">
+                                <rect key="frame" x="0.0" y="759" width="414" height="137"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="4il-sk-imY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_login" translatesAutoresizingMaskIntoConstraints="NO" id="TN3-bN-MTg">
+                                <rect key="frame" x="143" y="94" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="bwl-eW-wUV"/>
+                                    <constraint firstAttribute="width" constant="128" id="dNp-vK-fsd"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-Vw-chf">
+                                <rect key="frame" x="40" y="368" width="334" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0PK-K9-g8v" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="mhc-Vq-242"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSs-ID-S7m" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                        <rect key="frame" x="0.0" y="75" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hzJ-fZ-jl3"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.44751728213692599" green="1" blue="0.37719035781598176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbw-iX-GLJ">
+                                        <rect key="frame" x="0.0" y="150" width="334" height="50"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Coa-VJ-jTh"/>
+                                        </constraints>
+                                        <state key="normal" title="ENTRAR">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButton:" destination="qFV-kO-FuA" eventType="touchUpInside" id="yAm-LK-wgv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="9rb-qj-IsG" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" id="0vH-VE-jy1"/>
+                            <constraint firstAttribute="bottom" secondItem="9rb-qj-IsG" secondAttribute="bottom" id="258-WI-W54"/>
+                            <constraint firstItem="9rb-qj-IsG" firstAttribute="top" secondItem="SwR-jg-kbJ" secondAttribute="top" id="4hX-V4-ykQ"/>
+                            <constraint firstItem="TN3-bN-MTg" firstAttribute="centerX" secondItem="SwR-jg-kbJ" secondAttribute="centerX" id="Bue-5F-yHv"/>
+                            <constraint firstItem="pPT-YC-5JF" firstAttribute="trailing" secondItem="uVw-Vw-chf" secondAttribute="trailing" constant="40" id="LT3-UW-2uX"/>
+                            <constraint firstItem="9rb-qj-IsG" firstAttribute="trailing" secondItem="pPT-YC-5JF" secondAttribute="trailing" id="QEM-aO-ZM1"/>
+                            <constraint firstItem="dvg-o4-BAK" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" id="Snh-Pa-ieg"/>
+                            <constraint firstAttribute="bottom" secondItem="dvg-o4-BAK" secondAttribute="bottom" id="WIz-Ko-sXa"/>
+                            <constraint firstItem="TN3-bN-MTg" firstAttribute="top" secondItem="pPT-YC-5JF" secondAttribute="top" constant="50" id="ajV-pN-MeQ"/>
+                            <constraint firstItem="uVw-Vw-chf" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" constant="40" id="b2O-2n-93w"/>
+                            <constraint firstItem="uVw-Vw-chf" firstAttribute="centerY" secondItem="SwR-jg-kbJ" secondAttribute="centerY" constant="20" id="c0g-Ho-gHv"/>
+                            <constraint firstItem="dvg-o4-BAK" firstAttribute="trailing" secondItem="pPT-YC-5JF" secondAttribute="trailing" id="twC-v2-G1f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pPT-YC-5JF"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3qt-VW-6ye" appends="YES" id="5hg-ai-DFv"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Nbw-iX-GLJ" id="nYa-VK-plu"/>
+                        <outlet property="loginCredentialsStackView" destination="uVw-Vw-chf" id="3K7-Ks-2er"/>
+                        <outlet property="passwordTextField" destination="NSs-ID-S7m" id="3jM-67-AjZ"/>
+                        <outlet property="usernameTextField" destination="0PK-K9-g8v" id="0W6-rh-fdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DF-m9-LMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3qt-VW-6ye">
+                    <connections>
+                        <action selector="dismisKeyboard:" destination="qFV-kO-FuA" id="hhR-CV-PeH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="140" y="166"/>
+            <point key="canvasLocation" x="140" y="165.51724137931035"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background_login" width="751" height="1298"/>
+        <image name="login_waves" width="751" height="288"/>
+        <image name="logo_login" width="225" height="225"/>
+    </resources>
 </document>

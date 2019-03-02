@@ -5,12 +5,14 @@
   - force_cast
   - class_delegate_protocol
   - weak_delegate
+  - identifier_name
 
   opt_in_rules:
   - empty_count
 
   excluded:
   - Pods
+  - EEMI/KeyboardAvoiding
 
   vertical_whitespace:
   max_empty_lines: 2

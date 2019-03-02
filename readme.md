@@ -40,6 +40,10 @@ You should ask for access to this tools if you don't have it already:
 
 ## Development
 
+### API Documentation
+
+Checkout the API endpoints [here](endpoints.md)
+
 ### Setup the project
 
 Make sure you have the following:
@@ -68,3 +72,7 @@ $ open EEMI.xcworkspace
 ```
 
 Xcode should open and run the project like normal.
+
+## Deployment
+
+You can find the deployment instructions [here](deployment.md)

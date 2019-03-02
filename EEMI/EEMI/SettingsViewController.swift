@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    @IBAction func logout(_ sender: UIButton) {
+        let keychain = Keychain(service: "emmiapi.azurewebsites.net")
+        keychain["user"] = nil
+        let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        view.window!.rootViewController = viewController
+    }
 }
