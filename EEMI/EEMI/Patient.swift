@@ -17,7 +17,7 @@ class Patient {
     let gender: String
     let birthDate: Date?
     
-    lazy var fullName = {
+    var fullName: String {
         return self.firstName + " " + self.lastName + " " + self.secondLastName
     }
     

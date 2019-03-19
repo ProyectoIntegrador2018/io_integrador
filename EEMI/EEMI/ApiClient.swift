@@ -92,7 +92,13 @@ class ApiClient {
     
     func getPatients(completion: @escaping (Result<[Patient]>) -> Void) {
         let url = Endpoints.getPatients.url()
-        Alamofire.request(url).responseJSON { (response) in
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+
+        Alamofire.request(url, headers: headers).responseJSON { (response) in
             switch response.result {
             case let .success(value):
                 var patients = [Patient]()

@@ -17,15 +17,61 @@
                     <view key="view" contentMode="scaleToFill" id="A10-Ku-4O6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CDm-7R-xrl">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="sHo-Zk-mag">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="fM8-dL-g9W" id="uZX-1j-CrN"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientCell" textLabel="JUT-Aa-ANO" style="IBUITableViewCellStyleDefault" id="VBI-18-Reb">
+                                        <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VBI-18-Reb" id="JJF-TO-ast">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JUT-Aa-ANO">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fM8-dL-g9W" id="GsF-UW-i01"/>
+                                    <outlet property="delegate" destination="fM8-dL-g9W" id="J0d-LN-SJb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="85v-qx-PD3"/>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="LR1-BE-3gt" secondAttribute="top" id="E9y-nd-SVb"/>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="bottom" secondItem="LR1-BE-3gt" secondAttribute="bottom" id="PtW-nI-TCN"/>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="WdX-qI-WE3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LR1-BE-3gt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pacientes" image="patients_sidemenu" selectedImage="patients_sidemenu" id="2mc-wc-r6B"/>
                     <navigationItem key="navigationItem" title="Pacientes" id="bAp-XS-69O"/>
+                    <connections>
+                        <outlet property="patientsTableView" destination="CDm-7R-xrl" id="jW5-Dr-FuG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIB-bo-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="41"/>
+            <point key="canvasLocation" x="292" y="40.64039408866995"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hgg-8L-gYz">
@@ -444,10 +490,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="33" height="33"/>
+        <image name="calendar" width="36" height="36"/>
         <image name="forward_arrow" width="128" height="128"/>
         <image name="lock" width="15" height="15"/>
-        <image name="patients_sidemenu" width="33" height="33"/>
-        <image name="settings" width="25" height="25"/>
+        <image name="patients_sidemenu" width="36" height="36"/>
+        <image name="settings" width="50" height="50"/>
     </resources>
 </document>
