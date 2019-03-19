@@ -18,6 +18,7 @@ enum Result<T> {
 enum Endpoints {
     case getTokens(String, String)
     case getAppointments(String, String)
+    case getPatients
 
     func url() -> URL {
         var path: String
@@ -28,6 +29,8 @@ enum Endpoints {
             path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         case let .getAppointments(startDate, endDate):
             path = "/Agenda/GetByDate/\(startDate)/\(endDate)"
+        case .getPatients:
+            path = "/Patients"
         }
 
         return URL(string: baseUrl + path)!
@@ -44,17 +47,18 @@ class ApiClient {
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
-            case .success(let value):
+            case let .success(value):
                 let json = JSON(value)
                 let token = json["access_token"].stringValue
                 completion(.success(token))
-            case .failure(let error):
+                
+            case let .failure(error):
                 completion(.error(error.localizedDescription))
             }
         }
     }
 
-    func getAppointments (dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
+    func getAppointments(dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
         let appointmentUrl = Endpoints.getAppointments(startDate, endDate).url()
@@ -66,7 +70,7 @@ class ApiClient {
 
         Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
             switch response.result {
-            case .success(let value):
+            case let .success(value):
                 var appointments = [Appointment]()
                 let json = JSON(value)
                 guard let jsonAppointments = json.array else {
@@ -79,7 +83,30 @@ class ApiClient {
                 }
 
                 completion(.success(appointments))
-            case .failure(let error):
+                
+            case let .failure(error):
+                completion(.error(error.localizedDescription))
+            }
+        }
+    }
+    
+    func getPatients(completion: @escaping (Result<[Patient]>) -> Void) {
+        let url = Endpoints.getPatients.url()
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case let .success(value):
+                var patients = [Patient]()
+                let json = JSON(value)
+                guard let jsonPatients = json.array else {
+                    return completion(.success(patients))
+                }
+                for jsonPatient in jsonPatients {
+                    let patient = Patient(json: jsonPatient)
+                    patients.append(patient)
+                }
+                completion(.success(patients))
+                
+            case let .failure(error):
                 completion(.error(error.localizedDescription))
             }
         }
