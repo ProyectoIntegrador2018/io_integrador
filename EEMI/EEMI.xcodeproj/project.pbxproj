@@ -28,6 +28,7 @@
 		CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */; };
 		CFAD06FF221A46BC001B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FE221A46BC001B9061 /* User.swift */; };
 		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
+		CFCFA2522241678500260D76 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCFA2512241678500260D76 /* Patient.swift */; };
 		CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAF82221E21B00BEC70C /* DateExtension.swift */; };
 		CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
 		CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */; };
@@ -87,6 +88,7 @@
 		CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerExtension.swift; sourceTree = "<group>"; };
 		CFAD06FE221A46BC001B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		CFCFA2512241678500260D76 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		CFD9DAF82221E21B00BEC70C /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CFD9DAFA222206E900BEC70C /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				CF158E5A2219F2BE007146F9 /* ApiClient.swift */,
 				CFD9DAFA222206E900BEC70C /* Appointment.swift */,
 				CFAD06FE221A46BC001B9061 /* User.swift */,
+				CFCFA2512241678500260D76 /* Patient.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFCFA2522241678500260D76 /* Patient.swift in Sources */,
 				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
 				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,

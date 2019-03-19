@@ -83,7 +83,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.calendar.reloadData()
                 self.tableView.reloadData()
                 
-            case .error(_):
+            case .error:
                 self.alert(message: "No se pudieron obtener citas", title: "Error")
             }
             self.refreshButton.stopRotate()

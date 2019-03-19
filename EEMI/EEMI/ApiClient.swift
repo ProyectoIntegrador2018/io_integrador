@@ -41,7 +41,6 @@ class ApiClient {
     private init() {}
 
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
-
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
@@ -58,7 +57,6 @@ class ApiClient {
     func getAppointments (dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
-
         let appointmentUrl = Endpoints.getAppointments(startDate, endDate).url()
         let token = User.shared.token!
         let headers: HTTPHeaders = [
@@ -71,19 +69,16 @@ class ApiClient {
             case .success(let value):
                 var appointments = [Appointment]()
                 let json = JSON(value)
-                
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
 
                 for jsonAppointment in jsonAppointments {
                     let appointment = Appointment(json: jsonAppointment)
-
                     appointments.append(appointment)
                 }
 
                 completion(.success(appointments))
-
             case .failure(let error):
                 completion(.error(error.localizedDescription))
             }
