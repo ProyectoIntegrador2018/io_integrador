@@ -18,20 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" text="" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-Zk-mag">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fM8-dL-g9W" id="uZX-1j-CrN"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CDm-7R-xrl">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="sHo-Zk-mag">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="fM8-dL-g9W" id="uZX-1j-CrN"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientCell" textLabel="JUT-Aa-ANO" style="IBUITableViewCellStyleDefault" id="VBI-18-Reb">
-                                        <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VBI-18-Reb" id="JJF-TO-ast">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -55,21 +54,35 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="sHo-Zk-mag" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="02L-dw-2mh"/>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="4ni-wD-AtM"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="85v-qx-PD3"/>
-                            <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="LR1-BE-3gt" secondAttribute="top" id="E9y-nd-SVb"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="bottom" secondItem="LR1-BE-3gt" secondAttribute="bottom" id="PtW-nI-TCN"/>
+                            <constraint firstItem="sHo-Zk-mag" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="V4s-iO-xMu"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="WdX-qI-WE3"/>
+                            <constraint firstItem="sHo-Zk-mag" firstAttribute="top" secondItem="LR1-BE-3gt" secondAttribute="top" id="fzw-KJ-9GP"/>
+                            <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="n3z-1k-Yu1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LR1-BE-3gt"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1wg-22-4kj" appends="YES" id="KnT-uA-qC5"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pacientes" image="patients_sidemenu" selectedImage="patients_sidemenu" id="2mc-wc-r6B"/>
                     <navigationItem key="navigationItem" title="Pacientes" id="bAp-XS-69O"/>
                     <connections>
                         <outlet property="patientsTableView" destination="CDm-7R-xrl" id="jW5-Dr-FuG"/>
+                        <outlet property="searchBar" destination="sHo-Zk-mag" id="i9d-Wd-4Cc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIB-bo-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1wg-22-4kj">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="fM8-dL-g9W" id="OWc-I3-mgE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="292" y="40.64039408866995"/>
         </scene>

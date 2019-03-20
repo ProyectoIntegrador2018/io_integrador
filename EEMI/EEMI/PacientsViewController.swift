@@ -17,11 +17,16 @@ class PacientsViewController: UIViewController {
     
     lazy var activityIndicator = ActivityIndicatorView(frame: view.frame, label: "Cargando")
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var patientsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getPatients()
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     func getPatients() {
@@ -78,7 +83,9 @@ extension PacientsViewController: UISearchBarDelegate {
             currentPatients = patients
         } else {
             currentPatients = patients.filter { (patient) -> Bool in
-                return patient.fullName.contains(searchText)
+                let name = patient.fullName.lowercased().folding(options: .diacriticInsensitive, locale: .current)
+                let search = searchText.lowercased().folding(options: .diacriticInsensitive, locale: .current)
+                return name.contains(search)
             }
         }
         
