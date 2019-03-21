@@ -24,11 +24,7 @@ class PacientsViewController: UIViewController {
         super.viewDidLoad()
         getPatients()
     }
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
+        
     func getPatients() {
         activityIndicator.add(view: UIApplication.shared.keyWindow!)
         ApiClient.shared.getPatients { (result) in
@@ -62,6 +58,15 @@ extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
             return 0
         }
         return groupedPatients[sections[section]]?.count ?? 0
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PatientViewController") as! PatientViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

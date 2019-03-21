@@ -66,9 +66,6 @@
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="n3z-1k-Yu1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LR1-BE-3gt"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="1wg-22-4kj" appends="YES" id="KnT-uA-qC5"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pacientes" image="patients_sidemenu" selectedImage="patients_sidemenu" id="2mc-wc-r6B"/>
                     <navigationItem key="navigationItem" title="Pacientes" id="bAp-XS-69O"/>
@@ -78,13 +75,23 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIB-bo-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1wg-22-4kj">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="fM8-dL-g9W" id="OWc-I3-mgE"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="292" y="40.64039408866995"/>
+        </scene>
+        <!--Patient View Controller-->
+        <scene sceneID="ksK-2d-XN7">
+            <objects>
+                <viewController storyboardIdentifier="PatientViewController" id="zM0-8Y-sL7" customClass="PatientViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LlV-Dx-o6e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mrG-CE-7oc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ye-m5-ebp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="41"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hgg-8L-gYz">
