@@ -19,6 +19,7 @@ enum Endpoints {
     case getTokens(String, String)
     case getAppointments(String, String)
     case getPatients
+    case getMedicalRecord(Int)
 
     func url() -> URL {
         var path: String
@@ -31,6 +32,8 @@ enum Endpoints {
             path = "/Agenda/GetByDate/\(startDate)/\(endDate)"
         case .getPatients:
             path = "/Patients"
+        case let .getMedicalRecord(patientId):
+            path = "/MedicalRecord/GetByPatientId/\(patientId)"
         }
 
         return URL(string: baseUrl + path)!
@@ -111,6 +114,28 @@ class ApiClient {
                     patients.append(patient)
                 }
                 completion(.success(patients))
+                
+            case let .failure(error):
+                completion(.error(error.localizedDescription))
+            }
+        }
+    }
+    
+    func getMedicalRecord(patientId: Int, completion: @escaping (Result<MedicalRecord>) -> Void) {
+        let url = Endpoints.getMedicalRecord(patientId).url()
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(url, headers: headers).responseJSON { (response) in
+            switch response.result {
+            case let .success(value):
+                let jsonValue = JSON(value)
+                let medicalRecord = MedicalRecord(json: jsonValue)
+                
+                completion(.success(medicalRecord))
                 
             case let .failure(error):
                 completion(.error(error.localizedDescription))
