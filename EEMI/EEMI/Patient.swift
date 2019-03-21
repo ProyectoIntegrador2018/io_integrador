@@ -16,6 +16,7 @@ class Patient {
     let secondLastName: String
     let gender: String
     let birthDate: Date?
+    var medicalRecord: MedicalRecord?
     
     var fullName: String {
         return self.firstName + " " + self.lastName + " " + self.secondLastName
@@ -28,7 +29,7 @@ class Patient {
         secondLastName = json["lastName2"].stringValue
         gender = json["gender"].stringValue
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         birthDate = dateFormatter.date(from: json["birthDate"].stringValue)
     }
 }

@@ -65,14 +65,17 @@ extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        let patients = groupedPatients[section]!
         let vc = storyboard?.instantiateViewController(withIdentifier: "PatientViewController") as! PatientViewController
+        vc.patient = patients[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let section = sections[indexPath.section]
-        let patients =  groupedPatients[section]
+        let patients = groupedPatients[section]
         let patient = patients![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
