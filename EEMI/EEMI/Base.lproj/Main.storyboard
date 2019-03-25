@@ -156,10 +156,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HlX-rv-Rv8">
-                                <rect key="frame" x="16" y="281.33333333333331" width="343" height="50"/>
+                                <rect key="frame" x="0.0" y="281.33333333333331" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw5-gm-htb" customClass="SegmentedControlButton" customModule="EEMI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="50"/>
                                         <state key="normal" title="Expediente">
                                             <color key="titleColor" red="0.49993574619293213" green="0.85500127077102661" blue="0.91057866811752319" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -174,7 +174,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXQ-GD-ABx" customClass="SegmentedControlButton" customModule="EEMI" customModuleProvider="target">
-                                        <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="50"/>
+                                        <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="50"/>
                                         <state key="normal" title="Imunización">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -287,13 +287,13 @@
                             <constraint firstItem="1Ag-Vr-Kjy" firstAttribute="trailing" secondItem="LlV-Dx-o6e" secondAttribute="trailing" constant="-16" id="FLF-Tl-XMo"/>
                             <constraint firstItem="pj9-yN-HmD" firstAttribute="leading" secondItem="qsN-df-12z" secondAttribute="trailing" constant="16" id="GP0-2z-AMZ"/>
                             <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="CKS-H6-9if" secondAttribute="trailing" constant="16" id="IYO-aW-yDy"/>
-                            <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="HlX-rv-Rv8" secondAttribute="trailing" constant="16" id="KbV-ft-MS1"/>
+                            <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="HlX-rv-Rv8" secondAttribute="trailing" id="KbV-ft-MS1"/>
                             <constraint firstItem="Xtx-NW-edH" firstAttribute="leading" secondItem="nWW-H0-J5A" secondAttribute="trailing" constant="16" id="LoB-K2-3qm"/>
                             <constraint firstItem="HlX-rv-Rv8" firstAttribute="top" secondItem="0o8-pd-c16" secondAttribute="bottom" constant="32" id="R7y-6h-hNo"/>
                             <constraint firstItem="CKS-H6-9if" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" constant="16" id="TYI-ce-Cyc"/>
                             <constraint firstItem="Xtx-NW-edH" firstAttribute="top" secondItem="1Ag-Vr-Kjy" secondAttribute="bottom" constant="8" id="UXo-eX-c8M"/>
                             <constraint firstItem="qsN-df-12z" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" constant="16" id="Wod-0d-zhM"/>
-                            <constraint firstItem="HlX-rv-Rv8" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" constant="16" id="ZGC-d9-kcL"/>
+                            <constraint firstItem="HlX-rv-Rv8" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" id="ZGC-d9-kcL"/>
                             <constraint firstItem="0o8-pd-c16" firstAttribute="leading" secondItem="tvV-s3-jCN" secondAttribute="trailing" constant="16" id="a6d-6C-Hy3"/>
                             <constraint firstItem="nWW-H0-J5A" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" constant="16" id="bAK-Tx-SQd"/>
                             <constraint firstItem="tvV-s3-jCN" firstAttribute="top" secondItem="nWW-H0-J5A" secondAttribute="bottom" constant="8" id="cJW-A4-xfB"/>

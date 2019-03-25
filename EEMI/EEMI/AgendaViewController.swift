@@ -173,6 +173,8 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             cell.subtitleLabel.text = appointment.comments
             cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
+        
+        cell.selectionStyle = .none
         return cell
     }
     

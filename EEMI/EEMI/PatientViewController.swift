@@ -45,13 +45,13 @@ class PatientViewController: UIViewController {
     
     func updateLayout() {
         patientTableView.reloadData()
-        patientName.text = patient.fullName
-        patientBirthday.text = patient.birthDate?.toString(format: "dd/MMM/yyyy")
         fatherLabel.text = patient.medicalRecord?.father
         motherLabel.text = patient.medicalRecord?.mother
     }
 
     func defaultLayout() {
+        patientName.text = patient.fullName
+        patientBirthday.text = patient.birthDate?.toString(format: "dd/MMM/yyyy")
         if patient.gender == "M" {
             patientImage.image = UIImage(named: "avatar_boy")
         } else {
@@ -90,10 +90,30 @@ extension PatientViewController: UITableViewDataSource {
            let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
             cell.textLabel!.text = patient.medicalRecord?.appointments[index].status
             cell.detailTextLabel!.text = patient.medicalRecord?.appointments[index].date?.toString(format: "dd/MMM/yyyy")
+            cell.selectionStyle = .none
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImmunizationCell", for: indexPath) as! ImmunizationTableViewCell
             cell.titleLabel.text = patient.medicalRecord?.immunizations[index].name
+            let status = patient.medicalRecord?.immunizations[index].status
+            var statusImage: UIImage
+            
+            switch status {
+            case -1:
+                statusImage = UIImage(named: "reddot") ?? UIImage()
+            case 0:
+                statusImage = UIImage(named: "yellowdot") ?? UIImage()
+            case 1:
+                statusImage = UIImage(named: "yellowdot") ?? UIImage()
+            case 2:
+                statusImage = UIImage(named: "greendot") ?? UIImage()
+            default:
+                statusImage = UIImage()
+            }
+            
+            cell.selectionStyle = .none
+            cell.statusImageView.image = statusImage
+            
             return cell
         }
     }
