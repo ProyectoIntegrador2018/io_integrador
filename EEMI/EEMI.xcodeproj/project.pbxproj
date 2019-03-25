@@ -23,6 +23,8 @@
 		CF158E562219E3F6007146F9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E552219E3F6007146F9 /* Login.storyboard */; };
 		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
+		CF8B7E51224937A900E10777 /* ImmunizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */; };
+		CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */; };
 		CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */; };
 		CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */; };
 		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
@@ -85,6 +87,8 @@
 		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationTableViewCell.swift; sourceTree = "<group>"; };
+		CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlButton.swift; sourceTree = "<group>"; };
 		CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				CF158E552219E3F6007146F9 /* Login.storyboard */,
 				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
 				CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */,
+				CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */,
+				CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */,
 				CFD9DB0222261B6200BEC70C /* StateIndicatosView */,
 				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
 			);
@@ -530,6 +536,7 @@
 			files = (
 				CFCFA2522241678500260D76 /* Patient.swift in Sources */,
 				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
+				CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
 				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
 				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
@@ -541,6 +548,7 @@
 				CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */,
 				CFFBB1EA2242D46C00FC5DF0 /* PatientViewController.swift in Sources */,
 				CF158E542219E329007146F9 /* SettingsViewController.swift in Sources */,
+				CF8B7E51224937A900E10777 /* ImmunizationTableViewCell.swift in Sources */,
 				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
 				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,
 				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,

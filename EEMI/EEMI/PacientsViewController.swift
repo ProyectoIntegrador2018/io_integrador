@@ -80,6 +80,7 @@ extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
         cell.textLabel?.text = patient.fullName
+        cell.selectionStyle = .none
         return cell
     }
     

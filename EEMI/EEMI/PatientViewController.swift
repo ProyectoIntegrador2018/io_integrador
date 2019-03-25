@@ -9,7 +9,9 @@
 import UIKit
 
 class PatientViewController: UIViewController {
+    
     var patient: Patient!
+    var isShowingRecords = true
     lazy var activityIndicator: ActivityIndicatorView = ActivityIndicatorView(frame: view.frame, label: "Cargando")
     
     @IBOutlet weak var patientName: UILabel!
@@ -17,8 +19,8 @@ class PatientViewController: UIViewController {
     @IBOutlet weak var patientImage: UIImageView!
     @IBOutlet weak var fatherLabel: UILabel!
     @IBOutlet weak var motherLabel: UILabel!
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var immunizationButton: UIButton!
+    @IBOutlet weak var recordButton: SegmentedControlButton!
+    @IBOutlet weak var immunizationButton: SegmentedControlButton!
     @IBOutlet weak var patientTableView: UITableView!
     
     override func viewDidLoad() {
@@ -50,7 +52,6 @@ class PatientViewController: UIViewController {
     }
 
     func defaultLayout() {
-        immunizationButton.isEnabled = false
         if patient.gender == "M" {
             patientImage.image = UIImage(named: "avatar_boy")
         } else {
@@ -59,21 +60,41 @@ class PatientViewController: UIViewController {
     }
 
     @IBAction func showRecords(_ sender: UIButton) {
+        isShowingRecords = true
+        recordButton.selected()
+        immunizationButton.unselected()
+        patientTableView.reloadData()
     }
     
     @IBAction func showImmunization(_ sender: UIButton) {
+        isShowingRecords = false
+        immunizationButton.selected()
+        recordButton.unselected()
+        patientTableView.reloadData()
     }
 }
 
 extension PatientViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patient.medicalRecord?.appointments.count ?? 0
+        if isShowingRecords {
+            return patient.medicalRecord?.appointments.count ?? 0
+        } else {
+            return patient.medicalRecord?.immunizations.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
-        cell.textLabel!.text = patient.medicalRecord?.appointments[indexPath.row].status
-        cell.detailTextLabel!.text = patient.medicalRecord?.appointments[indexPath.row].date?.toString(format: "dd/MMM/yyyy")
-        return cell
+       let index = indexPath.row
+        
+        if isShowingRecords {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
+            cell.textLabel!.text = patient.medicalRecord?.appointments[index].status
+            cell.detailTextLabel!.text = patient.medicalRecord?.appointments[index].date?.toString(format: "dd/MMM/yyyy")
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImmunizationCell", for: indexPath) as! ImmunizationTableViewCell
+            cell.titleLabel.text = patient.medicalRecord?.immunizations[index].name
+            return cell
+        }
     }
 }

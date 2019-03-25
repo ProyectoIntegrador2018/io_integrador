@@ -158,20 +158,32 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HlX-rv-Rv8">
                                 <rect key="frame" x="16" y="281.33333333333331" width="343" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw5-gm-htb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw5-gm-htb" customClass="SegmentedControlButton" customModule="EEMI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="50"/>
                                         <state key="normal" title="Expediente">
                                             <color key="titleColor" red="0.49993574619293213" green="0.85500127077102661" blue="0.91057866811752319" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Expediente"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.41778540609999998" green="0.83710992340000001" blue="0.89874976870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showRecords:" destination="zM0-8Y-sL7" eventType="touchUpInside" id="lQV-RP-JHp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXQ-GD-ABx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXQ-GD-ABx" customClass="SegmentedControlButton" customModule="EEMI" customModuleProvider="target">
                                         <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="50"/>
                                         <state key="normal" title="Imunización">
-                                            <color key="titleColor" red="0.49993574619999998" green="0.85500127079999999" blue="0.91057866809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Imunizacion"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showImmunization:" destination="zM0-8Y-sL7" eventType="touchUpInside" id="PHI-Fg-Fey"/>
                                         </connections>
@@ -208,6 +220,53 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImmunizationCell" rowHeight="63" id="eSJ-O4-eqH" customClass="ImmunizationTableViewCell" customModule="EEMI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSJ-O4-eqH" id="5R1-k7-VcN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Immunization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT8-Ru-G9i">
+                                                    <rect key="frame" x="15" y="11" width="251" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Rty-bv-N09"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greendot" translatesAutoresizingMaskIntoConstraints="NO" id="chG-Va-BpV">
+                                                    <rect key="frame" x="344" y="13.666666666666664" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="kuP-SG-T7Y"/>
+                                                        <constraint firstAttribute="width" constant="15" id="lTZ-W7-ror"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efD-dd-x7t">
+                                                    <rect key="frame" x="282" y="10.999999999999998" width="54" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="efD-dd-x7t" secondAttribute="bottom" id="3OY-Hg-8R2"/>
+                                                <constraint firstItem="chG-Va-BpV" firstAttribute="leading" secondItem="efD-dd-x7t" secondAttribute="trailing" constant="8" id="GhV-ed-zy0"/>
+                                                <constraint firstItem="sT8-Ru-G9i" firstAttribute="top" secondItem="5R1-k7-VcN" secondAttribute="topMargin" id="Kbz-9n-OV4"/>
+                                                <constraint firstItem="efD-dd-x7t" firstAttribute="leading" secondItem="sT8-Ru-G9i" secondAttribute="trailing" constant="16" id="SJw-dG-KVw"/>
+                                                <constraint firstItem="chG-Va-BpV" firstAttribute="trailing" secondItem="5R1-k7-VcN" secondAttribute="trailing" constant="-16" id="aK1-Qh-D4E"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sT8-Ru-G9i" secondAttribute="bottom" id="cYo-MT-qvX"/>
+                                                <constraint firstItem="sT8-Ru-G9i" firstAttribute="leading" secondItem="5R1-k7-VcN" secondAttribute="leadingMargin" id="fvn-kc-P2y"/>
+                                                <constraint firstItem="efD-dd-x7t" firstAttribute="top" secondItem="5R1-k7-VcN" secondAttribute="topMargin" id="o9e-Ub-spu"/>
+                                                <constraint firstItem="chG-Va-BpV" firstAttribute="centerY" secondItem="5R1-k7-VcN" secondAttribute="centerY" id="rcG-wN-iL3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="statusImageView" destination="chG-Va-BpV" id="fWq-od-Gaw"/>
+                                            <outlet property="titleLabel" destination="sT8-Ru-G9i" id="3de-Lh-CkD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -685,6 +744,7 @@
         <image name="calendar" width="36" height="36"/>
         <image name="female" width="40" height="40"/>
         <image name="forward_arrow" width="128" height="128"/>
+        <image name="greendot" width="40" height="40"/>
         <image name="lock" width="15" height="15"/>
         <image name="male" width="40" height="40"/>
         <image name="patients_sidemenu" width="36" height="36"/>
