@@ -24,6 +24,7 @@ class PatientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getMedicalRecord()
+        defaultLayout()
     }
     
     func getMedicalRecord() {
@@ -46,15 +47,17 @@ class PatientViewController: UIViewController {
         patientBirthday.text = patient.birthDate?.toString(format: "dd/MMM/yyyy")
         fatherLabel.text = patient.medicalRecord?.father
         motherLabel.text = patient.medicalRecord?.mother
-        
+    }
+
+    func defaultLayout() {
+        immunizationButton.isEnabled = false
         if patient.gender == "M" {
             patientImage.image = UIImage(named: "avatar_boy")
         } else {
             patientImage.image = UIImage(named: "avatar_girl")
         }
-        
     }
-    
+
     @IBAction func showRecords(_ sender: UIButton) {
     }
     
@@ -62,7 +65,7 @@ class PatientViewController: UIViewController {
     }
 }
 
-extension PatientViewController : UITableViewDataSource {
+extension PatientViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return patient.medicalRecord?.appointments.count ?? 0
     }
