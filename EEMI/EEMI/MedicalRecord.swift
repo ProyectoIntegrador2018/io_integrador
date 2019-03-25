@@ -47,4 +47,3 @@ class MedicalRecord {
         var status: String
     }
 }
-
