@@ -13,10 +13,13 @@ class PatientViewController: UIViewController {
     lazy var activityIndicator: ActivityIndicatorView = ActivityIndicatorView(frame: view.frame, label: "Cargando")
     
     @IBOutlet weak var patientName: UILabel!
-    
     @IBOutlet weak var patientBirthday: UILabel!
-    
     @IBOutlet weak var patientImage: UIImageView!
+    @IBOutlet weak var fatherLabel: UILabel!
+    @IBOutlet weak var motherLabel: UILabel!
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var immunizationButton: UIButton!
+    @IBOutlet weak var patientTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +41,12 @@ class PatientViewController: UIViewController {
     }
     
     func updateLayout() {
+        patientTableView.reloadData()
         patientName.text = patient.fullName
         patientBirthday.text = patient.birthDate?.toString(format: "dd/MMM/yyyy")
+        fatherLabel.text = patient.medicalRecord?.father
+        motherLabel.text = patient.medicalRecord?.mother
+        
         if patient.gender == "M" {
             patientImage.image = UIImage(named: "avatar_boy")
         } else {
@@ -48,4 +55,22 @@ class PatientViewController: UIViewController {
         
     }
     
+    @IBAction func showRecords(_ sender: UIButton) {
+    }
+    
+    @IBAction func showImmunization(_ sender: UIButton) {
+    }
+}
+
+extension PatientViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return patient.medicalRecord?.appointments.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
+        cell.textLabel!.text = patient.medicalRecord?.appointments[indexPath.row].status
+        cell.detailTextLabel!.text = patient.medicalRecord?.appointments[indexPath.row].date?.toString(format: "dd/MMM/yyyy")
+        return cell
+    }
 }
