@@ -19,18 +19,16 @@ class PatientViewController: UIViewController {
     func getMedicalRecord() {
         ApiClient.shared.getMedicalRecord(patientId: patient.id) { (result) in
             switch result {
-            case .success(let medicalRecord):
+            case let .success(medicalRecord):
                 self.patient.medicalRecord = medicalRecord
                 self.updateLayout()
-            case .error(let error):
+            case let .error(error):
                 self.alert(message: error, title: "Error")
             }
         }
     }
     
     func updateLayout() {
-        print(patient.birthDate?.toString(format: "dd/MMM/yyyy") ?? "Failed to format date")
-        print(patient.medicalRecord?.father ?? "No, I am your father...")
     }
     
 }
