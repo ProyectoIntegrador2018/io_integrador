@@ -100,11 +100,11 @@ extension PatientViewController: UITableViewDataSource {
             
             switch status {
             case -1:
-                statusImage = UIImage(named: "reddot") ?? UIImage()
+                statusImage =  UIImage()
             case 0:
                 statusImage = UIImage(named: "yellowdot") ?? UIImage()
             case 1:
-                statusImage = UIImage(named: "yellowdot") ?? UIImage()
+                statusImage = UIImage(named: "reddot") ?? UIImage()
             case 2:
                 statusImage = UIImage(named: "greendot") ?? UIImage()
             default:
