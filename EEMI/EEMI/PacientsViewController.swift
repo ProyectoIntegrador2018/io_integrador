@@ -30,8 +30,8 @@ class PacientsViewController: UIViewController {
         ApiClient.shared.getPatients { (result) in
             switch result {
             case let .success(patients):
-                self.patients = patients
-                self.groupedPatients = Dictionary(grouping: patients, by: {String($0.firstName.prefix(1))})
+                self.patients = patients.sorted {$0.lastName < $1.lastName}
+                self.groupedPatients = Dictionary(grouping: self.patients, by: {String($0.lastName.prefix(1))})
                 self.sections = self.groupedPatients.keys.sorted()
                 self.patientsTableView.reloadData()
             case .error:
@@ -39,6 +39,15 @@ class PacientsViewController: UIViewController {
             }
             self.activityIndicator.remove()
         }
+    }
+    
+    func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: string,
+                                                         attributes: [NSAttributedString.Key.font: font])
+        let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
+        let range = (string as NSString).range(of: boldString)
+        attributedString.addAttributes(boldFontAttribute, range: range)
+        return attributedString
     }
     
 }
@@ -79,7 +88,7 @@ extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
         let patient = patients![index]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
-        cell.textLabel?.text = patient.fullName
+        cell.textLabel?.attributedText = attributedText(withString: patient.fullName, boldString: patient.lastName, font: UIFont.systemFont(ofSize: 18))
         cell.selectionStyle = .none
         return cell
     }
@@ -98,7 +107,7 @@ extension PacientsViewController: UISearchBarDelegate {
             }
         }
         
-        self.groupedPatients = Dictionary(grouping: currentPatients, by: {String($0.firstName.prefix(1))})
+        self.groupedPatients = Dictionary(grouping: currentPatients, by: {String($0.lastName.prefix(1))})
         self.sections = self.groupedPatients.keys.sorted()
         self.patientsTableView.reloadData()
         patientsTableView.reloadData()

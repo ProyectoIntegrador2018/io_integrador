@@ -24,9 +24,9 @@ class Patient {
     
     init(json: JSON) {
         id = json["idPatient"].intValue
-        firstName = json["firstName"].stringValue
-        lastName = json["lastName"].stringValue
-        secondLastName = json["lastName2"].stringValue
+        firstName = json["firstName"].stringValue.trimmingCharacters(in: .whitespaces)
+        lastName = json["lastName"].stringValue.trimmingCharacters(in: .whitespaces)
+        secondLastName = json["lastName2"].stringValue.trimmingCharacters(in: .whitespaces)
         gender = json["gender"].stringValue
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
