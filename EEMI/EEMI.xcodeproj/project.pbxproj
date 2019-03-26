@@ -352,13 +352,16 @@
 				TargetAttributes = {
 					CF158E1B2219DB60007146F9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					CF158E2F2219DB62007146F9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CF158E1B2219DB60007146F9;
 					};
 					CF158E3A2219DB62007146F9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CF158E1B2219DB60007146F9;
 					};
 				};

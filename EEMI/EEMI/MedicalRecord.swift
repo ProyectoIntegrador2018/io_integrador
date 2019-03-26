@@ -12,7 +12,7 @@ import SwiftyJSON
 class MedicalRecord {
     let mother: String
     let father: String
-    var appointments = [Appointment]()
+    var summaries = [Summary]()
     var immunizations = [Immunization]()
     
     init(json: JSON) {
@@ -26,13 +26,14 @@ class MedicalRecord {
             immunizations.append(Immunization(name: name, status: status))
         }
         
-        let jsonAppointments = json["appointments"].arrayValue
-        for jsonAppointment in jsonAppointments {
+        let jsonSummaries = json["summary"].arrayValue
+        for jsonSummary in jsonSummaries {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            let date = dateFormatter.date(from: jsonAppointment["date"].stringValue)
-            let status = jsonAppointment["status"].stringValue
-            appointments.append(Appointment(date: date, status: status))
+            let date = dateFormatter.date(from: jsonSummary["date"].stringValue)
+            let reason = jsonSummary["reason"].stringValue
+            let description = jsonSummary["summary"].stringValue
+            summaries.append(Summary(date: date, reason: reason, description: description))
         }
         
     }
@@ -42,8 +43,9 @@ class MedicalRecord {
         var status: Int
     }
     
-    struct Appointment {
+    struct Summary {
         var date: Date?
-        var status: String
+        var reason: String
+        var description: String
     }
 }

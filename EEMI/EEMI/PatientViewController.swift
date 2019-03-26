@@ -77,7 +77,7 @@ class PatientViewController: UIViewController {
 extension PatientViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isShowingRecords {
-            return patient.medicalRecord?.appointments.count ?? 0
+            return patient.medicalRecord?.summaries.count ?? 0
         } else {
             return patient.medicalRecord?.immunizations.count ?? 0
         }
@@ -87,9 +87,10 @@ extension PatientViewController: UITableViewDataSource {
        let index = indexPath.row
         
         if isShowingRecords {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
-            cell.textLabel!.text = patient.medicalRecord?.appointments[index].status
-            cell.detailTextLabel!.text = patient.medicalRecord?.appointments[index].date?.toString(format: "dd/MMM/yyyy")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
+            let summary = patient.medicalRecord?.summaries[index]
+            cell.textLabel!.text = summary?.reason
+            cell.detailTextLabel!.text = (summary?.date?.toString(format: "dd/MMM/yyyy") ?? "") + " - " + (summary?.description ?? "")
             cell.selectionStyle = .none
             return cell
         } else {
