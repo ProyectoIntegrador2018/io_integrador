@@ -16,18 +16,10 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
-                                               name: UIApplication.willEnterForegroundNotification ,
-                                               object: nil)
         
     }
     
-    @objc func appWillEnterForeground() {
-
-    }
-    
     @IBAction func logout(_ sender: UIButton) {
-        //Remove notification observer
         User.shared.token = nil
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         keychain["user"] = nil

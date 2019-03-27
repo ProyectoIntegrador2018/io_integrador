@@ -27,21 +27,11 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
-                                               name: UIApplication.willEnterForegroundNotification ,
-                                               object: nil)
-
-        if User.shared.token != nil {
-            pinCodeView = PinCodeView(frame: view.frame)
-            tabBarController?.view.addSubview(pinCodeView)
-            pinCodeView.delegate = self
-            localAuthentication(fallbackView: pinCodeView)
-        }
-
+        authenticateUser()
         layout()
         getAppointments(interval: Date().interval(of: .year))
     }
-
+    
     @objc func appWillEnterForeground() {
         tabBarController?.view.addSubview(pinCodeView)
         localAuthentication(fallbackView: pinCodeView)
@@ -56,6 +46,24 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationItem.leftBarButtonItem = nil
+    }
+    
+    func authenticateUser() {
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        if User.shared.token != nil {
+            
+            pinCodeView = PinCodeView(frame: view.frame)
+            
+            if LAContext().biometricType == .touchID {
+                pinCodeView.imageView.image = UIImage(named: "TouchID")
+            }
+            
+            tabBarController?.view.addSubview(pinCodeView)
+            pinCodeView.delegate = self
+            localAuthentication(fallbackView: pinCodeView)
+        }
     }
 
     // MARK: - Layout

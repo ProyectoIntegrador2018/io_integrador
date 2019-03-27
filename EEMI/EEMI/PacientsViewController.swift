@@ -15,13 +15,7 @@ class PacientsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
-                                               name: UIApplication.willEnterForegroundNotification ,
-                                               object: nil)
-    }
-
-    @objc func appWillEnterForeground() {
-
+        
     }
 
 }

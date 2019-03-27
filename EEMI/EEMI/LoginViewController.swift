@@ -23,14 +23,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if User.shared.token != nil {
-            pinCodeView = PinCodeView(frame: view.frame)
-            view.addSubview(pinCodeView)
-            pinCodeView.delegate = self
-            localAuthentication(fallbackView: pinCodeView)
-        }
-
         viewLayout()
     }
 
@@ -38,14 +30,10 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = loginButton.frame.height/2
         KeyboardAvoiding.avoidingView = loginCredentialsStackView
         KeyboardAvoiding.paddingForCurrentAvoidingView = 20
-
         changeTextFieldColor(field: usernameTextField, fieldTitle: "Usuario")
         changeTextFieldColor(field: passwordTextField, fieldTitle: "Contraseña")
-
         sumbitButtonEnabled(status: false)
-
         [usernameTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(textViewDidBeginEditing), for: .editingChanged) })
-
     }
 
     // MARK: - Actions
@@ -113,20 +101,5 @@ extension LoginViewController {
                 self.alert(message: "Usuario o contraseña invalida", title: "Error")
             }
         }
-    }
-}
-
-// MARK: - Local Authorization
-
-extension LoginViewController: PinCodeDelegate {
-    func didSelectButton(number: Int) {
-        pin.append(Character(String(number)))
-        if String(pin) == User.shared.pin {
-            pinCodeView.removeFromSuperview()
-        }
-    }
-    
-    func didSelectDelete() {
-        _ = pin.popLast()
     }
 }

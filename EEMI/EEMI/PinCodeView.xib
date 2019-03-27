@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinCodeView" customModule="EEMI" customModuleProvider="target">
             <connections>
                 <outlet property="deleteButton" destination="ElR-oQ-PLl" id="2YC-Q1-LPK"/>
+                <outlet property="imageView" destination="e6K-Tz-qoq" id="qHB-j4-mXv"/>
                 <outlet property="pinFieldStackView" destination="qKd-Jx-aho" id="B0O-c5-puY"/>
                 <outletCollection property="numberPadButtons" destination="M8d-ut-WXO" collectionClass="NSMutableArray" id="fj8-UD-g0d"/>
                 <outletCollection property="numberPadButtons" destination="aPy-cx-6xp" collectionClass="NSMutableArray" id="NSh-GA-mRD"/>
@@ -41,12 +42,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresar clave pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-nZ-GYl">
-                                        <rect key="frame" x="120.66666666666669" y="200" width="134" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="118.66666666666669" y="195" width="138" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4W0-PE-YZy" userLabel="NumberPad">
-                                        <rect key="frame" x="65" y="341" width="245" height="330"/>
+                                        <rect key="frame" x="65" y="300.33333333333331" width="245" height="329.99999999999994"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cqn-Q5-03F">
                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="75"/>
@@ -181,7 +183,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-ds-Ipn">
-                                                <rect key="frame" x="0.0" y="255" width="245" height="75"/>
+                                                <rect key="frame" x="0.0" y="255.00000000000006" width="245" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrZ-3z-g1p">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -212,7 +214,7 @@
                                                             <constraint firstAttribute="height" constant="75" id="3IL-uJ-HCs"/>
                                                             <constraint firstAttribute="width" constant="75" id="Ton-PG-lxW"/>
                                                         </constraints>
-                                                        <state key="normal" image="delete">
+                                                        <state key="normal" title="Borrar">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -228,41 +230,58 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qKd-Jx-aho">
-                                        <rect key="frame" x="146" y="240.33333333333334" width="83" height="20.000000000000028"/>
+                                        <rect key="frame" x="126" y="235.33333333333334" width="123" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjX-u7-Y71">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="15"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqe-cE-PqV">
-                                                <rect key="frame" x="21" y="0.0" width="20" height="20"/>
+                                                <rect key="frame" x="31" y="0.0" width="30" height="15"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <viewLayoutGuide key="safeArea" id="79q-XR-WDv"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0B-at-Cfb">
-                                                <rect key="frame" x="42" y="0.0" width="20" height="20"/>
+                                                <rect key="frame" x="62" y="0.0" width="30" height="15"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <viewLayoutGuide key="safeArea" id="ema-wG-UdR"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sis-3Z-gOI">
-                                                <rect key="frame" x="63" y="0.0" width="20" height="20"/>
+                                                <rect key="frame" x="93" y="0.0" width="30" height="15"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <viewLayoutGuide key="safeArea" id="ptf-ib-BKp"/>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="83" id="HSo-rz-XKd"/>
-                                            <constraint firstAttribute="height" constant="20" id="MWF-WP-ceb"/>
+                                            <constraint firstAttribute="width" constant="123" id="HSo-rz-XKd"/>
+                                            <constraint firstAttribute="height" constant="15" id="MWF-WP-ceb"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3w-3k-4VJ">
+                                        <rect key="frame" x="126" y="682.33333333333337" width="123" height="30"/>
+                                        <state key="normal" title="¿Olvidaste tu Pin?">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6K-Tz-qoq">
+                                        <rect key="frame" x="150" y="80" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="WsD-XM-vQ4"/>
+                                            <constraint firstAttribute="width" constant="75" id="bQA-Pj-4lQ"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="YNY-nZ-GYl" firstAttribute="top" secondItem="e6K-Tz-qoq" secondAttribute="bottom" constant="40" id="3E7-CR-aUH"/>
+                                    <constraint firstItem="A3w-3k-4VJ" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="3wN-UG-cpp"/>
                                     <constraint firstItem="qKd-Jx-aho" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="Aqr-1q-x2H"/>
                                     <constraint firstItem="4W0-PE-YZy" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="MPD-ne-ysJ"/>
+                                    <constraint firstItem="A3w-3k-4VJ" firstAttribute="top" secondItem="4W0-PE-YZy" secondAttribute="bottom" constant="52" id="RJs-Y3-Zog"/>
+                                    <constraint firstItem="e6K-Tz-qoq" firstAttribute="top" secondItem="Iqu-eo-oAo" secondAttribute="top" constant="80" id="Srn-bZ-C4k"/>
                                     <constraint firstItem="qKd-Jx-aho" firstAttribute="top" secondItem="YNY-nZ-GYl" secondAttribute="bottom" constant="20" id="Z2U-cv-XBF"/>
                                     <constraint firstItem="YNY-nZ-GYl" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="eTS-5T-9gF"/>
-                                    <constraint firstItem="YNY-nZ-GYl" firstAttribute="top" secondItem="Iqu-eo-oAo" secondAttribute="top" constant="200" id="eez-ge-H50"/>
-                                    <constraint firstItem="4W0-PE-YZy" firstAttribute="top" secondItem="qKd-Jx-aho" secondAttribute="bottom" constant="80.666666666666657" id="uuc-BS-3jC"/>
+                                    <constraint firstItem="e6K-Tz-qoq" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="uqh-uO-rpS"/>
+                                    <constraint firstItem="4W0-PE-YZy" firstAttribute="top" secondItem="qKd-Jx-aho" secondAttribute="bottom" constant="50" id="uuc-BS-3jC"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -287,7 +306,4 @@
             <point key="canvasLocation" x="138.40000000000001" y="153.69458128078819"/>
         </view>
     </objects>
-    <resources>
-        <image name="delete" width="20" height="20"/>
-    </resources>
 </document>
