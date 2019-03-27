@@ -262,6 +262,9 @@
                                         <state key="normal" title="¿Olvidaste tu Pin?">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPin:" destination="-1" eventType="touchUpInside" id="r2X-HO-FPc"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6K-Tz-qoq">
                                         <rect key="frame" x="150" y="80" width="75" height="75"/>

@@ -11,6 +11,7 @@ import UIKit
 protocol PinCodeDelegate {
     func didSelectButton(number: Int)
     func didSelectDelete()
+    func didSelectForgotPin()
 }
 
 @IBDesignable class PinCodeView: UIView {
@@ -59,6 +60,10 @@ protocol PinCodeDelegate {
         let buttonNumber = sender.tag
         delegate.didSelectButton(number: buttonNumber)
         
+        guard pinToDraw < 3 else {
+            return
+        }
+        
         let pinViews = pinFieldStackView.subviews
         pinToDraw += 1
         pinViews[pinToDraw].backgroundColor = .black
@@ -66,9 +71,18 @@ protocol PinCodeDelegate {
     
     @IBAction func deleteButton(_ sender: UIButton) {
         delegate.didSelectDelete()
+        
+        guard pinToDraw > -1 else {
+            return
+        }
 
         let pinViews = pinFieldStackView.subviews
         pinViews[pinToDraw].backgroundColor = .clear
         pinToDraw -= 1
     }
+    
+    @IBAction func forgotPin(_ sender: UIButton) {
+        delegate.didSelectForgotPin()
+    }
+    
 }

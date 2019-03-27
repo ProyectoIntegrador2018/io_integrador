@@ -24,6 +24,7 @@
 		CF158E562219E3F6007146F9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E552219E3F6007146F9 /* Login.storyboard */; };
 		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
+		CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */; };
 		CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */; };
 		CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CC224AFAD0007103A5 /* PinViewController.swift */; };
 		CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */; };
@@ -89,6 +90,7 @@
 		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPinViewController.swift; sourceTree = "<group>"; };
 		CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextExtension.swift; sourceTree = "<group>"; };
 		CF9510CC224AFAD0007103A5 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
 				CF158E512219DE32007146F9 /* PacientsViewController.swift */,
 				CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */,
+				CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
 				CF158E572219E429007146F9 /* LoginViewController.swift */,
 			);
@@ -563,6 +566,7 @@
 				CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */,
 				CF158E542219E329007146F9 /* SettingsViewController.swift in Sources */,
 				CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */,
+				CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */,
 				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
 				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,
 				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,

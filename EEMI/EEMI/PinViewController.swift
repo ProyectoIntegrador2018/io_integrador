@@ -17,6 +17,9 @@ class PinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        actualPin.becomeFirstResponder()
+        actualPin.delegate = self
+        newPin.delegate = self
     }
     
     func layout() {
@@ -46,5 +49,13 @@ class PinViewController: UIViewController {
         User.shared.savePin(pin: newPin.text!)
         alertMessage(message: "Puedes usar el nuevo pin para iniciar secion", title: "Pin salvado correctamente")
 
+    }
+}
+
+extension PinViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.count + string.count - range.length
+        return newLength <= 4
     }
 }

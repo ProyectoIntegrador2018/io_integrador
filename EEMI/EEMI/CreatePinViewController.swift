@@ -17,6 +17,8 @@ class CreatePinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        pinTextField.becomeFirstResponder()
+        pinTextField.delegate = self
     }
     
     func layout() {
@@ -36,5 +38,13 @@ class CreatePinViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
         
+    }
+}
+
+extension CreatePinViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.count + string.count - range.length
+        return newLength <= 4
     }
 }
