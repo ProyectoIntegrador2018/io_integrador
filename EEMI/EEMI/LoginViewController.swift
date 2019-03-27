@@ -94,7 +94,7 @@ extension LoginViewController {
             switch result {
             case let .success(token):
                 User.shared.save(token: token)
-                
+
                 if User.shared.pin == nil {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePinViewController") as! CreatePinViewController
                     let presenter = Presentr(presentationType: .fullScreen)
@@ -104,7 +104,7 @@ extension LoginViewController {
                     let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
                     UIApplication.shared.keyWindow?.rootViewController = viewController
                 }
-                
+
             case let .error(error):
                 print("Error: " + error)
                 self.alert(message: "Usuario o contraseña invalida", title: "Error")

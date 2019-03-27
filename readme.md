@@ -72,3 +72,7 @@ $ open EEMI.xcworkspace
 ```
 
 Xcode should open and run the project like normal.
+
+## Deployment
+
+You can find the deployment instructions [here](deployment.md)

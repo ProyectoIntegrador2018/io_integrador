@@ -28,7 +28,6 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         authenticateUser()
         layout()
         getAppointments(interval: Date().interval(of: .year))
@@ -54,7 +53,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
-   
+        
         pinCodeView = PinCodeView(frame: view.frame)
         
         if LAContext().biometricType == .touchID {
@@ -201,12 +200,13 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             cell.subtitleLabel.text = appointment.comments
             cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
+
+        cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
-
     }
 
 }
@@ -226,7 +226,7 @@ extension AgendaViewController: PinCodeDelegate {
         }()
         self.customPresentViewController(presenter, viewController: vc, animated: true, completion: nil)
     }
-    
+
     func didSelectButton(number: Int) {
         pin.append(Character(String(number)))
         if String(pin) == User.shared.pin {
