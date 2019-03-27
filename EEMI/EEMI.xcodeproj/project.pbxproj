@@ -25,6 +25,7 @@
 		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
 		CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */; };
+		CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CC224AFAD0007103A5 /* PinViewController.swift */; };
 		CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */; };
 		CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */; };
 		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
@@ -87,6 +88,7 @@
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextExtension.swift; sourceTree = "<group>"; };
+		CF9510CC224AFAD0007103A5 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				CF158E212219DB60007146F9 /* AgendaViewController.swift */,
+				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
 				CF158E512219DE32007146F9 /* PacientsViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
 				CF158E572219E429007146F9 /* LoginViewController.swift */,
@@ -545,6 +548,7 @@
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
 				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
+				CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */,
 				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
 				65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */,
 				CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */,

@@ -13,7 +13,9 @@ class SettingsViewController: UIViewController {
     
     var pinCodeView: PinCodeView!
     var pin = [Character]()
-
+    
+    @IBOutlet weak var changePin: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,18 @@ class SettingsViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         view.window!.rootViewController = viewController
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func changePin(_ sender: UITapGestureRecognizer) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PinViewController") as! PinViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func helpAndLegal(_ sender: UITapGestureRecognizer) {
+  
+    }
+    
 }
 
 // MARK: - Local Authorization
