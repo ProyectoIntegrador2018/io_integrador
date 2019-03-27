@@ -26,6 +26,8 @@
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
 		CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */; };
 		CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CC224AFAD0007103A5 /* PinViewController.swift */; };
+		CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */; };
+		CF9510D1224B0E8F007103A5 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */; };
 		CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */; };
 		CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */; };
 		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
@@ -89,6 +91,8 @@
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextExtension.swift; sourceTree = "<group>"; };
 		CF9510CC224AFAD0007103A5 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				CF158E212219DB60007146F9 /* AgendaViewController.swift */,
 				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
 				CF158E512219DE32007146F9 /* PacientsViewController.swift */,
+				CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
 				CF158E572219E429007146F9 /* LoginViewController.swift */,
 			);
@@ -249,6 +254,7 @@
 				CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */,
 				CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */,
 				CFD9DAF82221E21B00BEC70C /* DateExtension.swift */,
+				CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */,
 				CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */,
 				CFAD0707221A65A9001B9061 /* KeyboardAvoiding */,
 				CF158E2B2219DB62007146F9 /* Info.plist */,
@@ -432,6 +438,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -442,6 +449,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -542,6 +550,7 @@
 			files = (
 				CFD9DAFB222206E900BEC70C /* Appointment.swift in Sources */,
 				CF158E522219DE32007146F9 /* PacientsViewController.swift in Sources */,
+				CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */,
 				CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */,
 				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
 				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
@@ -559,6 +568,7 @@
 				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,
 				CFAD06FF221A46BC001B9061 /* User.swift in Sources */,
 				CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */,
+				CF9510D1224B0E8F007103A5 /* CreatePinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

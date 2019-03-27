@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import SkyFloatingLabelTextField
+import Presentr
 
 class LoginViewController: UIViewController {
 
@@ -93,9 +94,17 @@ extension LoginViewController {
             switch result {
             case let .success(token):
                 User.shared.save(token: token)
-                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
-                UIApplication.shared.keyWindow?.rootViewController = viewController
+                
+                if User.shared.pin == nil {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePinViewController") as! CreatePinViewController
+                    let presenter = Presentr(presentationType: .fullScreen)
+                    self.customPresentViewController(presenter, viewController: vc, animated: true, completion: nil)
+                } else {
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
+                    UIApplication.shared.keyWindow?.rootViewController = viewController
+                }
+                
             case let .error(error):
                 print("Error: " + error)
                 self.alert(message: "Usuario o contraseña invalida", title: "Error")

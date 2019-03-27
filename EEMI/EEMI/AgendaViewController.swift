@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import FSCalendar
+import Presentr
 
 class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -27,6 +28,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         authenticateUser()
         layout()
         getAppointments(interval: Date().interval(of: .year))
@@ -52,18 +54,17 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
-        if User.shared.token != nil {
-            
-            pinCodeView = PinCodeView(frame: view.frame)
-            
-            if LAContext().biometricType == .touchID {
-                pinCodeView.imageView.image = UIImage(named: "TouchID")
-            }
-            
-            tabBarController?.view.addSubview(pinCodeView)
-            pinCodeView.delegate = self
-            localAuthentication(fallbackView: pinCodeView)
+   
+        pinCodeView = PinCodeView(frame: view.frame)
+        
+        if LAContext().biometricType == .touchID {
+            pinCodeView.imageView.image = UIImage(named: "TouchID")
         }
+        
+        tabBarController?.view.addSubview(pinCodeView)
+        pinCodeView.delegate = self
+        localAuthentication(fallbackView: pinCodeView)
+        
     }
 
     // MARK: - Layout
