@@ -27,14 +27,14 @@ class SegmentedControlButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-         line = UIView(frame: CGRect(x: 0, y: self.frame.height-1, width: self.frame.width, height: 2))
+         line = UIView(frame: CGRect(x: 0, y: self.frame.height-2, width: self.frame.width, height: 2))
          line.backgroundColor = lineColor ?? .lightGray
          self.addSubview(line)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-         line = UIView(frame: CGRect(x: 0, y: self.frame.height-1, width: self.frame.width, height: 2))
+         line = UIView(frame: CGRect(x: 0, y: self.frame.height-2, width: self.frame.width, height: 2))
          line.backgroundColor = lineColor ?? .lightGray
          self.addSubview(line)
     }
