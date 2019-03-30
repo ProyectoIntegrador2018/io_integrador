@@ -78,12 +78,10 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
             // Change toggle arrow upward
             calendar.scope = .week
             toggleAgenda.flipDown()
-            
         case .week:
             // Toggle arrow downward
             calendar.scope = .month
             toggleAgenda.flipUp()
-            
         }
         
     }
