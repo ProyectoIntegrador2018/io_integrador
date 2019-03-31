@@ -8,19 +8,70 @@
 
 import UIKit
 import KeychainAccess
+import Presentr
 
 class SettingsViewController: UIViewController {
-
+    
+    var pinCodeView: PinCodeView!
+    var pin = [Character]()
+    
+    @IBOutlet weak var changePin: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func logout(_ sender: UIButton) {
+        User.shared.token = nil
+        User.shared.pin = nil
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         keychain["user"] = nil
+        keychain["pin"] = nil
+        
         let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         view.window!.rootViewController = viewController
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func changePin(_ sender: UITapGestureRecognizer) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PinViewController") as! PinViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func helpAndLegal(_ sender: UITapGestureRecognizer) {
+  
+    }
+    
+}
+
+// MARK: - Local Authorization
+
+extension SettingsViewController: PinCodeDelegate {
+    
+    func didSelectForgotPin() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
+        let presenter: Presentr = {
+            let width = ModalSize.fluid(percentage: 0.8)
+            let height = ModalSize.fluid(percentage: 0.4)
+            let center = ModalCenterPosition.center
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            let customPresenter = Presentr(presentationType: customType)
+            return customPresenter
+        }()
+        self.customPresentViewController(presenter, viewController: vc, animated: true, completion: nil)
+    }
+    
+    func didSelectButton(number: Int) {
+        pin.append(Character(String(number)))
+        if String(pin) == User.shared.pin {
+            pinCodeView.removeFromSuperview()
+        }
+    }
+    
+    func didSelectDelete() {
+        _ = pin.popLast()
     }
 }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "905B725BEFA7720DD920B2BA99000610"
+               BlueprintIdentifier = "2D2B29951BB65965D9D969DE93794269"
                BuildableName = "Pods_EEMI.framework"
                BlueprintName = "Pods-EEMI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "905B725BEFA7720DD920B2BA99000610"
+            BlueprintIdentifier = "2D2B29951BB65965D9D969DE93794269"
             BuildableName = "Pods_EEMI.framework"
             BlueprintName = "Pods-EEMI"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "905B725BEFA7720DD920B2BA99000610"
+            BlueprintIdentifier = "2D2B29951BB65965D9D969DE93794269"
             BuildableName = "Pods_EEMI.framework"
             BlueprintName = "Pods-EEMI"
             ReferencedContainer = "container:Pods.xcodeproj">

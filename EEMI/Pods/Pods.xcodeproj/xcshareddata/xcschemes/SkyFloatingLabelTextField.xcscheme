@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F5E2FFD0F5D2C59A65764D0F0B081DB"
+               BlueprintIdentifier = "D8A62D867E8659F8240BC8E3063D4236"
                BuildableName = "SkyFloatingLabelTextField.framework"
                BlueprintName = "SkyFloatingLabelTextField"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7F5E2FFD0F5D2C59A65764D0F0B081DB"
+            BlueprintIdentifier = "D8A62D867E8659F8240BC8E3063D4236"
             BuildableName = "SkyFloatingLabelTextField.framework"
             BlueprintName = "SkyFloatingLabelTextField"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7F5E2FFD0F5D2C59A65764D0F0B081DB"
+            BlueprintIdentifier = "D8A62D867E8659F8240BC8E3063D4236"
             BuildableName = "SkyFloatingLabelTextField.framework"
             BlueprintName = "SkyFloatingLabelTextField"
             ReferencedContainer = "container:Pods.xcodeproj">
