@@ -83,7 +83,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.calendar.reloadData()
                 self.tableView.reloadData()
                 
-            case .error(_):
+            case .error:
                 self.alert(message: "No se pudieron obtener citas", title: "Error")
             }
             self.refreshButton.stopRotate()
@@ -173,6 +173,8 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             cell.subtitleLabel.text = appointment.comments
             cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
+        
+        cell.selectionStyle = .none
         return cell
     }
     

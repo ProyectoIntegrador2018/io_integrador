@@ -18,6 +18,8 @@ enum Result<T> {
 enum Endpoints {
     case getTokens(String, String)
     case getAppointments(String, String)
+    case getPatients
+    case getMedicalRecord(Int)
 
     func url() -> URL {
         var path: String
@@ -28,6 +30,10 @@ enum Endpoints {
             path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         case let .getAppointments(startDate, endDate):
             path = "/Agenda/GetByDate/\(startDate)/\(endDate)"
+        case .getPatients:
+            path = "/Patients"
+        case let .getMedicalRecord(patientId):
+            path = "/MedicalRecord/GetByPatientId/\(patientId)"
         }
 
         return URL(string: baseUrl + path)!
@@ -41,24 +47,23 @@ class ApiClient {
     private init() {}
 
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
-
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
             switch response.result {
-            case .success(let value):
+            case let .success(value):
                 let json = JSON(value)
                 let token = json["access_token"].stringValue
                 completion(.success(token))
-            case .failure(let error):
+                
+            case let .failure(error):
                 completion(.error(error.localizedDescription))
             }
         }
     }
 
-    func getAppointments (dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
+    func getAppointments(dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
-
         let appointmentUrl = Endpoints.getAppointments(startDate, endDate).url()
         let token = User.shared.token!
         let headers: HTTPHeaders = [
@@ -68,23 +73,71 @@ class ApiClient {
 
         Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
             switch response.result {
-            case .success(let value):
+            case let .success(value):
                 var appointments = [Appointment]()
                 let json = JSON(value)
-                
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
 
                 for jsonAppointment in jsonAppointments {
                     let appointment = Appointment(json: jsonAppointment)
-
                     appointments.append(appointment)
                 }
 
                 completion(.success(appointments))
+                
+            case let .failure(error):
+                completion(.error(error.localizedDescription))
+            }
+        }
+    }
+    
+    func getPatients(completion: @escaping (Result<[Patient]>) -> Void) {
+        let url = Endpoints.getPatients.url()
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
 
-            case .failure(let error):
+        Alamofire.request(url, headers: headers).responseJSON { (response) in
+            switch response.result {
+            case let .success(value):
+                var patients = [Patient]()
+                let json = JSON(value)
+                guard let jsonPatients = json.array else {
+                    return completion(.success(patients))
+                }
+                for jsonPatient in jsonPatients {
+                    let patient = Patient(json: jsonPatient)
+                    patients.append(patient)
+                }
+                completion(.success(patients))
+                
+            case let .failure(error):
+                completion(.error(error.localizedDescription))
+            }
+        }
+    }
+    
+    func getMedicalRecord(patientId: Int, completion: @escaping (Result<MedicalRecord>) -> Void) {
+        let url = Endpoints.getMedicalRecord(patientId).url()
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(url, headers: headers).responseJSON { (response) in
+            switch response.result {
+            case let .success(value):
+                let jsonValue = JSON(value)
+                let medicalRecord = MedicalRecord(json: jsonValue)
+                
+                completion(.success(medicalRecord))
+                
+            case let .failure(error):
                 completion(.error(error.localizedDescription))
             }
         }
