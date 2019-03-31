@@ -23,8 +23,8 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     var appointments = [String: [Appointment]]()
     var selectedDay = Date().toString()
     var pin = [Character]()
-
-    let refreshButton: UIButton = UIButton()
+    let refreshButton = UIButton()
+    let toggleAgenda = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +40,11 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let barItem: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
-        navigationItem.leftBarButtonItem = barItem
+        let barItemRefresh: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
+        let barItemToggle: UIBarButtonItem = UIBarButtonItem(customView: toggleAgenda)
+        
+        navigationItem.leftBarButtonItem = barItemRefresh
+        navigationItem.rightBarButtonItem = barItemToggle
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -71,6 +74,10 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     func layout() {
         refreshButton.setImage(UIImage(named: "refresh"), for: .normal)
         refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+        
+        toggleAgenda.setImage(UIImage(named: "toggle"), for: .normal)
+        toggleAgenda.addTarget(self, action: #selector(toggle), for: .touchUpInside)
+        
         self.view.addGestureRecognizer(self.scopeGesture)
         calendarLayout()
     }
@@ -91,6 +98,20 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
+    @objc func toggle() {
+        switch self.calendar.scope {
+        case .month:
+            // Change toggle arrow upward
+            calendar.scope = .week
+            toggleAgenda.flipDown()
+        case .week:
+            // Toggle arrow downward
+            calendar.scope = .month
+            toggleAgenda.flipUp()
+        }
+        
+    }
+    
     // MARK: - API
 
     func getAppointments(interval: DateInterval) {
@@ -126,7 +147,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         panGesture.minimumNumberOfTouches = 1
         panGesture.maximumNumberOfTouches = 2
         return panGesture
-        }()
+    }()
 
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 
@@ -167,7 +188,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-         let date = calendar.currentPage
+        let date = calendar.currentPage
         switch self.calendar.scope {
         case .month:
             getAppointments(interval: date.interval(of: .month))
