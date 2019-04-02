@@ -18,13 +18,13 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stateIndicatorView: StateIndicatorView!
 
-    var pinCodeView: PinCodeView!
     let agenda = Calendar.current
     var appointments = [String: [Appointment]]()
     var selectedDay = Date().toString()
     var pin = [Character]()
     let refreshButton = UIButton()
     let toggleAgenda = UIButton()
+    var pinCodeView: PinCodeView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func appWillEnterForeground() {
+        pinCodeView = PinCodeView(frame: view.frame)
+        pinCodeView.delegate = self
         tabBarController?.view.addSubview(pinCodeView)
         localAuthentication(fallbackView: pinCodeView)
     }
@@ -58,13 +60,13 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                                                object: nil)
         
         pinCodeView = PinCodeView(frame: view.frame)
+        pinCodeView.delegate = self
         
         if LAContext().biometricType == .touchID {
             pinCodeView.imageView.image = UIImage(named: "TouchID")
         }
         
         tabBarController?.view.addSubview(pinCodeView)
-        pinCodeView.delegate = self
         localAuthentication(fallbackView: pinCodeView)
         
     }
@@ -252,6 +254,7 @@ extension AgendaViewController: PinCodeDelegate {
         pin.append(Character(String(number)))
         if String(pin) == User.shared.pin {
             pinCodeView.removeFromSuperview()
+            pin.removeAll()
         }
     }
 

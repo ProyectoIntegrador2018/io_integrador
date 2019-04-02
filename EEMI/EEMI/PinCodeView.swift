@@ -49,10 +49,16 @@ protocol PinCodeDelegate {
     func pinCodeFieldLayout() {
         let pinViews = pinFieldStackView.subviews
         for pinView in pinViews {
-            pinFieldStackView.addArrangedSubview(pinView)
             pinView.layer.cornerRadius = pinView.frame.height/2
             pinView.layer.borderWidth = 1
             pinView.layer.borderColor = UIColor.black.cgColor
+        }
+    }
+    
+    func clearPinField() {
+        let pinViews = pinFieldStackView.subviews
+        for pinView in pinViews {
+            pinView.backgroundColor = .clear
         }
     }
     
