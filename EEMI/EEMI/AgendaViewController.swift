@@ -25,10 +25,14 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     let refreshButton = UIButton()
     let toggleAgenda = UIButton()
     var pinCodeView: PinCodeView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        authenticateUser()
+        
+        if User.shared.isAuthenticationOn {
+            authenticateUser()
+        }
+ 
         layout()
         getAppointments(interval: Date().interval(of: .year))
     }
@@ -55,7 +59,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func authenticateUser() {
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
+        NotificationCenter.default.addObserver(tabBarController!, selector: #selector(appWillEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
@@ -103,12 +107,10 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func toggle() {
         switch self.calendar.scope {
         case .month:
-            // Change toggle arrow upward
-            calendar.scope = .week
+            calendar.setScope(.week, animated: true)
             toggleAgenda.flipDown()
         case .week:
-            // Toggle arrow downward
-            calendar.scope = .month
+            calendar.setScope(.month, animated: true)
             toggleAgenda.flipUp()
         }
         
@@ -156,8 +158,10 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         let velocity = self.scopeGesture.velocity(in: self.view)
         switch self.calendar.scope {
         case .month:
+            toggleAgenda.flipDown()
             return velocity.y < 0
         case .week:
+            toggleAgenda.flipUp()
             return velocity.y > 0
         }
     }
@@ -184,7 +188,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         calendarHeightConstraint.constant = bounds.height
         self.view.layoutIfNeeded()
     }
-
+    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         return nil
     }
@@ -197,9 +201,8 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         case .week:
             getAppointments(interval: date.interval(of: .weekOfMonth))
         }
-
     }
-
+    
 }
 
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {

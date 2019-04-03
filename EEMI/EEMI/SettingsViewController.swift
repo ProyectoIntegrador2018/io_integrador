@@ -16,25 +16,40 @@ class SettingsViewController: UIViewController {
     var pin = [Character]()
     
     @IBOutlet weak var changePin: UIView!
+    @IBOutlet weak var disableAuthenticationSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateLayout()
     }
+    
+    func updateLayout() {
+        if User.shared.isAuthenticationOn {
+            disableAuthenticationSwitch.isOn = true
+            changePin.isHidden = false
+
+        } else {
+            disableAuthenticationSwitch.isOn = false
+            changePin.isHidden = true
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func logout(_ sender: UIButton) {
         User.shared.token = nil
         User.shared.pin = nil
+        User.shared.isAuthenticationOn = false
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         keychain["user"] = nil
         keychain["pin"] = nil
+        
+        NotificationCenter.default.removeObserver(tabBarController!, name: UIApplication.willEnterForegroundNotification, object: nil)
         
         let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         view.window!.rootViewController = viewController
     }
-    
-    // MARK: - Actions
     
     @IBAction func changePin(_ sender: UITapGestureRecognizer) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PinViewController") as! PinViewController
@@ -42,9 +57,21 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func helpAndLegal(_ sender: UITapGestureRecognizer) {
-  
+        
     }
     
+    @IBAction func authenticationSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            User.shared.isAuthenticationOn = true
+            let presenter = Presentr(presentationType: PresentationType.fullScreen)
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CreatePinViewController") as! CreatePinViewController
+            customPresentViewController(presenter, viewController: vc, animated: true)
+        } else {
+            User.shared.isAuthenticationOn = false
+        }
+        updateLayout()
+    }
 }
 
 // MARK: - Local Authorization
