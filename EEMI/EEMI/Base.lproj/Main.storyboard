@@ -365,6 +365,9 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F36-Qk-gcb">
                                                 <rect key="frame" x="310" y="9.6666666666666572" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.3921568627" green="0.87058823529999996" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="authenticationSwitch:" destination="LTs-5O-uyU" eventType="valueChanged" id="Pvk-Ln-bEC"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -504,6 +507,7 @@
                     <navigationItem key="navigationItem" title="Ajustes" id="ctu-gn-zWC"/>
                     <connections>
                         <outlet property="changePin" destination="7b9-vt-FRf" id="A1v-rX-bNx"/>
+                        <outlet property="disableAuthenticationSwitch" destination="F36-Qk-gcb" id="drp-i5-dee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knW-HK-Jry" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,9 +14,14 @@ class User {
     static var shared = User()
     var token: String?
     var pin: String?
+    var isAuthenticationOn = false {
+        didSet {
+            self.saveAuthenticationOption(auth: isAuthenticationOn)
+        }
+    }
     
     private init() {
-        
+        isAuthenticationOn = retriveAuthenticationOption()
         if let retrivedToken = retriveToken() {
             token = retrivedToken
         }
@@ -48,5 +53,13 @@ class User {
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         let pin = keychain["pin"]
         return pin
+    }
+    
+    func saveAuthenticationOption(auth: Bool) {
+        UserDefaults.standard.set(true, forKey: "isAuthenticationOn")
+    }
+    
+    func retriveAuthenticationOption() -> Bool {
+        return UserDefaults.standard.bool(forKey: "isAuthenticationOn")
     }
 }

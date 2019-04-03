@@ -13,16 +13,18 @@ class CreatePinViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var pinTextField: UITextField!
     @IBOutlet weak var changePin: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()
         pinTextField.becomeFirstResponder()
         pinTextField.delegate = self
+        layout()
     }
     
     func layout() {
         changePin.layer.cornerRadius = changePin.frame.height/5
+        cancelButton.layer.cornerRadius = cancelButton.frame.height/5
     }
     
     @IBAction func ChangePin(_ sender: UIButton) {
@@ -33,11 +35,18 @@ class CreatePinViewController: UIViewController {
         }
         
         User.shared.savePin(pin: pinTextField.text!)
-        
+        User.shared.isAuthenticationOn = true
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
         
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        view.endEditing(true)
+        User.shared.isAuthenticationOn = false
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
     }
 }
 
