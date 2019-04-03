@@ -44,8 +44,6 @@ class SettingsViewController: UIViewController {
         keychain["user"] = nil
         keychain["pin"] = nil
         
-        NotificationCenter.default.removeObserver(tabBarController!, name: UIApplication.willEnterForegroundNotification, object: nil)
-        
         let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         view.window!.rootViewController = viewController

@@ -56,7 +56,7 @@ class User {
     }
     
     func saveAuthenticationOption(auth: Bool) {
-        UserDefaults.standard.set(true, forKey: "isAuthenticationOn")
+        UserDefaults.standard.set(auth, forKey: "isAuthenticationOn")
     }
     
     func retriveAuthenticationOption() -> Bool {

@@ -37,6 +37,10 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         getAppointments(interval: Date().interval(of: .year))
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
     @objc func appWillEnterForeground() {
         pinCodeView = PinCodeView(frame: view.frame)
         pinCodeView.delegate = self
@@ -59,7 +63,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func authenticateUser() {
-        NotificationCenter.default.addObserver(tabBarController!, selector: #selector(appWillEnterForeground),
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
