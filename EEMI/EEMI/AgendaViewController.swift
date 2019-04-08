@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import LocalAuthentication
 import FSCalendar
+import Presentr
 
 class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -15,46 +17,88 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stateIndicatorView: StateIndicatorView!
-    
+
     let agenda = Calendar.current
     var appointments = [String: [Appointment]]()
     var selectedDay = Date().toString()
+    var pin = [Character]()
+    let refreshButton = UIButton()
+    let toggleAgenda = UIButton()
+    var pinCodeView: PinCodeView!
     
-    let refreshButton: UIButton = UIButton()
-   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if User.shared.isAuthenticationOn {
+            authenticateUser()
+        }
+ 
         layout()
         getAppointments(interval: Date().interval(of: .year))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let barItem: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
-        navigationItem.leftBarButtonItem = barItem
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    @objc func appWillEnterForeground() {
+        pinCodeView = PinCodeView(frame: view.frame)
+        pinCodeView.delegate = self
+        tabBarController?.view.addSubview(pinCodeView)
+        localAuthentication(fallbackView: pinCodeView)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let barItemRefresh: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
+        let barItemToggle: UIBarButtonItem = UIBarButtonItem(customView: toggleAgenda)
+        
+        navigationItem.leftBarButtonItem = barItemRefresh
+        navigationItem.rightBarButtonItem = barItemToggle
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationItem.leftBarButtonItem = nil
     }
     
+    func authenticateUser() {
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        
+        pinCodeView = PinCodeView(frame: view.frame)
+        pinCodeView.delegate = self
+        
+        if LAContext().biometricType == .touchID {
+            pinCodeView.imageView.image = UIImage(named: "TouchID")
+        }
+        
+        tabBarController?.view.addSubview(pinCodeView)
+        localAuthentication(fallbackView: pinCodeView)
+        
+    }
+
     // MARK: - Layout
-    
+
     func layout() {
         refreshButton.setImage(UIImage(named: "refresh"), for: .normal)
         refreshButton.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+        
+        toggleAgenda.setImage(UIImage(named: "toggle"), for: .normal)
+        toggleAgenda.addTarget(self, action: #selector(toggle), for: .touchUpInside)
+        
         self.view.addGestureRecognizer(self.scopeGesture)
         calendarLayout()
     }
-    
+
     func calendarLayout() {
         calendar.scope = .week
         calendar.locale = Locale(identifier: "ES")
     }
-    
+
     // MARK: - Actions
-    
+
     @objc func refresh() {
         if refreshButton.isRotating() {
             refreshButton.stopRotate()
@@ -63,9 +107,21 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
             getAppointments(interval: date.interval(of: .month))
         }
     }
+
+    @objc func toggle() {
+        switch self.calendar.scope {
+        case .month:
+            calendar.setScope(.week, animated: true)
+            toggleAgenda.flipDown()
+        case .week:
+            calendar.setScope(.month, animated: true)
+            toggleAgenda.flipUp()
+        }
+        
+    }
     
     // MARK: - API
-    
+
     func getAppointments(interval: DateInterval) {
         refreshButton.startRotate()
         ApiClient.shared.getAppointments(dateInterval: interval) { (result) in
@@ -82,16 +138,16 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.appointments.merge(auxDict) {$1}
                 self.calendar.reloadData()
                 self.tableView.reloadData()
-                
-            case .error(_):
+
+            case .error:
                 self.alert(message: "No se pudieron obtener citas", title: "Error")
             }
             self.refreshButton.stopRotate()
         }
     }
-    
+
     // MARK: - UIGestureRecognizerDelegate
-    
+
     fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
         [unowned self] in
         let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
@@ -99,15 +155,17 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         panGesture.minimumNumberOfTouches = 1
         panGesture.maximumNumberOfTouches = 2
         return panGesture
-        }()
+    }()
 
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
 
         let velocity = self.scopeGesture.velocity(in: self.view)
         switch self.calendar.scope {
         case .month:
+            toggleAgenda.flipDown()
             return velocity.y < 0
         case .week:
+            toggleAgenda.flipUp()
             return velocity.y > 0
         }
     }
@@ -124,7 +182,7 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
         }
         tableView.reloadData()
     }
-    
+
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         let key = date.toString()
         return appointments[key]?.count ?? 0
@@ -138,30 +196,29 @@ extension AgendaViewController: FSCalendarDataSource, FSCalendarDelegate, FSCale
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         return nil
     }
-    
+
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-         let date = calendar.currentPage
+        let date = calendar.currentPage
         switch self.calendar.scope {
         case .month:
             getAppointments(interval: date.interval(of: .month))
         case .week:
             getAppointments(interval: date.interval(of: .weekOfMonth))
         }
-       
     }
-
+    
 }
 
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         guard let appointments = appointments[selectedDay] else {
             stateIndicatorView.show()
             return 0
         }
         stateIndicatorView.hide()
-        
+
         return appointments.count
     }
 
@@ -173,11 +230,42 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             cell.subtitleLabel.text = appointment.comments
             cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
+
+        cell.selectionStyle = .none
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
     }
 
+}
+
+// MARK: - Local Authorization
+
+extension AgendaViewController: PinCodeDelegate {
+    func didSelectForgotPin() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
+        let presenter: Presentr = {
+            let width = ModalSize.fluid(percentage: 0.8)
+            let height = ModalSize.fluid(percentage: 0.4)
+            let center = ModalCenterPosition.center
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            let customPresenter = Presentr(presentationType: customType)
+            return customPresenter
+        }()
+        self.customPresentViewController(presenter, viewController: vc, animated: true, completion: nil)
+    }
+
+    func didSelectButton(number: Int) {
+        pin.append(Character(String(number)))
+        if String(pin) == User.shared.pin {
+            pinCodeView.removeFromSuperview()
+            pin.removeAll()
+        }
+    }
+
+    func didSelectDelete() {
+        _ = pin.popLast()
+    }
 }
