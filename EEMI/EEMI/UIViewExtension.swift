@@ -20,6 +20,28 @@ extension UIView {
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
     
+    func flipUp() {
+        let flip: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        flip.fromValue = 0
+        flip.toValue = NSNumber(value: Double.pi)
+        flip.duration = 0.25
+        flip.isCumulative = false
+        flip.isRemovedOnCompletion = false
+        flip.fillMode = .forwards
+        self.layer.add(flip, forKey: "flipAnimation")
+    }
+    
+    func flipDown() {
+        let flip: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        flip.fromValue = NSNumber(value: Double.pi)
+        flip.toValue = 0
+        flip.duration = 0.25
+        flip.isCumulative = false
+        flip.isRemovedOnCompletion = false
+        flip.fillMode = .forwards
+        self.layer.add(flip, forKey: "flipAnimation")
+    }
+    
     func stopRotate() {
         self.layer.removeAnimation(forKey: "rotationAnimation")
     }

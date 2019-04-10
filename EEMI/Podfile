@@ -11,6 +11,7 @@ target 'EEMI' do
   pod 'KeychainAccess'
   pod 'FSCalendar'
   pod 'SkyFloatingLabelTextField'
+  pod 'Presentr'
 
   target 'EEMITests' do
     inherit! :search_paths

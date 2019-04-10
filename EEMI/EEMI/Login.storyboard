@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFV-kO-FuA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFV-kO-FuA">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,6 +108,106 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="165.51724137931035"/>
+        </scene>
+        <!--Create Pin View Controller-->
+        <scene sceneID="JG5-hs-w8e">
+            <objects>
+                <viewController storyboardIdentifier="CreatePinViewController" id="z8j-vK-OYB" customClass="CreatePinViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sx0-aj-xGk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-yl-lCO">
+                                <rect key="frame" x="32" y="129" width="350" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="c3L-Lk-vT9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear PIN (4 digitos):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7l-3b-oiW">
+                                <rect key="frame" x="32" y="94" width="350" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la1-fS-l46">
+                                <rect key="frame" x="32" y="203" width="350" height="42"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="n0X-YE-SGk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Crear PIN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ChangePin:" destination="z8j-vK-OYB" eventType="touchUpInside" id="vWd-ex-cTQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En caso de que la autorizacion biometrica falle utilizaras este pin para iniciar secion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04n-HE-D6o">
+                                <rect key="frame" x="32" y="261" width="350" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEL-eF-4bj">
+                                <rect key="frame" x="32" y="318" width="350" height="42"/>
+                                <color key="backgroundColor" red="0.71903628109999995" green="0.20342343069999999" blue="0.1536824816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="caM-yK-5h9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="No quiero usar PIN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="z8j-vK-OYB" eventType="touchUpInside" id="c7v-a1-Diq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7m-3h-x3n">
+                                <rect key="frame" x="32" y="376" width="350" height="81.5"/>
+                                <string key="text">Si no se utiliza pin, se desabilitara la opcion para autenticacion biometrica en la aplicacion. Pedes cambiar esta opcion en ajustes.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="la1-fS-l46" firstAttribute="centerX" secondItem="sx0-aj-xGk" secondAttribute="centerX" id="20G-jT-zhU"/>
+                            <constraint firstItem="P7l-3b-oiW" firstAttribute="leading" secondItem="bj3-F5-fxz" secondAttribute="leading" constant="32" id="36Y-do-WLJ"/>
+                            <constraint firstItem="03Q-yl-lCO" firstAttribute="centerX" secondItem="sx0-aj-xGk" secondAttribute="centerX" id="A4V-Dt-Rof"/>
+                            <constraint firstItem="03Q-yl-lCO" firstAttribute="top" secondItem="P7l-3b-oiW" secondAttribute="bottom" constant="8" id="Pks-8E-LaJ"/>
+                            <constraint firstItem="P7l-3b-oiW" firstAttribute="centerX" secondItem="sx0-aj-xGk" secondAttribute="centerX" id="S7U-jV-X0C"/>
+                            <constraint firstItem="la1-fS-l46" firstAttribute="top" secondItem="03Q-yl-lCO" secondAttribute="bottom" constant="32" id="UIz-zf-i82"/>
+                            <constraint firstItem="ZEL-eF-4bj" firstAttribute="leading" secondItem="bj3-F5-fxz" secondAttribute="leading" constant="32" id="UOq-nl-LH3"/>
+                            <constraint firstItem="bj3-F5-fxz" firstAttribute="trailing" secondItem="P7l-3b-oiW" secondAttribute="trailing" constant="32" id="Ulg-by-dhi"/>
+                            <constraint firstItem="ZEL-eF-4bj" firstAttribute="top" secondItem="04n-HE-D6o" secondAttribute="bottom" constant="16" id="a2z-Dx-IV6"/>
+                            <constraint firstItem="bj3-F5-fxz" firstAttribute="trailing" secondItem="04n-HE-D6o" secondAttribute="trailing" constant="32" id="alZ-qh-dBD"/>
+                            <constraint firstItem="03Q-yl-lCO" firstAttribute="width" secondItem="P7l-3b-oiW" secondAttribute="width" id="c1B-w8-Dud"/>
+                            <constraint firstItem="04n-HE-D6o" firstAttribute="top" secondItem="la1-fS-l46" secondAttribute="bottom" constant="16" id="gMM-T1-kK5"/>
+                            <constraint firstItem="P7l-3b-oiW" firstAttribute="top" secondItem="bj3-F5-fxz" secondAttribute="top" constant="50" id="gv6-3o-CfW"/>
+                            <constraint firstItem="s7m-3h-x3n" firstAttribute="leading" secondItem="bj3-F5-fxz" secondAttribute="leading" constant="32" id="hrV-lC-O41"/>
+                            <constraint firstItem="04n-HE-D6o" firstAttribute="leading" secondItem="sx0-aj-xGk" secondAttribute="leading" constant="32" id="lbz-BH-JmB"/>
+                            <constraint firstItem="bj3-F5-fxz" firstAttribute="trailing" secondItem="s7m-3h-x3n" secondAttribute="trailing" constant="32" id="sW4-Ku-f5y"/>
+                            <constraint firstItem="la1-fS-l46" firstAttribute="width" secondItem="03Q-yl-lCO" secondAttribute="width" id="vMS-7d-NBm"/>
+                            <constraint firstItem="bj3-F5-fxz" firstAttribute="trailing" secondItem="ZEL-eF-4bj" secondAttribute="trailing" constant="32" id="wrg-mD-Mau"/>
+                            <constraint firstItem="s7m-3h-x3n" firstAttribute="top" secondItem="ZEL-eF-4bj" secondAttribute="bottom" constant="16" id="y8A-OT-hyD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bj3-F5-fxz"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="ZEL-eF-4bj" id="0Qp-jd-MCT"/>
+                        <outlet property="changePin" destination="la1-fS-l46" id="kmV-Ko-7Ia"/>
+                        <outlet property="descriptionLabel" destination="04n-HE-D6o" id="MKz-lA-B1O"/>
+                        <outlet property="pinTextField" destination="03Q-yl-lCO" id="kAc-WB-ATP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq4-re-eBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002.8985507246377" y="164.73214285714286"/>
         </scene>
     </scenes>
     <resources>
