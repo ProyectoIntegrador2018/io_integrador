@@ -32,6 +32,7 @@ class PatientViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         let barItemAddAppointment: UIBarButtonItem = UIBarButtonItem(customView: addAppointmentButton)
         
         navigationItem.rightBarButtonItem = barItemAddAppointment
@@ -77,7 +78,9 @@ class PatientViewController: UIViewController {
     }
     
     @objc func addAppointment() {
-        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddAppointmentViewController") as! AddAppointmentViewController
+        vc.patient = self.patient
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func showRecords(_ sender: UIButton) {

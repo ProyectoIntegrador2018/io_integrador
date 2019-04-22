@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DCBAF07B5E7795F9942045C /* Pods_EEMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80244490E2532F87604BA219 /* Pods_EEMITests.framework */; };
+		65EB06FE226E28C500E31882 /* AddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */; };
 		65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F7EFB1221E271900B8A97D /* ColorPallet.swift */; };
 		AD331AB6DBE2C86262F3A7D2 /* Pods_EEMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */; };
 		CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06043B221CEEEF00D10F07 /* PinCodeView.swift */; };
@@ -69,6 +70,7 @@
 		1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B2E2CCC89782F2E8FB54D20 /* Pods-EEMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.release.xcconfig"; sourceTree = "<group>"; };
 		4AD5114689A6B6B549D0D42D /* Pods-EEMIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentViewController.swift; sourceTree = "<group>"; };
 		65F7EFB1221E271900B8A97D /* ColorPallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallet.swift; sourceTree = "<group>"; };
 		72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		793430802243327A00FB329C /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
 				CF158E572219E429007146F9 /* LoginViewController.swift */,
+				65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				CFCFA2522241678500260D76 /* Patient.swift in Sources */,
 				CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */,
 				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
+				65EB06FE226E28C500E31882 /* AddAppointmentViewController.swift in Sources */,
 				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
 				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
 				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
