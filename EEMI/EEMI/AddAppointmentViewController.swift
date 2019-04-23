@@ -8,13 +8,26 @@
 
 import UIKit
 
-class AddAppointmentViewController: UIViewController {
-
+class AddAppointmentViewController: UIViewController, UITextViewDelegate {
+    
     var patient: Patient!
+    
+    @IBOutlet weak var saveAppointmentBtn: UIButton!
+    @IBOutlet weak var commentsTextView: UITextView!
+    @IBOutlet weak var immunizationSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCustomBackButton(title: patient.firstName)
+        layout()
+        commentsTextView.delegate = self
+    }
+    
+    func layout() {
+        addCustomBackButton(title: patient.fullName)
+        saveAppointmentBtn.layer.cornerRadius = saveAppointmentBtn.frame.height/6
+        saveAppointmentBtn.addDropShadow()
+        immunizationSwitch.isOn = false
+        commentsTextView.textColor = UIColor.lightGray
     }
     
     func addCustomBackButton(title: String) {
@@ -22,4 +35,31 @@ class AddAppointmentViewController: UIViewController {
         backButton.title = title
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func saveAppointment(_ sender: Any) {
+        
+    }
+    
+    @IBAction func toggleImmunization(_ sender: Any) {
+        
+    }
+    
+    // MARK: - TextView
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.textColor = UIColor.black
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.textColor = UIColor.lightGray
+            textView.text = "Comentarios..."
+        }
+    }
+    
 }
