@@ -15,6 +15,7 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var saveAppointmentBtn: UIButton!
     @IBOutlet weak var commentsTextView: UITextView!
     @IBOutlet weak var immunizationSwitch: UISwitch!
+    @IBOutlet weak var appointmentScroll: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
     
     func layout() {
         addCustomBackButton(title: patient.fullName)
+        KeyboardAvoiding.avoidingView = appointmentScroll
         saveAppointmentBtn.layer.cornerRadius = saveAppointmentBtn.frame.height/6
         saveAppointmentBtn.addDropShadow()
         immunizationSwitch.isOn = false
@@ -39,11 +41,10 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
     // MARK: - Actions
     
     @IBAction func saveAppointment(_ sender: Any) {
-        
+        self.view.endEditing(true)
     }
     
     @IBAction func toggleImmunization(_ sender: Any) {
-        
     }
     
     // MARK: - TextView
@@ -53,6 +54,9 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.black
             textView.text = nil
         }
+        
+        let textViewY = commentsTextView.frame.minY-50
+        appointmentScroll.setContentOffset(CGPoint(x: 0, y: textViewY), animated: true)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
