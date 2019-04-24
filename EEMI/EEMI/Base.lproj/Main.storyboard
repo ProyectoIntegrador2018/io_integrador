@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -324,7 +324,7 @@
             </objects>
             <point key="canvasLocation" x="1292" y="40.64039408866995"/>
         </scene>
-        <!--Add Appointment View Controller-->
+        <!--Data Source-->
         <scene sceneID="12U-tz-XPK">
             <objects>
                 <viewController storyboardIdentifier="AddAppointmentViewController" id="wP6-1f-o7j" customClass="AddAppointmentViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
@@ -410,6 +410,10 @@
                                                         <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="wP6-1f-o7j" id="unN-9c-vWL"/>
+                                                    <outlet property="delegate" destination="wP6-1f-o7j" id="IMS-JE-oNC"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w15-Kj-hjG">
                                                 <rect key="frame" x="0.0" y="266" width="375" height="50"/>
@@ -1089,13 +1093,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="33" height="33"/>
-        <image name="female" width="33" height="33"/>
+        <image name="calendar" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="female" width="33.333332061767578" height="33.333332061767578"/>
         <image name="forward_arrow" width="128" height="128"/>
-        <image name="greendot" width="16" height="16"/>
+        <image name="greendot" width="16.666666030883789" height="16.666666030883789"/>
         <image name="lock" width="15" height="15"/>
-        <image name="male" width="33" height="33"/>
-        <image name="patients_sidemenu" width="33" height="33"/>
+        <image name="male" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="patients_sidemenu" width="33.333332061767578" height="33.333332061767578"/>
         <image name="settings" width="25" height="25"/>
     </resources>
 </document>

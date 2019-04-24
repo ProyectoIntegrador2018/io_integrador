@@ -20,6 +20,7 @@ enum Endpoints {
     case getAppointments(String, String)
     case getPatients
     case getMedicalRecord(Int)
+    case createAppointment
 
     func url() -> URL {
         var path: String
@@ -34,6 +35,8 @@ enum Endpoints {
             path = "/Patients"
         case let .getMedicalRecord(patientId):
             path = "/MedicalRecord/GetByPatientId/\(patientId)"
+        case .createAppointment:
+            path = "/Agenda/"
         }
 
         return URL(string: baseUrl + path)!
@@ -139,6 +142,23 @@ class ApiClient {
 
             case let .failure(error):
                 completion(.error(error.localizedDescription))
+            }
+        }
+    }
+    
+    func createAppointment(parameters: [String: Any], completion: @escaping (Result<String>) -> Void) {
+        let url = Endpoints.createAppointment.url()
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+            if response.response?.statusCode == 200 {
+                 completion(.success("Se agendo la cita correctamente"))
+            } else {
+                completion(.error("No se pudo agendar la cita"))
             }
         }
     }
