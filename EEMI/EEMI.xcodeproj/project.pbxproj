@@ -25,7 +25,7 @@
 		CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */; };
 		CF53F336224C3DDB00D0F662 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
 		CF53F337224C3DDB00D0F662 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E532219E329007146F9 /* SettingsViewController.swift */; };
-		CF53F338224C3DDB00D0F662 /* PacientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E512219DE32007146F9 /* PacientsViewController.swift */; };
+		CF53F338224C3DDB00D0F662 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E512219DE32007146F9 /* PatientsViewController.swift */; };
 		CF53F339224C3E5200D0F662 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793430802243327A00FB329C /* MedicalRecord.swift */; };
 		CF8B7E51224937A900E10777 /* ImmunizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */; };
 		CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */; };
@@ -91,7 +91,7 @@
 		CF158E3B2219DB62007146F9 /* EEMIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EEMIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF158E3F2219DB62007146F9 /* EEMIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEMIUITests.swift; sourceTree = "<group>"; };
 		CF158E412219DB62007146F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF158E512219DE32007146F9 /* PacientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientsViewController.swift; sourceTree = "<group>"; };
+		CF158E512219DE32007146F9 /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
 		CF158E532219E329007146F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				CF158E212219DB60007146F9 /* AgendaViewController.swift */,
 				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
 				CFFBB1E92242D46C00FC5DF0 /* PatientViewController.swift */,
-				CF158E512219DE32007146F9 /* PacientsViewController.swift */,
+				CF158E512219DE32007146F9 /* PatientsViewController.swift */,
 				CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */,
 				CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */,
 				CF158E532219E329007146F9 /* SettingsViewController.swift */,
@@ -571,7 +571,7 @@
 			files = (
 				CF53F339224C3E5200D0F662 /* MedicalRecord.swift in Sources */,
 				CF53F336224C3DDB00D0F662 /* Appointment.swift in Sources */,
-				CF53F338224C3DDB00D0F662 /* PacientsViewController.swift in Sources */,
+				CF53F338224C3DDB00D0F662 /* PatientsViewController.swift in Sources */,
 				CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */,
 				CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */,
 				CFCFA2522241678500260D76 /* Patient.swift in Sources */,
