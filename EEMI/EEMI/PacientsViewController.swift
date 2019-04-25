@@ -36,8 +36,12 @@ class PacientsViewController: UIViewController {
                 self.groupedPatients = Dictionary(grouping: self.patients, by: {String($0.lastName.prefix(1))})
                 self.sections = self.groupedPatients.keys.sorted()
                 self.patientsTableView.reloadData()
-            case .error:
-                self.alert(message: "No se pudieron obtener los pacientes", title: "Error")
+            case let .error((message, title)):
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.activityIndicator.remove()
         }

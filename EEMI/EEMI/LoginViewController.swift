@@ -105,9 +105,8 @@ extension LoginViewController {
                     UIApplication.shared.keyWindow?.rootViewController = viewController
                 }
 
-            case let .error(error):
-                print("Error: " + error)
-                self.alert(message: "Usuario o contraseña invalida", title: "Error")
+            case let .error((message, title)):
+                self.alert(message: message, title: title)
             }
         }
     }
