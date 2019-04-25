@@ -22,6 +22,9 @@ class PatientViewController: UIViewController {
     @IBOutlet weak var recordButton: SegmentedControlButton!
     @IBOutlet weak var immunizationButton: SegmentedControlButton!
     @IBOutlet weak var patientTableView: UITableView!
+    @IBOutlet weak var familyStackView: UIStackView!
+    @IBOutlet weak var fatherStackView: UIStackView!
+    @IBOutlet weak var motherStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +52,19 @@ class PatientViewController: UIViewController {
     
     func updateLayout() {
         patientTableView.reloadData()
-        fatherLabel.text = patient.medicalRecord?.father
-        motherLabel.text = patient.medicalRecord?.mother
+        if patient.medicalRecord?.father != "" {
+            fatherStackView.isHidden = false
+            fatherLabel.text = patient.medicalRecord?.father
+        } else {
+            fatherStackView.isHidden = true
+        }
+        
+        if patient.medicalRecord?.mother != "" {
+            motherStackView.isHidden = false
+            motherLabel.text = patient.medicalRecord?.mother
+        } else {
+            motherStackView.isHidden = true
+        }
     }
 
     func defaultLayout() {
