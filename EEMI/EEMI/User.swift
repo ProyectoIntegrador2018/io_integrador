@@ -12,7 +12,7 @@ import KeychainAccess
 class User {
     
     static var shared = User()
-    var token: String?
+    var token: String? = "hola"
     var pin: String?
     var isAuthenticationOn = false {
         didSet {
@@ -40,7 +40,7 @@ class User {
     func retriveToken() -> String? {
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         let token = keychain["user"]
-        return token
+        return "hola"
     }
     
     func savePin(pin: String) {

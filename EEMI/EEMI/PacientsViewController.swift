@@ -37,7 +37,11 @@ class PacientsViewController: UIViewController {
                 self.sections = self.groupedPatients.keys.sorted()
                 self.patientsTableView.reloadData()
             case let .error((message, title)):
-                self.alert(message: message, title: title)
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.activityIndicator.remove()
         }

@@ -140,7 +140,13 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.tableView.reloadData()
 
             case let .error((message, title)):
-                self.alert(message: message, title: title)
+                
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                   self.alert(message: message, title: title)
+                }
+            
             }
             self.refreshButton.stopRotate()
         }
