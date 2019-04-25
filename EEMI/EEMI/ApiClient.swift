@@ -12,7 +12,7 @@ import SwiftyJSON
 
 enum Result<T> {
     case success(T)
-    case error(String)
+    case error((String, String))
 }
 
 enum Endpoints {
@@ -59,7 +59,13 @@ class ApiClient {
                 completion(.success(token))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else {
+                    let errorMessage = "Usuario o contraseña inválida."
+                    let errorTitle = "No se pudo iniciar sesión."
+                    completion(.error((errorMessage, errorTitle)))
+                }
             }
         }
     }
@@ -91,7 +97,13 @@ class ApiClient {
                 completion(.success(appointments))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener citas.")))
+                }
             }
         }
     }
@@ -119,7 +131,13 @@ class ApiClient {
                 completion(.success(patients))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener los pacientes.")))
+                }
             }
         }
     }
@@ -141,11 +159,17 @@ class ApiClient {
                 completion(.success(medicalRecord))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudo obtener el expediente médico.")))
+                }
             }
         }
     }
-    
+
     func createAppointment(parameters: [String: Any], completion: @escaping (Result<String>) -> Void) {
         let url = Endpoints.createAppointment.url()
         let token = User.shared.token!
@@ -153,12 +177,12 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-        
+
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
             if response.response?.statusCode == 200 {
-                 completion(.success("Se agendo la cita correctamente"))
+                 completion(.success("La cita se creo exitosamente"))
             } else {
-                completion(.error("No se pudo agendar la cita"))
+                completion(.error(("Porfavor intentelo más tarde", "No se pudo crear la cita")))
             }
         }
     }

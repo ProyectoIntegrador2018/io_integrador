@@ -139,8 +139,12 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.calendar.reloadData()
                 self.tableView.reloadData()
 
-            case .error:
-                self.alert(message: "No se pudieron obtener citas", title: "Error")
+            case let .error((message, title)):
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.refreshButton.stopRotate()
         }
@@ -228,7 +232,7 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             let appointment = appointments[indexPath.row]
             cell.titleLabel.text = "\(appointment.patientName ?? "") \(appointment.patientLastName ?? "")"
             cell.subtitleLabel.text = appointment.comments
-            cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
+            cell.timeLabel.text = appointment.date?.toString(format: "hh:mm a")
         }
 
         cell.selectionStyle = .none

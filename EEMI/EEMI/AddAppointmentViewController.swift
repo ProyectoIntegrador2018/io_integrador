@@ -73,8 +73,8 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
             case .success:
                 self.alertMessage(message: "Cita agendada para el dia: \(self.selectedDay.toString(format: "dd/MM/yyyy"))",
                            title: "Cita creada")
-            case .error:
-                self.alertMessage(message: "Porfavor intentelo más tarde", title: "No se pudo crear la cita")
+            case let .error((message,title)):
+                self.alertMessage(message: message, title: title)
             }
         }
 
