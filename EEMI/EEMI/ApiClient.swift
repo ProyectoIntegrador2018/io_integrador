@@ -12,7 +12,7 @@ import SwiftyJSON
 
 enum Result<T> {
     case success(T)
-    case error(String)
+    case error((String, String))
 }
 
 enum Endpoints {
@@ -20,11 +20,11 @@ enum Endpoints {
     case getAppointments(String, String)
     case getPatients
     case getMedicalRecord(Int)
-
+    
     func url() -> URL {
         var path: String
         let baseUrl = "http://emmiapi.azurewebsites.net/api"
-
+        
         switch self {
         case let .getTokens(username, password):
             path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -35,17 +35,17 @@ enum Endpoints {
         case let .getMedicalRecord(patientId):
             path = "/MedicalRecord/GetByPatientId/\(patientId)"
         }
-
+        
         return URL(string: baseUrl + path)!
     }
 }
 
 class ApiClient {
-
+    
     static let shared = ApiClient()
-
+    
     private init() {}
-
+    
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
@@ -54,13 +54,19 @@ class ApiClient {
                 let json = JSON(value)
                 let token = json["access_token"].stringValue
                 completion(.success(token))
-
+                
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else {
+                    let errorMessage = "Usuario o contraseña inválida."
+                    let errorTitle = "No se pudo iniciar sesión."
+                    completion(.error((errorMessage, errorTitle)))
+                }
             }
         }
     }
-
+    
     func getAppointments(dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
@@ -70,7 +76,7 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-
+        
         Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
             switch response.result {
             case let .success(value):
@@ -79,20 +85,26 @@ class ApiClient {
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
-
+                
                 for jsonAppointment in jsonAppointments {
                     let appointment = Appointment(json: jsonAppointment)
                     appointments.append(appointment)
                 }
-
+                
                 completion(.success(appointments))
-
+                
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener citas.")))
+                }
             }
         }
     }
-
+    
     func getPatients(completion: @escaping (Result<[Patient]>) -> Void) {
         let url = Endpoints.getPatients.url()
         let token = User.shared.token!
@@ -100,7 +112,7 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-
+        
         Alamofire.request(url, headers: headers).responseJSON { (response) in
             switch response.result {
             case let .success(value):
@@ -114,13 +126,19 @@ class ApiClient {
                     patients.append(patient)
                 }
                 completion(.success(patients))
-
+                
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener los pacientes.")))
+                }
             }
         }
     }
-
+    
     func getMedicalRecord(patientId: Int, completion: @escaping (Result<MedicalRecord>) -> Void) {
         let url = Endpoints.getMedicalRecord(patientId).url()
         let token = User.shared.token!
@@ -128,17 +146,23 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-
+        
         Alamofire.request(url, headers: headers).responseJSON { (response) in
             switch response.result {
             case let .success(value):
                 let jsonValue = JSON(value)
                 let medicalRecord = MedicalRecord(json: jsonValue)
-
+                
                 completion(.success(medicalRecord))
-
+                
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorNotConnectedToInternet {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                } else if response.response?.statusCode == 401 {
+                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
+                } else {
+                    completion(.error(("Inténtalo más tarde.", "No se pudo obtener el expediente médico.")))
+                }
             }
         }
     }

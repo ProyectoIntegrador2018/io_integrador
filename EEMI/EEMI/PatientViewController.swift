@@ -36,8 +36,12 @@ class PatientViewController: UIViewController {
             case let .success(medicalRecord):
                 self.patient.medicalRecord = medicalRecord
                 self.updateLayout()
-            case let .error(error):
-                self.alert(message: error, title: "Error")
+            case let .error((message, title)):
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.activityIndicator.remove()
         }
