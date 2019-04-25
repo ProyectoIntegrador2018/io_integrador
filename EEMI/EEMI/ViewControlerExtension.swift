@@ -20,10 +20,10 @@ extension UIViewController {
     
     func localAuthentication(fallbackView: UIView) {
         let context = LAContext()
-        context.localizedCancelTitle = "Cancel"
+        context.localizedCancelTitle = "Cancelar"
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            let reason = "Iniciar sesion a tu cuenta"
+            let reason = "Iniciar sesión a tu cuenta"
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
                 if success {
                     DispatchQueue.main.async {

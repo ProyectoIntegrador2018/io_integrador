@@ -12,7 +12,7 @@ import SwiftyJSON
 
 enum Result<T> {
     case success(T)
-    case error(String)
+    case error((String, String))
 }
 
 enum Endpoints {
@@ -56,7 +56,13 @@ class ApiClient {
                 completion(.success(token))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorTimedOut {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                }
+
+                let errorMessage = "Usuario o contraseña inválida."
+                let errorTitle = "No se pudo iniciar sesión."
+                completion(.error((errorMessage, errorTitle)))
             }
         }
     }
@@ -88,7 +94,12 @@ class ApiClient {
                 completion(.success(appointments))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorTimedOut {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                }
+                let errorMessage = "Inténtalo más tarde."
+                let errorTitle = "No se pudieron obtener citas."
+                completion(.error((errorMessage, errorTitle)))
             }
         }
     }
@@ -116,7 +127,12 @@ class ApiClient {
                 completion(.success(patients))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorTimedOut {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                }
+                let errorMessage = "Inténtalo más tarde."
+                let errorTitle = "No se pudieron obtener los pacientes."
+                completion(.error((errorMessage, errorTitle)))
             }
         }
     }
@@ -138,7 +154,12 @@ class ApiClient {
                 completion(.success(medicalRecord))
 
             case let .failure(error):
-                completion(.error(error.localizedDescription))
+                if error._code == NSURLErrorTimedOut {
+                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
+                }
+                let errorMessage = "Inténtalo más tarde."
+                let errorTitle = "No se pudo obtener el expediente médico."
+                completion(.error((errorMessage, errorTitle)))
             }
         }
     }

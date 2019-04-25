@@ -42,12 +42,12 @@ class PinViewController: UIViewController {
     @IBAction func changePin(_ sender: UIButton) {
         
         guard actualPin.text == User.shared.pin else {
-            alert(message: "Intente de nuevo", title: "Pin actual incorrecto")
+            alert(message: "Intenta de nuevo", title: "Pin actual incorrecto")
             return
         }
         
         User.shared.savePin(pin: newPin.text!)
-        alertMessage(message: "Puedes usar el nuevo pin para iniciar secion", title: "Pin salvado correctamente")
+        alertMessage(message: "Puedes usar el nuevo pin para iniciar sesión", title: "Pin salvado correctamente")
 
     }
 }

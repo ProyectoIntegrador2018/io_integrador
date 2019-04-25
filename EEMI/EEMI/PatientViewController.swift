@@ -36,8 +36,8 @@ class PatientViewController: UIViewController {
             case let .success(medicalRecord):
                 self.patient.medicalRecord = medicalRecord
                 self.updateLayout()
-            case let .error(error):
-                self.alert(message: error, title: "Error")
+            case let .error((message, title)):
+                self.alert(message: message, title: title)
             }
             self.activityIndicator.remove()
         }
