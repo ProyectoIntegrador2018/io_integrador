@@ -90,4 +90,13 @@ extension UIView {
         addConstraints(horizontalConstraints + verticalConstraints)
     }
     
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
 }
