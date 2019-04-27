@@ -1,5 +1,5 @@
 //
-//  PacientsViewController.swift
+//  PatientsViewController.swift
 //  EEMI
 //
 //  Created by Jorge Elizondo on 2/17/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Presentr
 
-class PacientsViewController: UIViewController {
+class PatientsViewController: UIViewController {
 
     var patients = [Patient]()
     var currentPatients = [Patient]()
@@ -36,8 +36,12 @@ class PacientsViewController: UIViewController {
                 self.groupedPatients = Dictionary(grouping: self.patients, by: {String($0.lastName.prefix(1))})
                 self.sections = self.groupedPatients.keys.sorted()
                 self.patientsTableView.reloadData()
-            case .error:
-                self.alert(message: "No se pudieron obtener los pacientes", title: "Error")
+            case let .error((message, title)):
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.activityIndicator.remove()
         }
@@ -56,7 +60,7 @@ class PacientsViewController: UIViewController {
 
 // MARK: - Local Authorization
 
-extension PacientsViewController: PinCodeDelegate {
+extension PatientsViewController: PinCodeDelegate {
 
     func didSelectForgotPin() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
@@ -83,7 +87,7 @@ extension PacientsViewController: PinCodeDelegate {
     }
   }
 
-extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
+extension PatientsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -126,7 +130,7 @@ extension PacientsViewController: UITableViewDataSource, UITableViewDelegate {
 
 }
 
-extension PacientsViewController: UISearchBarDelegate {
+extension PatientsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             currentPatients = patients

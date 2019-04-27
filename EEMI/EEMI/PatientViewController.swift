@@ -12,6 +12,7 @@ class PatientViewController: UIViewController {
     
     var patient: Patient!
     var isShowingRecords = true
+    var addAppointmentButton = UIButton()
     lazy var activityIndicator: ActivityIndicatorView = ActivityIndicatorView(frame: view.frame, label: "Cargando")
     
     @IBOutlet weak var patientName: UILabel!
@@ -22,11 +23,27 @@ class PatientViewController: UIViewController {
     @IBOutlet weak var recordButton: SegmentedControlButton!
     @IBOutlet weak var immunizationButton: SegmentedControlButton!
     @IBOutlet weak var patientTableView: UITableView!
+    @IBOutlet weak var familyStackView: UIStackView!
+    @IBOutlet weak var fatherStackView: UIStackView!
+    @IBOutlet weak var motherStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getMedicalRecord()
         defaultLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let barItemAddAppointment: UIBarButtonItem = UIBarButtonItem(customView: addAppointmentButton)
+        
+        navigationItem.rightBarButtonItem = barItemAddAppointment
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationItem.rightBarButtonItem = nil
     }
     
     func getMedicalRecord() {
@@ -36,8 +53,12 @@ class PatientViewController: UIViewController {
             case let .success(medicalRecord):
                 self.patient.medicalRecord = medicalRecord
                 self.updateLayout()
-            case let .error(error):
-                self.alert(message: error, title: "Error")
+            case let .error((message, title)):
+                if title == "Tú sesión expiro" {
+                    self.sesionExpirationAlert(message: message, title: title)
+                } else {
+                    self.alert(message: message, title: title)
+                }
             }
             self.activityIndicator.remove()
         }
@@ -45,8 +66,19 @@ class PatientViewController: UIViewController {
     
     func updateLayout() {
         patientTableView.reloadData()
-        fatherLabel.text = patient.medicalRecord?.father
-        motherLabel.text = patient.medicalRecord?.mother
+        if patient.medicalRecord?.father != "" {
+            fatherStackView.isHidden = false
+            fatherLabel.text = patient.medicalRecord?.father
+        } else {
+            fatherStackView.isHidden = true
+        }
+        
+        if patient.medicalRecord?.mother != "" {
+            motherStackView.isHidden = false
+            motherLabel.text = patient.medicalRecord?.mother
+        } else {
+            motherStackView.isHidden = true
+        }
     }
 
     func defaultLayout() {
@@ -57,6 +89,16 @@ class PatientViewController: UIViewController {
         } else {
             patientImage.image = UIImage(named: "avatar_girl")
         }
+        
+        addAppointmentButton.setTitle("Agendar", for: .normal)
+        addAppointmentButton.setTitleColor(.white, for: .normal)
+        addAppointmentButton.addTarget(self, action: #selector(addAppointment), for: .touchUpInside)
+    }
+    
+    @objc func addAppointment() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddAppointmentViewController") as! AddAppointmentViewController
+        vc.patient = self.patient
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func showRecords(_ sender: UIButton) {
