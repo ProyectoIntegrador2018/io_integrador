@@ -12,6 +12,7 @@ class PatientViewController: UIViewController {
     
     var patient: Patient!
     var isShowingRecords = true
+    var addAppointmentButton = UIButton()
     lazy var activityIndicator: ActivityIndicatorView = ActivityIndicatorView(frame: view.frame, label: "Cargando")
     
     @IBOutlet weak var patientName: UILabel!
@@ -30,6 +31,19 @@ class PatientViewController: UIViewController {
         super.viewDidLoad()
         getMedicalRecord()
         defaultLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let barItemAddAppointment: UIBarButtonItem = UIBarButtonItem(customView: addAppointmentButton)
+        
+        navigationItem.rightBarButtonItem = barItemAddAppointment
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationItem.rightBarButtonItem = nil
     }
     
     func getMedicalRecord() {
@@ -75,6 +89,16 @@ class PatientViewController: UIViewController {
         } else {
             patientImage.image = UIImage(named: "avatar_girl")
         }
+        
+        addAppointmentButton.setTitle("Agendar", for: .normal)
+        addAppointmentButton.setTitleColor(.white, for: .normal)
+        addAppointmentButton.addTarget(self, action: #selector(addAppointment), for: .touchUpInside)
+    }
+    
+    @objc func addAppointment() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddAppointmentViewController") as! AddAppointmentViewController
+        vc.patient = self.patient
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func showRecords(_ sender: UIButton) {
