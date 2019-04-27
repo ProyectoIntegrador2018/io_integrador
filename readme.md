@@ -1,5 +1,9 @@
 # Proyecto Integrador EEMI
 
+## Project Status
+
+[![codebeat badge](https://codebeat.co/badges/b7ab9707-3c4d-4a0d-b709-aeb9c09be900)](https://codebeat.co/projects/github-com-proyectointegrador2018-eemi_ios-master)
+
 ## Table of contents
 
 * [Client Details](#client-details)

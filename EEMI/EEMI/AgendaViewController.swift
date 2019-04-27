@@ -232,7 +232,7 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource {
             let appointment = appointments[indexPath.row]
             cell.titleLabel.text = "\(appointment.patientName ?? "") \(appointment.patientLastName ?? "")"
             cell.subtitleLabel.text = appointment.comments
-            cell.timeLabel.text = appointment.date?.toString(format: "hh:mm a")
+            cell.timeLabel.text = appointment.date?.toString(format: "h:mm a")
         }
 
         cell.selectionStyle = .none
