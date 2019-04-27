@@ -166,9 +166,14 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         let velocity = self.scopeGesture.velocity(in: self.view)
         switch self.calendar.scope {
         case .month:
-            toggleAgenda.flipDown()
+            if velocity.y < 0 {
+                toggleAgenda.flipDown()
+            }
             return velocity.y < 0
         case .week:
+            if velocity.y > 0 {
+                toggleAgenda.flipUp()
+            }
             toggleAgenda.flipUp()
             return velocity.y > 0
         }

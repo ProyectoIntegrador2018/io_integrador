@@ -20,11 +20,12 @@ enum Endpoints {
     case getAppointments(String, String)
     case getPatients
     case getMedicalRecord(Int)
-    
+    case createAppointment
+
     func url() -> URL {
         var path: String
         let baseUrl = "http://emmiapi.azurewebsites.net/api"
-        
+
         switch self {
         case let .getTokens(username, password):
             path = "/Token?username=\(username)&password=\(password)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -34,18 +35,20 @@ enum Endpoints {
             path = "/Patients"
         case let .getMedicalRecord(patientId):
             path = "/MedicalRecord/GetByPatientId/\(patientId)"
+        case .createAppointment:
+            path = "/Agenda/"
         }
-        
+
         return URL(string: baseUrl + path)!
     }
 }
 
 class ApiClient {
-    
+
     static let shared = ApiClient()
-    
+
     private init() {}
-    
+
     func getToken(username: String, password: String, completion: @escaping (Result<String>) -> Void ) {
         let loginUrl = Endpoints.getTokens(username, password).url()
         Alamofire.request(loginUrl).responseJSON { response in
@@ -54,7 +57,7 @@ class ApiClient {
                 let json = JSON(value)
                 let token = json["access_token"].stringValue
                 completion(.success(token))
-                
+
             case let .failure(error):
                 if error._code == NSURLErrorNotConnectedToInternet {
                     completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
@@ -66,7 +69,7 @@ class ApiClient {
             }
         }
     }
-    
+
     func getAppointments(dateInterval: DateInterval, completion: @escaping (Result<[Appointment]>) -> Void ) {
         let startDate = dateInterval.start.toString()
         let endDate = dateInterval.end.toString()
@@ -76,7 +79,7 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-        
+
         Alamofire.request(appointmentUrl, headers: headers).responseJSON { response in
             switch response.result {
             case let .success(value):
@@ -85,14 +88,14 @@ class ApiClient {
                 guard let jsonAppointments = json.array else {
                     return completion(.success(appointments))
                 }
-                
+
                 for jsonAppointment in jsonAppointments {
                     let appointment = Appointment(json: jsonAppointment)
                     appointments.append(appointment)
                 }
-                
+
                 completion(.success(appointments))
-                
+
             case let .failure(error):
                 if error._code == NSURLErrorNotConnectedToInternet {
                     completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
@@ -104,7 +107,7 @@ class ApiClient {
             }
         }
     }
-    
+
     func getPatients(completion: @escaping (Result<[Patient]>) -> Void) {
         let url = Endpoints.getPatients.url()
         let token = User.shared.token!
@@ -112,7 +115,7 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-        
+
         Alamofire.request(url, headers: headers).responseJSON { (response) in
             switch response.result {
             case let .success(value):
@@ -126,7 +129,7 @@ class ApiClient {
                     patients.append(patient)
                 }
                 completion(.success(patients))
-                
+
             case let .failure(error):
                 if error._code == NSURLErrorNotConnectedToInternet {
                     completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
@@ -138,7 +141,7 @@ class ApiClient {
             }
         }
     }
-    
+
     func getMedicalRecord(patientId: Int, completion: @escaping (Result<MedicalRecord>) -> Void) {
         let url = Endpoints.getMedicalRecord(patientId).url()
         let token = User.shared.token!
@@ -146,15 +149,15 @@ class ApiClient {
             "Authorization": ("Bearer " + token),
             "Accept": "application/json"
         ]
-        
+
         Alamofire.request(url, headers: headers).responseJSON { (response) in
             switch response.result {
             case let .success(value):
                 let jsonValue = JSON(value)
                 let medicalRecord = MedicalRecord(json: jsonValue)
-                
+
                 completion(.success(medicalRecord))
-                
+
             case let .failure(error):
                 if error._code == NSURLErrorNotConnectedToInternet {
                     completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
@@ -163,6 +166,23 @@ class ApiClient {
                 } else {
                     completion(.error(("Inténtalo más tarde.", "No se pudo obtener el expediente médico.")))
                 }
+            }
+        }
+    }
+
+    func createAppointment(parameters: [String: Any], completion: @escaping (Result<String>) -> Void) {
+        let url = Endpoints.createAppointment.url()
+        let token = User.shared.token!
+        let headers: HTTPHeaders = [
+            "Authorization": ("Bearer " + token),
+            "Accept": "application/json"
+        ]
+
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+            if response.response?.statusCode == 200 {
+                 completion(.success("La cita se creo exitosamente"))
+            } else {
+                completion(.error(("Porfavor intentelo más tarde", "No se pudo crear la cita")))
             }
         }
     }
