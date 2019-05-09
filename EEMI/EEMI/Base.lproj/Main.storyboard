@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -246,35 +246,35 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Immunization" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT8-Ru-G9i">
                                                     <rect key="frame" x="15" y="11" width="251" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Rty-bv-N09"/>
+                                                        <constraint firstAttribute="height" constant="40" id="onL-As-kik"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greendot" translatesAutoresizingMaskIntoConstraints="NO" id="chG-Va-BpV">
-                                                    <rect key="frame" x="344" y="13.666666666666664" width="15" height="15"/>
+                                                    <rect key="frame" x="344" y="13.333333333333336" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="kuP-SG-T7Y"/>
                                                         <constraint firstAttribute="width" constant="15" id="lTZ-W7-ror"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efD-dd-x7t">
-                                                    <rect key="frame" x="282" y="10.999999999999998" width="54" height="20.333333333333329"/>
+                                                    <rect key="frame" x="282" y="10.666666666666666" width="54" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="sT8-Ru-G9i" firstAttribute="top" secondItem="5R1-k7-VcN" secondAttribute="topMargin" id="2sC-rp-AMP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="efD-dd-x7t" secondAttribute="bottom" id="3OY-Hg-8R2"/>
                                                 <constraint firstItem="chG-Va-BpV" firstAttribute="leading" secondItem="efD-dd-x7t" secondAttribute="trailing" constant="8" id="GhV-ed-zy0"/>
-                                                <constraint firstItem="sT8-Ru-G9i" firstAttribute="top" secondItem="5R1-k7-VcN" secondAttribute="topMargin" id="Kbz-9n-OV4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sT8-Ru-G9i" secondAttribute="bottom" id="MNN-3d-KVl"/>
                                                 <constraint firstItem="efD-dd-x7t" firstAttribute="leading" secondItem="sT8-Ru-G9i" secondAttribute="trailing" constant="16" id="SJw-dG-KVw"/>
                                                 <constraint firstItem="chG-Va-BpV" firstAttribute="trailing" secondItem="5R1-k7-VcN" secondAttribute="trailing" constant="-16" id="aK1-Qh-D4E"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="sT8-Ru-G9i" secondAttribute="bottom" id="cYo-MT-qvX"/>
                                                 <constraint firstItem="sT8-Ru-G9i" firstAttribute="leading" secondItem="5R1-k7-VcN" secondAttribute="leadingMargin" id="fvn-kc-P2y"/>
-                                                <constraint firstItem="efD-dd-x7t" firstAttribute="top" secondItem="5R1-k7-VcN" secondAttribute="topMargin" id="o9e-Ub-spu"/>
+                                                <constraint firstItem="efD-dd-x7t" firstAttribute="centerY" secondItem="5R1-k7-VcN" secondAttribute="centerY" id="rZk-fh-RHa"/>
                                                 <constraint firstItem="chG-Va-BpV" firstAttribute="centerY" secondItem="5R1-k7-VcN" secondAttribute="centerY" id="rcG-wN-iL3"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -941,13 +941,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="33" height="33"/>
-        <image name="female" width="33" height="33"/>
+        <image name="calendar" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="female" width="33.333332061767578" height="33.333332061767578"/>
         <image name="forward_arrow" width="128" height="128"/>
-        <image name="greendot" width="16" height="16"/>
+        <image name="greendot" width="16.666666030883789" height="16.666666030883789"/>
         <image name="lock" width="15" height="15"/>
-        <image name="male" width="33" height="33"/>
-        <image name="patients_sidemenu" width="33" height="33"/>
+        <image name="male" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="patients_sidemenu" width="33.333332061767578" height="33.333332061767578"/>
         <image name="settings" width="25" height="25"/>
     </resources>
 </document>
