@@ -71,6 +71,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF1-Bm-IGj">
+                                <rect key="frame" x="340.5" y="738.5" width="33.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.41778540609999998" green="0.83710992340000001" blue="0.89874976870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -79,10 +85,12 @@
                             <constraint firstAttribute="bottom" secondItem="9rb-qj-IsG" secondAttribute="bottom" id="258-WI-W54"/>
                             <constraint firstItem="9rb-qj-IsG" firstAttribute="top" secondItem="SwR-jg-kbJ" secondAttribute="top" id="4hX-V4-ykQ"/>
                             <constraint firstItem="TN3-bN-MTg" firstAttribute="centerX" secondItem="SwR-jg-kbJ" secondAttribute="centerX" id="Bue-5F-yHv"/>
+                            <constraint firstItem="pPT-YC-5JF" firstAttribute="trailing" secondItem="kF1-Bm-IGj" secondAttribute="trailing" constant="40" id="Kw0-F0-QbF"/>
                             <constraint firstItem="pPT-YC-5JF" firstAttribute="trailing" secondItem="uVw-Vw-chf" secondAttribute="trailing" constant="40" id="LT3-UW-2uX"/>
                             <constraint firstItem="9rb-qj-IsG" firstAttribute="trailing" secondItem="pPT-YC-5JF" secondAttribute="trailing" id="QEM-aO-ZM1"/>
                             <constraint firstItem="dvg-o4-BAK" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" id="Snh-Pa-ieg"/>
                             <constraint firstAttribute="bottom" secondItem="dvg-o4-BAK" secondAttribute="bottom" id="WIz-Ko-sXa"/>
+                            <constraint firstItem="dvg-o4-BAK" firstAttribute="top" secondItem="kF1-Bm-IGj" secondAttribute="bottom" id="Wda-xJ-jYU"/>
                             <constraint firstItem="TN3-bN-MTg" firstAttribute="top" secondItem="pPT-YC-5JF" secondAttribute="top" constant="50" id="ajV-pN-MeQ"/>
                             <constraint firstItem="uVw-Vw-chf" firstAttribute="leading" secondItem="pPT-YC-5JF" secondAttribute="leading" constant="40" id="b2O-2n-93w"/>
                             <constraint firstItem="uVw-Vw-chf" firstAttribute="centerY" secondItem="SwR-jg-kbJ" secondAttribute="centerY" constant="20" id="c0g-Ho-gHv"/>
