@@ -176,7 +176,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7m-3h-x3n">
                                 <rect key="frame" x="32" y="376" width="350" height="81.5"/>
-                                <string key="text">Si no se utiliza pin, se desabilitara la opcion para autenticacion biometrica en la aplicacion. Pedes cambiar esta opcion en ajustes.</string>
+                                <string key="text">Si no se utiliza pin, se desabilitara la opcion para autenticacion biometrica en la aplicacion. Pudes cambiar esta opcion en ajustes.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
