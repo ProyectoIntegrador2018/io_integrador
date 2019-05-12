@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,18 +52,26 @@
                                     <outlet property="delegate" destination="fM8-dL-g9W" id="J0d-LN-SJb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQ6-Hq-g9a" customClass="StateIndicatorView" customModule="EEMI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="02L-dw-2mh"/>
+                            <constraint firstItem="LR1-BE-3gt" firstAttribute="bottom" secondItem="UQ6-Hq-g9a" secondAttribute="bottom" id="2Rq-26-CQU"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="4ni-wD-AtM"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="85v-qx-PD3"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="BoF-dh-fvx"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="bottom" secondItem="LR1-BE-3gt" secondAttribute="bottom" id="PtW-nI-TCN"/>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="V4s-iO-xMu"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="WdX-qI-WE3"/>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="top" secondItem="LR1-BE-3gt" secondAttribute="top" id="fzw-KJ-9GP"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="n3z-1k-Yu1"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="rbi-La-6q2"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="vFA-fz-j8Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LR1-BE-3gt"/>
                     </view>
@@ -72,6 +80,7 @@
                     <connections>
                         <outlet property="patientsTableView" destination="CDm-7R-xrl" id="jW5-Dr-FuG"/>
                         <outlet property="searchBar" destination="sHo-Zk-mag" id="i9d-Wd-4Cc"/>
+                        <outlet property="stateIndicatorView" destination="UQ6-Hq-g9a" id="Fyv-eh-7RD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIB-bo-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,13 +950,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="female" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="calendar" width="36" height="36"/>
+        <image name="female" width="40" height="40"/>
         <image name="forward_arrow" width="128" height="128"/>
-        <image name="greendot" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="greendot" width="40" height="40"/>
         <image name="lock" width="15" height="15"/>
-        <image name="male" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="patients_sidemenu" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="settings" width="25" height="25"/>
+        <image name="male" width="40" height="40"/>
+        <image name="patients_sidemenu" width="36" height="36"/>
+        <image name="settings" width="50" height="50"/>
     </resources>
 </document>

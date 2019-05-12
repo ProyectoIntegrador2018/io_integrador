@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class StateIndicatorView: UIView {
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionImage: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

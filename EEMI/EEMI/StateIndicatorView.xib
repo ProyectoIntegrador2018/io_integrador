@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StateIndicatorView" customModule="EEMI" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionImage" destination="sqc-Nj-qlR" id="Mn7-yZ-INB"/>
                 <outlet property="descriptionLabel" destination="Icu-1F-pK5" id="KYZ-Ej-k7x"/>
             </connections>
         </placeholder>
