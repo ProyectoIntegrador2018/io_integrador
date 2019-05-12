@@ -59,13 +59,9 @@ class ApiClient {
                 completion(.success(token))
 
             case let .failure(error):
-                if error._code == NSURLErrorNotConnectedToInternet {
-                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
-                } else {
-                    let errorMessage = "Usuario o contraseña inválida."
-                    let errorTitle = "No se pudo iniciar sesión."
-                    completion(.error((errorMessage, errorTitle)))
-                }
+                let statusCode = response.response?.statusCode
+                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getToken")
+                completion(.error(err.handleError()))
             }
         }
     }
@@ -97,13 +93,9 @@ class ApiClient {
                 completion(.success(appointments))
 
             case let .failure(error):
-                if error._code == NSURLErrorNotConnectedToInternet {
-                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
-                } else if response.response?.statusCode == 401 {
-                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
-                } else {
-                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener citas.")))
-                }
+                let statusCode = response.response?.statusCode
+                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getAppointments")
+                completion(.error(err.handleError()))
             }
         }
     }
@@ -131,13 +123,9 @@ class ApiClient {
                 completion(.success(patients))
 
             case let .failure(error):
-                if error._code == NSURLErrorNotConnectedToInternet {
-                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
-                } else if response.response?.statusCode == 401 {
-                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
-                } else {
-                    completion(.error(("Inténtalo más tarde.", "No se pudieron obtener los pacientes.")))
-                }
+                let statusCode = response.response?.statusCode
+                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getPatients")
+                completion(.error(err.handleError()))
             }
         }
     }
@@ -159,13 +147,9 @@ class ApiClient {
                 completion(.success(medicalRecord))
 
             case let .failure(error):
-                if error._code == NSURLErrorNotConnectedToInternet {
-                    completion(.error(("Inténtalo más tarde.", "No pudimos conectarnos a internet.")))
-                } else if response.response?.statusCode == 401 {
-                    completion(.error(("Cierra la sesión y vuelve ingresar", "Tú sesión expiro")))
-                } else {
-                    completion(.error(("Inténtalo más tarde.", "No se pudo obtener el expediente médico.")))
-                }
+                let statusCode = response.response?.statusCode
+                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getMedicalRecord")
+                completion(.error(err.handleError()))
             }
         }
     }
@@ -179,10 +163,12 @@ class ApiClient {
         ]
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
-            if response.response?.statusCode == 200 {
+            let statusCode = response.response?.statusCode
+            if statusCode == 200 {
                  completion(.success("La cita se creo exitosamente"))
             } else {
-                completion(.error(("Porfavor intentelo más tarde", "No se pudo crear la cita")))
+                let err = ErrorClient(statusCode: statusCode!, source: "createAppointment")
+                completion(.error(err.handleError()))
             }
         }
     }
