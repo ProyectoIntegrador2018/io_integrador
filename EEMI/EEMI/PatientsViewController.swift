@@ -21,9 +21,11 @@ class PatientsViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var patientsTableView: UITableView!
-
+    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        stateIndicatorViewLayout(description: "Sin pacientes registrados")
         getPatients()
     }
 
@@ -54,6 +56,11 @@ class PatientsViewController: UIViewController {
         let range = (string as NSString).range(of: boldString)
         attributedString.addAttributes(boldFontAttribute, range: range)
         return attributedString
+    }
+    
+    func stateIndicatorViewLayout(description: String) {
+        stateIndicatorView.descriptionLabel.text = description
+        stateIndicatorView.descriptionImage.image = UIImage(named: "logo_login")
     }
 
 }
@@ -99,7 +106,9 @@ extension PatientsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sections.isEmpty {
-            return 0
+            stateIndicatorView.show()
+        } else {
+            stateIndicatorView.hide()
         }
         return groupedPatients[sections[section]]?.count ?? 0
     }

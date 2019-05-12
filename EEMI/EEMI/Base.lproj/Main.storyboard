@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,18 +52,26 @@
                                     <outlet property="delegate" destination="fM8-dL-g9W" id="J0d-LN-SJb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQ6-Hq-g9a" customClass="StateIndicatorView" customModule="EEMI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="02L-dw-2mh"/>
+                            <constraint firstItem="LR1-BE-3gt" firstAttribute="bottom" secondItem="UQ6-Hq-g9a" secondAttribute="bottom" id="2Rq-26-CQU"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="4ni-wD-AtM"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="85v-qx-PD3"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="BoF-dh-fvx"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="bottom" secondItem="LR1-BE-3gt" secondAttribute="bottom" id="PtW-nI-TCN"/>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="V4s-iO-xMu"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="trailing" secondItem="LR1-BE-3gt" secondAttribute="trailing" id="WdX-qI-WE3"/>
                             <constraint firstItem="sHo-Zk-mag" firstAttribute="top" secondItem="LR1-BE-3gt" secondAttribute="top" id="fzw-KJ-9GP"/>
                             <constraint firstItem="CDm-7R-xrl" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="n3z-1k-Yu1"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="leading" secondItem="LR1-BE-3gt" secondAttribute="leading" id="rbi-La-6q2"/>
+                            <constraint firstItem="UQ6-Hq-g9a" firstAttribute="top" secondItem="sHo-Zk-mag" secondAttribute="bottom" id="vFA-fz-j8Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LR1-BE-3gt"/>
                     </view>
@@ -72,6 +80,7 @@
                     <connections>
                         <outlet property="patientsTableView" destination="CDm-7R-xrl" id="jW5-Dr-FuG"/>
                         <outlet property="searchBar" destination="sHo-Zk-mag" id="i9d-Wd-4Cc"/>
+                        <outlet property="stateIndicatorView" destination="UQ6-Hq-g9a" id="Fyv-eh-7RD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIB-bo-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,6 +298,10 @@
                                     <outlet property="delegate" destination="zM0-8Y-sL7" id="bJU-Wt-7UJ"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHl-UH-Twa" customClass="StateIndicatorView" customModule="EEMI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="331.33333333333326" width="375" height="446.66666666666674"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -297,6 +310,7 @@
                             <constraint firstItem="vAp-x1-L4b" firstAttribute="top" secondItem="HlX-rv-Rv8" secondAttribute="bottom" id="7G3-Rc-Xqb"/>
                             <constraint firstItem="pj9-yN-HmD" firstAttribute="leading" secondItem="qsN-df-12z" secondAttribute="trailing" constant="16" id="CrF-N0-07v"/>
                             <constraint firstItem="qsN-df-12z" firstAttribute="top" secondItem="mrG-CE-7oc" secondAttribute="top" constant="32" id="Ddn-8w-FDu"/>
+                            <constraint firstItem="mrG-CE-7oc" firstAttribute="bottom" secondItem="DHl-UH-Twa" secondAttribute="bottom" id="DqT-D3-7SJ"/>
                             <constraint firstItem="mrG-CE-7oc" firstAttribute="bottom" secondItem="vAp-x1-L4b" secondAttribute="bottom" id="Efy-h0-evx"/>
                             <constraint firstItem="1Ag-Vr-Kjy" firstAttribute="trailing" secondItem="LlV-Dx-o6e" secondAttribute="trailing" constant="-16" id="FLF-Tl-XMo"/>
                             <constraint firstItem="pj9-yN-HmD" firstAttribute="leading" secondItem="qsN-df-12z" secondAttribute="trailing" constant="16" id="GP0-2z-AMZ"/>
@@ -309,10 +323,13 @@
                             <constraint firstItem="HlX-rv-Rv8" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" id="ZGC-d9-kcL"/>
                             <constraint firstItem="1Ag-Vr-Kjy" firstAttribute="leading" secondItem="LlV-Dx-o6e" secondAttribute="leading" constant="16" id="dTG-ho-GhE"/>
                             <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="vAp-x1-L4b" secondAttribute="trailing" id="dkb-GR-mxy"/>
+                            <constraint firstItem="DHl-UH-Twa" firstAttribute="leading" secondItem="mrG-CE-7oc" secondAttribute="leading" id="gZO-OR-S5y"/>
                             <constraint firstItem="1Ag-Vr-Kjy" firstAttribute="top" secondItem="CKS-H6-9if" secondAttribute="bottom" id="kgJ-Ep-gvq"/>
                             <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="pj9-yN-HmD" secondAttribute="trailing" constant="16" id="lUN-j4-vsl"/>
+                            <constraint firstItem="DHl-UH-Twa" firstAttribute="trailing" secondItem="mrG-CE-7oc" secondAttribute="trailing" id="nzm-cH-Vr4"/>
                             <constraint firstItem="Xch-g9-L1f" firstAttribute="top" secondItem="1Ag-Vr-Kjy" secondAttribute="bottom" constant="8" id="r9E-6t-yKd"/>
                             <constraint firstItem="mrG-CE-7oc" firstAttribute="trailing" secondItem="Xch-g9-L1f" secondAttribute="trailing" constant="16" id="rW1-FZ-rc3"/>
+                            <constraint firstItem="DHl-UH-Twa" firstAttribute="top" secondItem="HlX-rv-Rv8" secondAttribute="bottom" id="uVr-WP-MHZ"/>
                             <constraint firstItem="pj9-yN-HmD" firstAttribute="top" secondItem="mrG-CE-7oc" secondAttribute="top" constant="32" id="ym2-dn-JvY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mrG-CE-7oc"/>
@@ -329,6 +346,7 @@
                         <outlet property="patientName" destination="W5c-Vz-zNP" id="fiH-x0-Qg4"/>
                         <outlet property="patientTableView" destination="vAp-x1-L4b" id="gfg-Ui-oLH"/>
                         <outlet property="recordButton" destination="Mw5-gm-htb" id="duw-vz-PYA"/>
+                        <outlet property="stateIndicatorView" destination="DHl-UH-Twa" id="8Fc-ON-rK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ye-m5-ebp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,13 +959,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="female" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="calendar" width="36" height="36"/>
+        <image name="female" width="40" height="40"/>
         <image name="forward_arrow" width="128" height="128"/>
-        <image name="greendot" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="greendot" width="40" height="40"/>
         <image name="lock" width="15" height="15"/>
-        <image name="male" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="patients_sidemenu" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="settings" width="25" height="25"/>
+        <image name="male" width="40" height="40"/>
+        <image name="patients_sidemenu" width="36" height="36"/>
+        <image name="settings" width="50" height="50"/>
     </resources>
 </document>

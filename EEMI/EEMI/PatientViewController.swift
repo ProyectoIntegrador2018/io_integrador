@@ -25,6 +25,7 @@ class PatientViewController: UIViewController {
     @IBOutlet weak var familyStackView: UIStackView!
     @IBOutlet weak var fatherStackView: UIStackView!
     @IBOutlet weak var motherStackView: UIStackView!
+    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,13 @@ class PatientViewController: UIViewController {
         } else {
             patientImage.image = UIImage(named: "avatar_girl")
         }
+        
+        stateIndicatorViewLayout(description: "Sin consultas registradas")
+    }
+    
+    func stateIndicatorViewLayout(description: String) {
+        stateIndicatorView.descriptionLabel.text = description
+        stateIndicatorView.descriptionImage.image = UIImage(named: "logo_login")
     }
 
     @IBAction func showRecords(_ sender: UIButton) {
@@ -95,9 +103,23 @@ class PatientViewController: UIViewController {
 extension PatientViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isShowingRecords {
-            return patient.medicalRecord?.summaries.count ?? 0
+            stateIndicatorViewLayout(description: "Sin consultas registradas")
+            let summaries_count = patient.medicalRecord?.summaries.count ?? 0
+            if summaries_count == 0 {
+                stateIndicatorView.show()
+            } else {
+                stateIndicatorView.hide()
+            }
+            return summaries_count
         } else {
-            return patient.medicalRecord?.immunizations.count ?? 0
+            stateIndicatorViewLayout(description: "Sin inmunizaciones registradas")
+            let immunizations_count = patient.medicalRecord?.immunizations.count ?? 0
+            if immunizations_count == 0 {
+                stateIndicatorView.show()
+            } else {
+                stateIndicatorView.hide()
+            }
+            return immunizations_count
         }
     }
     
