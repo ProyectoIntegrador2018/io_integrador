@@ -33,20 +33,24 @@ class SettingsViewController: UIViewController {
             changePin.isHidden = true
         }
     }
-    
-    // MARK: - Actions
-    
-    @IBAction func logout(_ sender: UIButton) {
+
+    func logout() {
         User.shared.token = nil
         User.shared.pin = nil
         User.shared.isAuthenticationOn = false
         let keychain = Keychain(service: "emmiapi.azurewebsites.net")
         keychain["user"] = nil
         keychain["pin"] = nil
-        
+
         let storyboard = UIStoryboard(name: "Login", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         view.window!.rootViewController = viewController
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func logout(_ sender: UIButton) {
+        logout()
     }
     
     @IBAction func changePin(_ sender: UITapGestureRecognizer) {
@@ -55,7 +59,8 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func helpAndLegal(_ sender: UITapGestureRecognizer) {
-        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "HelpAndLegalViewController") as! HelpAndLegalViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func authenticationSwitch(_ sender: UISwitch) {
@@ -66,9 +71,23 @@ class SettingsViewController: UIViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "CreatePinViewController") as! CreatePinViewController
             customPresentViewController(presenter, viewController: vc, animated: true)
         } else {
-            User.shared.isAuthenticationOn = false
+            alertMessage(message: "Para deshabilitar autenticación local se requiere cerrar sesión", title: "Deshabilitar autenticación local")
         }
         updateLayout()
+    }
+    
+    func alertMessage(message: String, title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "Cerrar sesión", style: .default, handler: finishAlert)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func finishAlert(alert: UIAlertAction!) {
+        User.shared.isAuthenticationOn = false
+        logout()
     }
 }
 

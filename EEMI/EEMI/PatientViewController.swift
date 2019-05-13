@@ -9,12 +9,12 @@
 import UIKit
 
 class PatientViewController: UIViewController {
-    
+
     var patient: Patient!
     var isShowingRecords = true
     var addAppointmentButton = UIButton()
     lazy var activityIndicator: ActivityIndicatorView = ActivityIndicatorView(frame: view.frame, label: "Cargando")
-    
+
     @IBOutlet weak var patientName: UILabel!
     @IBOutlet weak var patientBirthday: UILabel!
     @IBOutlet weak var patientImage: UIImageView!
@@ -26,26 +26,27 @@ class PatientViewController: UIViewController {
     @IBOutlet weak var familyStackView: UIStackView!
     @IBOutlet weak var fatherStackView: UIStackView!
     @IBOutlet weak var motherStackView: UIStackView!
-    
+    @IBOutlet weak var stateIndicatorView: StateIndicatorView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getMedicalRecord()
         defaultLayout()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let barItemAddAppointment: UIBarButtonItem = UIBarButtonItem(customView: addAppointmentButton)
-        
+
         navigationItem.rightBarButtonItem = barItemAddAppointment
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationItem.rightBarButtonItem = nil
     }
-    
+
     func getMedicalRecord() {
         activityIndicator.add(view: UIApplication.shared.keyWindow!)
         ApiClient.shared.getMedicalRecord(patientId: patient.id) { (result) in
@@ -63,7 +64,7 @@ class PatientViewController: UIViewController {
             self.activityIndicator.remove()
         }
     }
-    
+
     func updateLayout() {
         patientTableView.reloadData()
         if patient.medicalRecord?.father != "" {
@@ -72,7 +73,7 @@ class PatientViewController: UIViewController {
         } else {
             fatherStackView.isHidden = true
         }
-        
+
         if patient.medicalRecord?.mother != "" {
             motherStackView.isHidden = false
             motherLabel.text = patient.medicalRecord?.mother
@@ -89,12 +90,19 @@ class PatientViewController: UIViewController {
         } else {
             patientImage.image = UIImage(named: "avatar_girl")
         }
-        
+
         addAppointmentButton.setTitle("Agendar", for: .normal)
         addAppointmentButton.setTitleColor(.white, for: .normal)
         addAppointmentButton.addTarget(self, action: #selector(addAppointment), for: .touchUpInside)
+
+        stateIndicatorViewLayout(description: "Sin consultas registradas")
     }
-    
+
+    func stateIndicatorViewLayout(description: String) {
+        stateIndicatorView.descriptionLabel.text = description
+        stateIndicatorView.descriptionImage.image = UIImage(named: "logo_login")
+    }
+
     @objc func addAppointment() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddAppointmentViewController") as! AddAppointmentViewController
         vc.patient = self.patient
@@ -107,7 +115,7 @@ class PatientViewController: UIViewController {
         immunizationButton.unselected()
         patientTableView.reloadData()
     }
-    
+
     @IBAction func showImmunization(_ sender: UIButton) {
         isShowingRecords = false
         immunizationButton.selected()
@@ -119,15 +127,29 @@ class PatientViewController: UIViewController {
 extension PatientViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isShowingRecords {
-            return patient.medicalRecord?.summaries.count ?? 0
+            stateIndicatorViewLayout(description: "Sin consultas registradas")
+            let summaries_count = patient.medicalRecord?.summaries.count ?? 0
+            if summaries_count == 0 {
+                stateIndicatorView.show()
+            } else {
+                stateIndicatorView.hide()
+            }
+            return summaries_count
         } else {
-            return patient.medicalRecord?.immunizations.count ?? 0
+            stateIndicatorViewLayout(description: "Sin inmunizaciones registradas")
+            let immunizations_count = patient.medicalRecord?.immunizations.count ?? 0
+            if immunizations_count == 0 {
+                stateIndicatorView.show()
+            } else {
+                stateIndicatorView.hide()
+            }
+            return immunizations_count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let index = indexPath.row
-        
+
         if isShowingRecords {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
             let summary = patient.medicalRecord?.summaries[index]
@@ -140,7 +162,7 @@ extension PatientViewController: UITableViewDataSource {
             cell.titleLabel.text = patient.medicalRecord?.immunizations[index].name
             let status = patient.medicalRecord?.immunizations[index].status
             var statusImage: UIImage
-            
+
             switch status {
             case -1:
                 statusImage =  UIImage()
@@ -153,10 +175,10 @@ extension PatientViewController: UITableViewDataSource {
             default:
                 statusImage = UIImage()
             }
-            
+
             cell.selectionStyle = .none
             cell.statusImageView.image = statusImage
-            
+
             return cell
         }
     }
