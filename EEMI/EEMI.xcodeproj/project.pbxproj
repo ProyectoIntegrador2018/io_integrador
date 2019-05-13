@@ -23,6 +23,7 @@
 		CF158E562219E3F6007146F9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E552219E3F6007146F9 /* Login.storyboard */; };
 		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
 		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
+		CF278C9D2288E8BC00A70BAC /* HelpAndLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */; };
 		CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */; };
 		CF53F336224C3DDB00D0F662 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
 		CF53F337224C3DDB00D0F662 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E532219E329007146F9 /* SettingsViewController.swift */; };
@@ -98,6 +99,7 @@
 		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpAndLegalViewController.swift; sourceTree = "<group>"; };
 		CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPinViewController.swift; sourceTree = "<group>"; };
 		CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationTableViewCell.swift; sourceTree = "<group>"; };
 		CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlButton.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				CF158E212219DB60007146F9 /* AgendaViewController.swift */,
 				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
 				CFFBB1E92242D46C00FC5DF0 /* PatientViewController.swift */,
+				CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */,
 				CF158E512219DE32007146F9 /* PatientsViewController.swift */,
 				CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */,
 				CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */,
@@ -598,6 +601,7 @@
 				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,
 				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,
 				CFAD06FF221A46BC001B9061 /* User.swift in Sources */,
+				CF278C9D2288E8BC00A70BAC /* HelpAndLegalViewController.swift in Sources */,
 				CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */,
 				CF9510D1224B0E8F007103A5 /* CreatePinViewController.swift in Sources */,
 			);

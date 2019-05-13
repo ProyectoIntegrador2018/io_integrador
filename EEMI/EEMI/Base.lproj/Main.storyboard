@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5p-0t-Mw8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -501,6 +501,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Zpk-ZW-hl1" secondAttribute="trailing" constant="16" id="dly-gn-Zj1"/>
                                             <constraint firstAttribute="height" constant="50" id="nmS-kb-c4g"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="FxW-2h-5Cq" appends="YES" id="Jc8-u5-0HB"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -545,9 +548,9 @@
                         <action selector="changePin:" destination="LTs-5O-uyU" id="Upr-cQ-suE"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="D9C-bD-Gkt">
+                <tapGestureRecognizer id="FxW-2h-5Cq">
                     <connections>
-                        <action selector="helpAndLegal:" destination="LTs-5O-uyU" id="6BN-ld-C1K"/>
+                        <action selector="helpAndLegal:" destination="LTs-5O-uyU" id="cP6-Io-8X5"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -645,6 +648,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWR-XO-4QU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292" y="766.99507389162568"/>
+        </scene>
+        <!--Help And Legal View Controller-->
+        <scene sceneID="swd-GA-LDU">
+            <objects>
+                <viewController storyboardIdentifier="HelpAndLegalViewController" id="ieo-nn-QLc" customClass="HelpAndLegalViewController" customModule="EEMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nB8-SS-EPW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C70-V9-diY">
+                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">
+ Aviso de Privacidad EEMI
+       
+En atención a la Ley Federal de Protección de Datos Personales en Posesión de Particulares (en adelante “La Ley”), le informamos a Usted (en adelante “El Titular) que Northware S.A. de C.V., OpenService S.A. de C.V., PlanNet Service S.A. de C.V. y Scatel S.A. de C.V. (en adelante, conjunta o indistintamente “Grupo Open”) con domicilio en Regio Avenida No. 109, Colonia Regio Parque Industrial, C. P. 66633, Apodaca, Nuevo León, es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección; siempre apegado a lo establecido en La Ley y bajo los principios de licitud, calidad, consentimiento, información, finalidad, lealtad, proporcionalidad y responsabilidad.
+
+Datos Personales Recabados
+
+Los datos personales de El Titular recabados por Grupo Open son: nombre completo, clave única de registro de población, fecha de nacimiento, domicilio(s), estado civil, dirección(es) de correo electrónico, número(s) telefónico(s), datos fiscales, formación profesional y académica, experiencia laboral, aptitudes, habilidades, capacidades, fotografía, información sobre sus dependientes económicos, intereses y pretensiones laborales y económicas, referencias personales y laborales así como los datos clínicos dentro de las consultas tales como historial médico, diagnósticos y tratamientos. En caso de que Grupo Open solicite datos personales sensibles a El Titular, éste deberá autorizarlo por escrito a través de firma autógrafa, firma electrónica u otro mecanismo de autentificación.
+
+Fuentes de Datos
+
+Los datos personales podrán ser solicitados por Grupo Open directamente a El Titular de los mismos a través de medios impresos, portales de internet, correos electrónicos, llamadas telefónicas, entrevistas personales, entre otras fuentes lícitas. Una vez que Grupo Open comunica el presente Aviso de Privacidad a El Titular, éste otorga su consentimiento tácito al proporcionar sus datos personales.
+          
+Tratamiento de Datos Personales
+
+El tratamiento de los datos personales recabados tiene la finalidad de:
+            •    A) Analizar y en su caso proveer o adquirir servicios y/o productos ofrecidos o solicitados por Grupo Open a El Titular y viceversa.
+            •    B) Promoción de ofertas laborales de Grupo Open o de Terceros para El Titular.
+            •    C) Promoción de servicios profesionales independientes del Titular para Grupo Open o Terceros.
+            •    D) Comunicar temas de interés de Grupo Open, en el entendido de que son de utilidad para El Titular.
+            •    E) Formación y Análisis de Estadísticas al interior de Grupo Open.
+            
+Protección de Datos Personales
+
+Grupo Open mantiene medidas de seguridad administrativas, técnicas y físicas que permiten proteger los datos personales de El Titular contra daño, pérdida, alteración, destrucción o el uso, acceso o tratamiento no autorizado.
+            
+Uso de Medios Electrónicos
+
+En caso de que El Titular utilice sistemas, páginas o portales de Internet de Grupo Open, es posible que estos recopilen datos de El Titular tales como tipo de navegador, sistema operativo, páginas de Internet visitadas, dirección IP, etc., a través “cookies” o “web beacons”, entre otros. Es posible que los sistemas, páginas o portales de Internet de Grupo Open contengan ligas a otros sitios externos, de los cuales el contenido y políticas de privacidad no son responsabilidad de Grupo Open, por lo que El Titular, en su caso, quedará sujeto a las políticas de privacidad de aquellos otros sitios, sin responsabilidad alguna a cargo de Grupo Open.
+            
+Transferencia de Datos Personales
+
+Grupo Open no transfiere, difunde, distribuye ni comercializa los datos personales de El Titular sin su consentimiento a Terceros distintos a afiliados que operan bajo los mismos procesos y políticas internas y/o que cuentan con un contrato celebrado o por celebrar en interés de El Titular, Grupo Open y un Tercero.
+            
+Derechos ARCO y de Revocación de Consentimiento de El Titular
+
+El Titular tiene en todo momento el derecho de acceder, rectificar, cancelar sus datos personales, así como de oponerse al tratamiento de los mismos o revocar el consentimiento que para tal fin haya otorgado a Grupo Open. Para esto es necesario que El Titular envíe su solicitud en texto libre mediante correo electrónico a la dirección datospersonales@open.mx, adjuntando documentos que acrediten su identidad y una descripción a detalle de los datos y derechos que solicita ejercer. Dicha solicitud será respondida por Grupo Open a través del mismo medio en un lapso no mayor a 10 días hábiles.
+            
+Cambios en el Aviso de Privacidad
+
+Grupo Open se reserva el derecho de modificar este Aviso de Privacidad, con el propósito de adecuarlo, actualizarlo, mejorarlo, o bien para atender nuevas disposiciones legales, políticas internas, prácticas de mercado, requerimientos para la prestación u ofrecimiento de sus servicios y/o productos. El Titular podrá acceder a la versión vigente de este Aviso de Privacidad en el sitio de Internet de Grupo Open http://www.open.mx/aviso-de-privacidad</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Pg-XL-zXx" firstAttribute="bottom" secondItem="C70-V9-diY" secondAttribute="bottom" id="FcN-6X-X7a"/>
+                            <constraint firstItem="3Pg-XL-zXx" firstAttribute="trailing" secondItem="C70-V9-diY" secondAttribute="trailing" constant="16" id="I2J-bU-nCv"/>
+                            <constraint firstItem="C70-V9-diY" firstAttribute="leading" secondItem="3Pg-XL-zXx" secondAttribute="leading" constant="16" id="e89-PI-rtQ"/>
+                            <constraint firstItem="C70-V9-diY" firstAttribute="top" secondItem="3Pg-XL-zXx" secondAttribute="top" id="gMb-jX-hqx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Pg-XL-zXx"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="C70-V9-diY" id="OZG-ex-VcA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3L-Oe-0mk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288.8000000000002" y="766.99507389162568"/>
         </scene>
         <!--Agenda-->
         <scene sceneID="W93-jt-d9A">
@@ -959,13 +1035,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" width="36" height="36"/>
-        <image name="female" width="40" height="40"/>
+        <image name="calendar" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="female" width="33.333332061767578" height="33.333332061767578"/>
         <image name="forward_arrow" width="128" height="128"/>
-        <image name="greendot" width="40" height="40"/>
+        <image name="greendot" width="16.666666030883789" height="16.666666030883789"/>
         <image name="lock" width="15" height="15"/>
-        <image name="male" width="40" height="40"/>
-        <image name="patients_sidemenu" width="36" height="36"/>
-        <image name="settings" width="50" height="50"/>
+        <image name="male" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="patients_sidemenu" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

@@ -59,7 +59,8 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func helpAndLegal(_ sender: UITapGestureRecognizer) {
-        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "HelpAndLegalViewController") as! HelpAndLegalViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func authenticationSwitch(_ sender: UISwitch) {
