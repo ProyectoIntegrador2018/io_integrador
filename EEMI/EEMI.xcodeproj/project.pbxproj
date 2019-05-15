@@ -1,0 +1,947 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DCBAF07B5E7795F9942045C /* Pods_EEMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80244490E2532F87604BA219 /* Pods_EEMITests.framework */; };
+		65EB06FE226E28C500E31882 /* AddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */; };
+		65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F7EFB1221E271900B8A97D /* ColorPallet.swift */; };
+		7E5535052288DDA30014E90F /* ErrorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5535042288DDA30014E90F /* ErrorClient.swift */; };
+		AD331AB6DBE2C86262F3A7D2 /* Pods_EEMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */; };
+		CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06043B221CEEEF00D10F07 /* PinCodeView.swift */; };
+		CF06043E221CEF1D00D10F07 /* PinCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF06043D221CEF1D00D10F07 /* PinCodeView.xib */; };
+		CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E1F2219DB60007146F9 /* AppDelegate.swift */; };
+		CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E212219DB60007146F9 /* AgendaViewController.swift */; };
+		CF158E252219DB60007146F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E232219DB60007146F9 /* Main.storyboard */; };
+		CF158E272219DB62007146F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF158E262219DB62007146F9 /* Assets.xcassets */; };
+		CF158E2A2219DB62007146F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E282219DB62007146F9 /* LaunchScreen.storyboard */; };
+		CF158E352219DB62007146F9 /* EEMITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E342219DB62007146F9 /* EEMITests.swift */; };
+		CF158E402219DB62007146F9 /* EEMIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E3F2219DB62007146F9 /* EEMIUITests.swift */; };
+		CF158E562219E3F6007146F9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF158E552219E3F6007146F9 /* Login.storyboard */; };
+		CF158E582219E429007146F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E572219E429007146F9 /* LoginViewController.swift */; };
+		CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E5A2219F2BE007146F9 /* ApiClient.swift */; };
+		CF278C9D2288E8BC00A70BAC /* HelpAndLegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */; };
+		CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */; };
+		CF53F336224C3DDB00D0F662 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAFA222206E900BEC70C /* Appointment.swift */; };
+		CF53F337224C3DDB00D0F662 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E532219E329007146F9 /* SettingsViewController.swift */; };
+		CF53F338224C3DDB00D0F662 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158E512219DE32007146F9 /* PatientsViewController.swift */; };
+		CF53F339224C3E5200D0F662 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793430802243327A00FB329C /* MedicalRecord.swift */; };
+		CF8B7E51224937A900E10777 /* ImmunizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */; };
+		CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */; };
+		CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */; };
+		CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CC224AFAD0007103A5 /* PinViewController.swift */; };
+		CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */; };
+		CF9510D1224B0E8F007103A5 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */; };
+		CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */; };
+		CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */; };
+		CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */; };
+		CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */; };
+		CFAD06FF221A46BC001B9061 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD06FE221A46BC001B9061 /* User.swift */; };
+		CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */; };
+		CFCFA2522241678500260D76 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCFA2512241678500260D76 /* Patient.swift */; };
+		CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DAF82221E21B00BEC70C /* DateExtension.swift */; };
+		CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */; };
+		CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */; };
+		CFD9DB0622261C4D00BEC70C /* StateIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */; };
+		CFFBB1EA2242D46C00FC5DF0 /* PatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFBB1E92242D46C00FC5DF0 /* PatientViewController.swift */; };
+		D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF158E312219DB62007146F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF158E142219DB60007146F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF158E1B2219DB60007146F9;
+			remoteInfo = EEMI;
+		};
+		CF158E3C2219DB62007146F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF158E142219DB60007146F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF158E1B2219DB60007146F9;
+			remoteInfo = EEMI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3B2E2CCC89782F2E8FB54D20 /* Pods-EEMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.release.xcconfig"; sourceTree = "<group>"; };
+		4AD5114689A6B6B549D0D42D /* Pods-EEMIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMIUITests/Pods-EEMIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentViewController.swift; sourceTree = "<group>"; };
+		65F7EFB1221E271900B8A97D /* ColorPallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallet.swift; sourceTree = "<group>"; };
+		72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		793430802243327A00FB329C /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
+		7E5535042288DDA30014E90F /* ErrorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorClient.swift; sourceTree = "<group>"; };
+		80244490E2532F87604BA219 /* Pods_EEMITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D5422FC0F154B6553373C4 /* Pods-EEMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMI/Pods-EEMI.debug.xcconfig"; sourceTree = "<group>"; };
+		A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEMIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C409BD537E43CC6EB420EB8E /* Pods-EEMITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF06043B221CEEEF00D10F07 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
+		CF06043D221CEF1D00D10F07 /* PinCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeView.xib; sourceTree = "<group>"; };
+		CF158E1C2219DB60007146F9 /* EEMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EEMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF158E1F2219DB60007146F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF158E212219DB60007146F9 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		CF158E242219DB60007146F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF158E262219DB62007146F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF158E292219DB62007146F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF158E2B2219DB62007146F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF158E302219DB62007146F9 /* EEMITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EEMITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF158E342219DB62007146F9 /* EEMITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEMITests.swift; sourceTree = "<group>"; };
+		CF158E362219DB62007146F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF158E3B2219DB62007146F9 /* EEMIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EEMIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF158E3F2219DB62007146F9 /* EEMIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEMIUITests.swift; sourceTree = "<group>"; };
+		CF158E412219DB62007146F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF158E512219DE32007146F9 /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
+		CF158E532219E329007146F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CF158E552219E3F6007146F9 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CF158E572219E429007146F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CF158E5A2219F2BE007146F9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpAndLegalViewController.swift; sourceTree = "<group>"; };
+		CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPinViewController.swift; sourceTree = "<group>"; };
+		CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmunizationTableViewCell.swift; sourceTree = "<group>"; };
+		CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlButton.swift; sourceTree = "<group>"; };
+		CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextExtension.swift; sourceTree = "<group>"; };
+		CF9510CC224AFAD0007103A5 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
+		CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
+		CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlerExtension.swift; sourceTree = "<group>"; };
+		CFAD06FE221A46BC001B9061 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoiding.swift; sourceTree = "<group>"; };
+		CFCFA2512241678500260D76 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		CFD9DAF82221E21B00BEC70C /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		CFD9DAFA222206E900BEC70C /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateIndicatorView.swift; sourceTree = "<group>"; };
+		CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateIndicatorView.xib; sourceTree = "<group>"; };
+		CFFBB1E92242D46C00FC5DF0 /* PatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewController.swift; sourceTree = "<group>"; };
+		E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEMITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEMITests/Pods-EEMITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF158E192219DB60007146F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD331AB6DBE2C86262F3A7D2 /* Pods_EEMI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E2D2219DB62007146F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DCBAF07B5E7795F9942045C /* Pods_EEMITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E382219DB62007146F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D739194A531F774034E6C540 /* Pods_EEMIUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58653E40F9EFECB4101CFA0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72368C277F7DDEB7E5ADD181 /* Pods_EEMI.framework */,
+				80244490E2532F87604BA219 /* Pods_EEMITests.framework */,
+				A44EA0E28C39B8F705822955 /* Pods_EEMIUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A923196BF1543072A9F6E7BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92D5422FC0F154B6553373C4 /* Pods-EEMI.debug.xcconfig */,
+				3B2E2CCC89782F2E8FB54D20 /* Pods-EEMI.release.xcconfig */,
+				E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */,
+				C409BD537E43CC6EB420EB8E /* Pods-EEMITests.release.xcconfig */,
+				4AD5114689A6B6B549D0D42D /* Pods-EEMIUITests.debug.xcconfig */,
+				1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF06043F221CEF2900D10F07 /* PinCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				CF06043B221CEEEF00D10F07 /* PinCodeView.swift */,
+				CF06043D221CEF1D00D10F07 /* PinCodeView.xib */,
+			);
+			name = PinCodeView;
+			sourceTree = "<group>";
+		};
+		CF158E132219DB60007146F9 = {
+			isa = PBXGroup;
+			children = (
+				CF158E1E2219DB60007146F9 /* EEMI */,
+				CF158E332219DB62007146F9 /* EEMITests */,
+				CF158E3E2219DB62007146F9 /* EEMIUITests */,
+				CF158E1D2219DB60007146F9 /* Products */,
+				A923196BF1543072A9F6E7BB /* Pods */,
+				58653E40F9EFECB4101CFA0E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CF158E1D2219DB60007146F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E1C2219DB60007146F9 /* EEMI.app */,
+				CF158E302219DB62007146F9 /* EEMITests.xctest */,
+				CF158E3B2219DB62007146F9 /* EEMIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF158E1E2219DB60007146F9 /* EEMI */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E502219DC33007146F9 /* Models */,
+				CF158E4E2219DBF4007146F9 /* Views */,
+				CF158E4D2219DBDB007146F9 /* Controllers */,
+				CF158E4F2219DC03007146F9 /* Other */,
+			);
+			path = EEMI;
+			sourceTree = "<group>";
+		};
+		CF158E332219DB62007146F9 /* EEMITests */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E342219DB62007146F9 /* EEMITests.swift */,
+				CF158E362219DB62007146F9 /* Info.plist */,
+			);
+			path = EEMITests;
+			sourceTree = "<group>";
+		};
+		CF158E3E2219DB62007146F9 /* EEMIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E3F2219DB62007146F9 /* EEMIUITests.swift */,
+				CF158E412219DB62007146F9 /* Info.plist */,
+			);
+			path = EEMIUITests;
+			sourceTree = "<group>";
+		};
+		CF158E4D2219DBDB007146F9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E212219DB60007146F9 /* AgendaViewController.swift */,
+				CF9510CC224AFAD0007103A5 /* PinViewController.swift */,
+				CFFBB1E92242D46C00FC5DF0 /* PatientViewController.swift */,
+				CF278C9C2288E8BC00A70BAC /* HelpAndLegalViewController.swift */,
+				CF158E512219DE32007146F9 /* PatientsViewController.swift */,
+				CF9510D0224B0E8F007103A5 /* CreatePinViewController.swift */,
+				CF53F334224C2D6C00D0F662 /* ForgotPinViewController.swift */,
+				CF158E532219E329007146F9 /* SettingsViewController.swift */,
+				CF158E572219E429007146F9 /* LoginViewController.swift */,
+				65EB06FD226E28C500E31882 /* AddAppointmentViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CF158E4E2219DBF4007146F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E282219DB62007146F9 /* LaunchScreen.storyboard */,
+				CF158E232219DB60007146F9 /* Main.storyboard */,
+				CF158E552219E3F6007146F9 /* Login.storyboard */,
+				CF06043F221CEF2900D10F07 /* PinCodeView */,
+				CFAD06F6221A3BAC001B9061 /* ActivityIndicatorView.swift */,
+				CFD9DB0022260DB100BEC70C /* AppointmentTableViewCell.swift */,
+				CF8B7E5222493D4400E10777 /* SegmentedControlButton.swift */,
+				CF8B7E50224937A900E10777 /* ImmunizationTableViewCell.swift */,
+				CFD9DB0222261B6200BEC70C /* StateIndicatosView */,
+				CFAD06F8221A3BDE001B9061 /* ActivityIndicatorView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CF158E4F2219DC03007146F9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				CF158E262219DB62007146F9 /* Assets.xcassets */,
+				CF158E1F2219DB60007146F9 /* AppDelegate.swift */,
+				CFAD06FA221A3C00001B9061 /* UIViewExtension.swift */,
+				CFAD06FC221A40DB001B9061 /* ViewControlerExtension.swift */,
+				CFD9DAF82221E21B00BEC70C /* DateExtension.swift */,
+				CF9510CE224B08BB007103A5 /* UIApplicationExtension.swift */,
+				CF9510C8224AE2C6007103A5 /* LAContextExtension.swift */,
+				CFAD0707221A65A9001B9061 /* KeyboardAvoiding */,
+				CF158E2B2219DB62007146F9 /* Info.plist */,
+				65F7EFB1221E271900B8A97D /* ColorPallet.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		CF158E502219DC33007146F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E5535042288DDA30014E90F /* ErrorClient.swift */,
+				CF158E5A2219F2BE007146F9 /* ApiClient.swift */,
+				CFD9DAFA222206E900BEC70C /* Appointment.swift */,
+				CFAD06FE221A46BC001B9061 /* User.swift */,
+				CFCFA2512241678500260D76 /* Patient.swift */,
+				793430802243327A00FB329C /* MedicalRecord.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CFAD0707221A65A9001B9061 /* KeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				CFAD0702221A64BD001B9061 /* KeyboardAvoiding.swift */,
+			);
+			path = KeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		CFD9DB0222261B6200BEC70C /* StateIndicatosView */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9DB0322261B9B00BEC70C /* StateIndicatorView.swift */,
+				CFD9DB0522261C4D00BEC70C /* StateIndicatorView.xib */,
+			);
+			name = StateIndicatosView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF158E1B2219DB60007146F9 /* EEMI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF158E442219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMI" */;
+			buildPhases = (
+				A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */,
+				CF158E182219DB60007146F9 /* Sources */,
+				CF158E192219DB60007146F9 /* Frameworks */,
+				CF158E1A2219DB60007146F9 /* Resources */,
+				CF158E592219E726007146F9 /* ShellScript */,
+				67B936B5691986C5EC1E884B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EEMI;
+			productName = EEMI;
+			productReference = CF158E1C2219DB60007146F9 /* EEMI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF158E2F2219DB62007146F9 /* EEMITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF158E472219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMITests" */;
+			buildPhases = (
+				A56E8B3C48FFE20A2CE4C758 /* [CP] Check Pods Manifest.lock */,
+				CF158E2C2219DB62007146F9 /* Sources */,
+				CF158E2D2219DB62007146F9 /* Frameworks */,
+				CF158E2E2219DB62007146F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF158E322219DB62007146F9 /* PBXTargetDependency */,
+			);
+			name = EEMITests;
+			productName = EEMITests;
+			productReference = CF158E302219DB62007146F9 /* EEMITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CF158E3A2219DB62007146F9 /* EEMIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF158E4A2219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMIUITests" */;
+			buildPhases = (
+				F555641DE87EC0F5A3DBED52 /* [CP] Check Pods Manifest.lock */,
+				CF158E372219DB62007146F9 /* Sources */,
+				CF158E382219DB62007146F9 /* Frameworks */,
+				CF158E392219DB62007146F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF158E3D2219DB62007146F9 /* PBXTargetDependency */,
+			);
+			name = EEMIUITests;
+			productName = EEMIUITests;
+			productReference = CF158E3B2219DB62007146F9 /* EEMIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF158E142219DB60007146F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Io Labs";
+				TargetAttributes = {
+					CF158E1B2219DB60007146F9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+					CF158E2F2219DB62007146F9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						TestTargetID = CF158E1B2219DB60007146F9;
+					};
+					CF158E3A2219DB62007146F9 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						TestTargetID = CF158E1B2219DB60007146F9;
+					};
+				};
+			};
+			buildConfigurationList = CF158E172219DB60007146F9 /* Build configuration list for PBXProject "EEMI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF158E132219DB60007146F9;
+			productRefGroup = CF158E1D2219DB60007146F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF158E1B2219DB60007146F9 /* EEMI */,
+				CF158E2F2219DB62007146F9 /* EEMITests */,
+				CF158E3A2219DB62007146F9 /* EEMIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF158E1A2219DB60007146F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFAD06F9221A3BDE001B9061 /* ActivityIndicatorView.xib in Resources */,
+				CF158E562219E3F6007146F9 /* Login.storyboard in Resources */,
+				CFD9DB0622261C4D00BEC70C /* StateIndicatorView.xib in Resources */,
+				CF158E2A2219DB62007146F9 /* LaunchScreen.storyboard in Resources */,
+				CF06043E221CEF1D00D10F07 /* PinCodeView.xib in Resources */,
+				CF158E272219DB62007146F9 /* Assets.xcassets in Resources */,
+				CF158E252219DB60007146F9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E2E2219DB62007146F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E392219DB62007146F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67B936B5691986C5EC1E884B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEMI/Pods-EEMI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A172909599D1839635C90CE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EEMI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A56E8B3C48FFE20A2CE4C758 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EEMITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF158E592219E726007146F9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		F555641DE87EC0F5A3DBED52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EEMIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF158E182219DB60007146F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E5535052288DDA30014E90F /* ErrorClient.swift in Sources */,
+				CF53F339224C3E5200D0F662 /* MedicalRecord.swift in Sources */,
+				CF53F336224C3DDB00D0F662 /* Appointment.swift in Sources */,
+				CF53F338224C3DDB00D0F662 /* PatientsViewController.swift in Sources */,
+				CF9510CF224B08BB007103A5 /* UIApplicationExtension.swift in Sources */,
+				CF06043C221CEEEF00D10F07 /* PinCodeView.swift in Sources */,
+				CFCFA2522241678500260D76 /* Patient.swift in Sources */,
+				CF8B7E5322493D4400E10777 /* SegmentedControlButton.swift in Sources */,
+				CFD9DB0122260DB100BEC70C /* AppointmentTableViewCell.swift in Sources */,
+				65EB06FE226E28C500E31882 /* AddAppointmentViewController.swift in Sources */,
+				CFD9DAF92221E21C00BEC70C /* DateExtension.swift in Sources */,
+				CF158E222219DB60007146F9 /* AgendaViewController.swift in Sources */,
+				CFAD06FD221A40DB001B9061 /* ViewControlerExtension.swift in Sources */,
+				CF158E202219DB60007146F9 /* AppDelegate.swift in Sources */,
+				CF9510CD224AFAD0007103A5 /* PinViewController.swift in Sources */,
+				CF158E582219E429007146F9 /* LoginViewController.swift in Sources */,
+				65F7EFB2221E271900B8A97D /* ColorPallet.swift in Sources */,
+				CFD9DB0422261B9B00BEC70C /* StateIndicatorView.swift in Sources */,
+				CF53F337224C3DDB00D0F662 /* SettingsViewController.swift in Sources */,
+				CF9510C9224AE2C6007103A5 /* LAContextExtension.swift in Sources */,
+				CF53F335224C2D6C00D0F662 /* ForgotPinViewController.swift in Sources */,
+				CFFBB1EA2242D46C00FC5DF0 /* PatientViewController.swift in Sources */,
+				CF8B7E51224937A900E10777 /* ImmunizationTableViewCell.swift in Sources */,
+				CF158E5B2219F2BE007146F9 /* ApiClient.swift in Sources */,
+				CFAD0703221A64BD001B9061 /* KeyboardAvoiding.swift in Sources */,
+				CFAD06FB221A3C00001B9061 /* UIViewExtension.swift in Sources */,
+				CFAD06FF221A46BC001B9061 /* User.swift in Sources */,
+				CF278C9D2288E8BC00A70BAC /* HelpAndLegalViewController.swift in Sources */,
+				CFAD06F7221A3BAC001B9061 /* ActivityIndicatorView.swift in Sources */,
+				CF9510D1224B0E8F007103A5 /* CreatePinViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E2C2219DB62007146F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF158E352219DB62007146F9 /* EEMITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF158E372219DB62007146F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF158E402219DB62007146F9 /* EEMIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF158E322219DB62007146F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF158E1B2219DB60007146F9 /* EEMI */;
+			targetProxy = CF158E312219DB62007146F9 /* PBXContainerItemProxy */;
+		};
+		CF158E3D2219DB62007146F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF158E1B2219DB60007146F9 /* EEMI */;
+			targetProxy = CF158E3C2219DB62007146F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF158E232219DB60007146F9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF158E242219DB60007146F9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF158E282219DB62007146F9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF158E292219DB62007146F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF158E422219DB62007146F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF158E432219DB62007146F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF158E452219DB62007146F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92D5422FC0F154B6553373C4 /* Pods-EEMI.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2UY5E875D;
+				INFOPLIST_FILE = EEMI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Io.EEMI-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CF158E462219DB62007146F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B2E2CCC89782F2E8FB54D20 /* Pods-EEMI.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2UY5E875D;
+				INFOPLIST_FILE = EEMI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Io.EEMI-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		CF158E482219DB62007146F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4F810DFBEBC389030B7BB47 /* Pods-EEMITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7MT6YYUJ;
+				INFOPLIST_FILE = EEMITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Io.EEMITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EEMI.app/EEMI";
+			};
+			name = Debug;
+		};
+		CF158E492219DB62007146F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C409BD537E43CC6EB420EB8E /* Pods-EEMITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7MT6YYUJ;
+				INFOPLIST_FILE = EEMITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Io.EEMITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EEMI.app/EEMI";
+			};
+			name = Release;
+		};
+		CF158E4B2219DB62007146F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AD5114689A6B6B549D0D42D /* Pods-EEMIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7MT6YYUJ;
+				INFOPLIST_FILE = EEMIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Io.EEMIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EEMI;
+			};
+			name = Debug;
+		};
+		CF158E4C2219DB62007146F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1483BCAF69F64A737FDF3A0A /* Pods-EEMIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7MT6YYUJ;
+				INFOPLIST_FILE = EEMIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Io.EEMIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EEMI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF158E172219DB60007146F9 /* Build configuration list for PBXProject "EEMI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF158E422219DB62007146F9 /* Debug */,
+				CF158E432219DB62007146F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF158E442219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF158E452219DB62007146F9 /* Debug */,
+				CF158E462219DB62007146F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF158E472219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF158E482219DB62007146F9 /* Debug */,
+				CF158E492219DB62007146F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF158E4A2219DB62007146F9 /* Build configuration list for PBXNativeTarget "EEMIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF158E4B2219DB62007146F9 /* Debug */,
+				CF158E4C2219DB62007146F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF158E142219DB60007146F9 /* Project object */;
+}
