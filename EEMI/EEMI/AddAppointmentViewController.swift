@@ -30,7 +30,6 @@ class AddAppointmentViewController: UIViewController, UITextViewDelegate {
         addCustomBackButton(title: patient.fullName)
         KeyboardAvoiding.avoidingView = appointmentScroll
         saveAppointmentBtn.layer.cornerRadius = saveAppointmentBtn.frame.height/6
-        saveAppointmentBtn.addDropShadow()
         immunizationSwitch.isOn = false
         commentsTextView.textColor = UIColor.lightGray
     }
