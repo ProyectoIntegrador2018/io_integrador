@@ -90,32 +90,3 @@ class SettingsViewController: UIViewController {
         logout()
     }
 }
-
-// MARK: - Local Authorization
-
-extension SettingsViewController: PinCodeDelegate {
-    
-    func didSelectForgotPin() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
-        let presenter: Presentr = {
-            let width = ModalSize.fluid(percentage: 0.8)
-            let height = ModalSize.fluid(percentage: 0.4)
-            let center = ModalCenterPosition.center
-            let customType = PresentationType.custom(width: width, height: height, center: center)
-            let customPresenter = Presentr(presentationType: customType)
-            return customPresenter
-        }()
-        self.customPresentViewController(presenter, viewController: vc, animated: true, completion: nil)
-    }
-    
-    func didSelectButton(number: Int) {
-        pin.append(Character(String(number)))
-        if String(pin) == User.shared.pin {
-            pinCodeView.removeFromSuperview()
-        }
-    }
-    
-    func didSelectDelete() {
-        _ = pin.popLast()
-    }
-}

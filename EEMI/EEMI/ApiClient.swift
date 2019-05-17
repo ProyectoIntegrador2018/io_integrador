@@ -24,7 +24,7 @@ enum Endpoints {
 
     func url() -> URL {
         var path: String
-        let baseUrl = "http://emmiapi.azurewebsites.net/api"
+        let baseUrl = "https://eemimobile-apiqa.azurewebsites.net/api"
 
         switch self {
         case let .getTokens(username, password):
@@ -60,7 +60,7 @@ class ApiClient {
 
             case let .failure(error):
                 let statusCode = response.response?.statusCode
-                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getToken")
+                let err = ErrorClient(error: error, statusCode: statusCode ?? 400, source: "getToken")
                 completion(.error(err.handleError()))
             }
         }
@@ -94,7 +94,7 @@ class ApiClient {
 
             case let .failure(error):
                 let statusCode = response.response?.statusCode
-                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getAppointments")
+                let err = ErrorClient(error: error, statusCode: statusCode ?? 400, source: "getAppointments")
                 completion(.error(err.handleError()))
             }
         }
@@ -124,7 +124,7 @@ class ApiClient {
 
             case let .failure(error):
                 let statusCode = response.response?.statusCode
-                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getPatients")
+                let err = ErrorClient(error: error, statusCode: statusCode ?? 400, source: "getPatients")
                 completion(.error(err.handleError()))
             }
         }
@@ -148,7 +148,7 @@ class ApiClient {
 
             case let .failure(error):
                 let statusCode = response.response?.statusCode
-                let err = ErrorClient(error: error, statusCode: statusCode!, source: "getMedicalRecord")
+                let err = ErrorClient(error: error, statusCode: statusCode ?? 400, source: "getMedicalRecord")
                 completion(.error(err.handleError()))
             }
         }

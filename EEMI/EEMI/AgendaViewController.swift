@@ -42,12 +42,14 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func appWillEnterForeground() {
+        pin.removeAll()
+        pinCodeView.removeFromSuperview()
         pinCodeView = PinCodeView(frame: view.frame)
         pinCodeView.delegate = self
         tabBarController?.view.addSubview(pinCodeView)
         localAuthentication(fallbackView: pinCodeView)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let barItemRefresh: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
@@ -69,11 +71,7 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
         
         pinCodeView = PinCodeView(frame: view.frame)
         pinCodeView.delegate = self
-        
-        if LAContext().biometricType == .touchID {
-            pinCodeView.imageView.image = UIImage(named: "TouchID")
-        }
-        
+                
         tabBarController?.view.addSubview(pinCodeView)
         localAuthentication(fallbackView: pinCodeView)
         
@@ -257,7 +255,7 @@ extension AgendaViewController: PinCodeDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
         let presenter: Presentr = {
             let width = ModalSize.fluid(percentage: 0.8)
-            let height = ModalSize.fluid(percentage: 0.4)
+            let height = ModalSize.fluid(percentage: 0.6)
             let center = ModalCenterPosition.center
             let customType = PresentationType.custom(width: width, height: height, center: center)
             let customPresenter = Presentr(presentationType: customType)
@@ -267,7 +265,7 @@ extension AgendaViewController: PinCodeDelegate {
     }
 
     func didSelectButton(number: Int) {
-        pin.append(Character(String(number)))
+       pin.append(Character(String(number)))
         if String(pin) == User.shared.pin {
             pinCodeView.removeFromSuperview()
             pin.removeAll()
