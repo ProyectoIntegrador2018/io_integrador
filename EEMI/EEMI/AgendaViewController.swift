@@ -42,12 +42,14 @@ class AgendaViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func appWillEnterForeground() {
+        pin.removeAll()
+        pinCodeView.removeFromSuperview()
         pinCodeView = PinCodeView(frame: view.frame)
         pinCodeView.delegate = self
         tabBarController?.view.addSubview(pinCodeView)
         localAuthentication(fallbackView: pinCodeView)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let barItemRefresh: UIBarButtonItem = UIBarButtonItem(customView: refreshButton)
@@ -258,7 +260,7 @@ extension AgendaViewController: PinCodeDelegate {
     }
 
     func didSelectButton(number: Int) {
-        pin.append(Character(String(number)))
+       pin.append(Character(String(number)))
         if String(pin) == User.shared.pin {
             pinCodeView.removeFromSuperview()
             pin.removeAll()
