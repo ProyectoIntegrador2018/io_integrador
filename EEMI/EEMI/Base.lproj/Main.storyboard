@@ -660,7 +660,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C70-V9-diY">
                                 <rect key="frame" x="16" y="44" width="343" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">
+                                <string key="text">
  Aviso de Privacidad EEMI
        
 En atención a la Ley Federal de Protección de Datos Personales en Posesión de Particulares (en adelante “La Ley”), le informamos a Usted (en adelante “El Titular) que Northware S.A. de C.V., OpenService S.A. de C.V., PlanNet Service S.A. de C.V. y Scatel S.A. de C.V. (en adelante, conjunta o indistintamente “Grupo Open”) con domicilio en Regio Avenida No. 109, Colonia Regio Parque Industrial, C. P. 66633, Apodaca, Nuevo León, es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección; siempre apegado a lo establecido en La Ley y bajo los principios de licitud, calidad, consentimiento, información, finalidad, lealtad, proporcionalidad y responsabilidad.
@@ -700,7 +700,7 @@ El Titular tiene en todo momento el derecho de acceder, rectificar, cancelar sus
             
 Cambios en el Aviso de Privacidad
 
-Grupo Open se reserva el derecho de modificar este Aviso de Privacidad, con el propósito de adecuarlo, actualizarlo, mejorarlo, o bien para atender nuevas disposiciones legales, políticas internas, prácticas de mercado, requerimientos para la prestación u ofrecimiento de sus servicios y/o productos. El Titular podrá acceder a la versión vigente de este Aviso de Privacidad en el sitio de Internet de Grupo Open http://www.open.mx/aviso-de-privacidad</mutableString>
+Grupo Open se reserva el derecho de modificar este Aviso de Privacidad, con el propósito de adecuarlo, actualizarlo, mejorarlo, o bien para atender nuevas disposiciones legales, políticas internas, prácticas de mercado, requerimientos para la prestación u ofrecimiento de sus servicios y/o productos. El Titular podrá acceder a la versión vigente de este Aviso de Privacidad en el sitio de Internet de Grupo Open http://www.open.mx/aviso-de-privacidad</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

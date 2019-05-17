@@ -99,7 +99,7 @@ extension SettingsViewController: PinCodeDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ForgotPinViewController") as! ForgotPinViewController
         let presenter: Presentr = {
             let width = ModalSize.fluid(percentage: 0.8)
-            let height = ModalSize.fluid(percentage: 0.4)
+            let height = ModalSize.fluid(percentage: 0.6)
             let center = ModalCenterPosition.center
             let customType = PresentationType.custom(width: width, height: height, center: center)
             let customPresenter = Presentr(presentationType: customType)

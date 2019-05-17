@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinCodeView" customModule="EEMI" customModuleProvider="target">
             <connections>
                 <outlet property="deleteButton" destination="ElR-oQ-PLl" id="2YC-Q1-LPK"/>
-                <outlet property="imageView" destination="e6K-Tz-qoq" id="qHB-j4-mXv"/>
                 <outlet property="pinFieldStackView" destination="qKd-Jx-aho" id="B0O-c5-puY"/>
                 <outletCollection property="numberPadButtons" destination="M8d-ut-WXO" collectionClass="NSMutableArray" id="fj8-UD-g0d"/>
                 <outletCollection property="numberPadButtons" destination="aPy-cx-6xp" collectionClass="NSMutableArray" id="NSh-GA-mRD"/>
@@ -42,13 +41,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresar clave pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-nZ-GYl">
-                                        <rect key="frame" x="118.66666666666669" y="195" width="138" height="20.333333333333343"/>
+                                        <rect key="frame" x="118.66666666666669" y="165.66666666666666" width="138" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4W0-PE-YZy" userLabel="NumberPad">
-                                        <rect key="frame" x="65" y="300.33333333333331" width="245" height="329.99999999999994"/>
+                                        <rect key="frame" x="65" y="241" width="245" height="330"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cqn-Q5-03F">
                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="75"/>
@@ -183,7 +182,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-ds-Ipn">
-                                                <rect key="frame" x="0.0" y="255.00000000000006" width="245" height="75"/>
+                                                <rect key="frame" x="0.0" y="255" width="245" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrZ-3z-g1p">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -230,7 +229,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="qKd-Jx-aho">
-                                        <rect key="frame" x="126" y="235.33333333333334" width="123" height="15"/>
+                                        <rect key="frame" x="126" y="206" width="123" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjX-u7-Y71">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="15"/>
@@ -258,7 +257,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3w-3k-4VJ">
-                                        <rect key="frame" x="126" y="682.33333333333337" width="123" height="30"/>
+                                        <rect key="frame" x="126" y="611" width="123" height="30"/>
                                         <state key="normal" title="¿Olvidaste tu Pin?">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -266,25 +265,16 @@
                                             <action selector="forgotPin:" destination="-1" eventType="touchUpInside" id="r2X-HO-FPc"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6K-Tz-qoq">
-                                        <rect key="frame" x="150" y="80" width="75" height="75"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="WsD-XM-vQ4"/>
-                                            <constraint firstAttribute="width" constant="75" id="bQA-Pj-4lQ"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="YNY-nZ-GYl" firstAttribute="top" secondItem="e6K-Tz-qoq" secondAttribute="bottom" constant="40" id="3E7-CR-aUH"/>
                                     <constraint firstItem="A3w-3k-4VJ" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="3wN-UG-cpp"/>
                                     <constraint firstItem="qKd-Jx-aho" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="Aqr-1q-x2H"/>
                                     <constraint firstItem="4W0-PE-YZy" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="MPD-ne-ysJ"/>
-                                    <constraint firstItem="A3w-3k-4VJ" firstAttribute="top" secondItem="4W0-PE-YZy" secondAttribute="bottom" constant="52" id="RJs-Y3-Zog"/>
-                                    <constraint firstItem="e6K-Tz-qoq" firstAttribute="top" secondItem="Iqu-eo-oAo" secondAttribute="top" constant="80" id="Srn-bZ-C4k"/>
+                                    <constraint firstItem="A3w-3k-4VJ" firstAttribute="top" secondItem="4W0-PE-YZy" secondAttribute="bottom" constant="40" id="RJs-Y3-Zog"/>
                                     <constraint firstItem="qKd-Jx-aho" firstAttribute="top" secondItem="YNY-nZ-GYl" secondAttribute="bottom" constant="20" id="Z2U-cv-XBF"/>
                                     <constraint firstItem="YNY-nZ-GYl" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="eTS-5T-9gF"/>
-                                    <constraint firstItem="e6K-Tz-qoq" firstAttribute="centerX" secondItem="Iqu-eo-oAo" secondAttribute="centerX" id="uqh-uO-rpS"/>
-                                    <constraint firstItem="4W0-PE-YZy" firstAttribute="top" secondItem="qKd-Jx-aho" secondAttribute="bottom" constant="50" id="uuc-BS-3jC"/>
+                                    <constraint firstItem="4W0-PE-YZy" firstAttribute="centerY" secondItem="Iqu-eo-oAo" secondAttribute="centerY" id="sEV-Pt-See"/>
+                                    <constraint firstItem="4W0-PE-YZy" firstAttribute="top" secondItem="qKd-Jx-aho" secondAttribute="bottom" constant="20" id="uuc-BS-3jC"/>
                                 </constraints>
                             </view>
                         </subviews>
