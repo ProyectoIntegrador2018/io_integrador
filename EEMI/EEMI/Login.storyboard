@@ -183,6 +183,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="la1-fS-l46" firstAttribute="centerX" secondItem="sx0-aj-xGk" secondAttribute="centerX" id="20G-jT-zhU"/>
                             <constraint firstItem="P7l-3b-oiW" firstAttribute="leading" secondItem="bj3-F5-fxz" secondAttribute="leading" constant="32" id="36Y-do-WLJ"/>
@@ -205,6 +206,9 @@
                             <constraint firstItem="s7m-3h-x3n" firstAttribute="top" secondItem="ZEL-eF-4bj" secondAttribute="bottom" constant="16" id="y8A-OT-hyD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bj3-F5-fxz"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vF5-Kt-tZE" appends="YES" id="aGw-yn-K8Q"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="ZEL-eF-4bj" id="0Qp-jd-MCT"/>
@@ -214,6 +218,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bq4-re-eBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vF5-Kt-tZE">
+                    <connections>
+                        <action selector="removeKeyboard:" destination="z8j-vK-OYB" id="Ibw-1b-GPc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="164.73214285714286"/>
         </scene>
