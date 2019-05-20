@@ -48,6 +48,11 @@ class CreatePinViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "MainTabController")
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
+    
+    @IBAction func removeKeyboard(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
 }
 
 extension CreatePinViewController: UITextFieldDelegate {
